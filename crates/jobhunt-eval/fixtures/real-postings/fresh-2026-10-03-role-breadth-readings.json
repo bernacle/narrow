@@ -1,0 +1,1444 @@
+{
+  "jobs": [
+    {
+      "company": "Stripe",
+      "job": "job_5b7adc2d56a4031a4f83c7ec6ab82a78",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          8
+        ]
+      },
+      "title": "Staff Software Engineer, Infrastructure"
+    },
+    {
+      "company": "resend",
+      "job": "job_99d6f863dab130d07b89cf75b0079f68",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          9,
+          33
+        ]
+      },
+      "title": "Software Engineer, Developer Tools"
+    },
+    {
+      "company": "LaunchDarkly",
+      "job": "job_ad92dc5a779cc7ef948399152b531fd3",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          8
+        ]
+      },
+      "title": "Full Stack Engineer"
+    },
+    {
+      "company": "Anthropic",
+      "job": "job_71d2646372fca9eb1f88999e85089e3e",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          6,
+          37
+        ]
+      },
+      "title": "Staff + Sr. Software Engineer, Cloud Inference Launch Engineering"
+    },
+    {
+      "company": "Notion",
+      "job": "job_000dbcc1c7a4bcf1450a70af004f6d09",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "wide range of",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          7,
+          16
+        ]
+      },
+      "title": "Security Engineer, Detection and Response"
+    },
+    {
+      "company": "Wikimedia Foundation",
+      "job": "job_7a6258b1383d9ae3eef600aaeef31f0a",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          0,
+          0
+        ]
+      },
+      "title": "Senior Software Engineer, iOS (Contract)"
+    },
+    {
+      "company": "Modal",
+      "job": "job_16c721c5caccc12e3fa707a7052c403f",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          12
+        ]
+      },
+      "title": "Analytics Engineer"
+    },
+    {
+      "company": "Grafana Labs",
+      "job": "job_aa6c57ee24b07fde44dd6e716d486222",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          23
+        ]
+      },
+      "title": "Senior Mobile Engineer - Instrumentation SDK (iOS) | Ireland | Remote"
+    },
+    {
+      "company": "Grafana Labs",
+      "job": "job_8f929c8434df00ff75496302da5d9014",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          23
+        ]
+      },
+      "title": "Senior Mobile Engineer - Instrumentation SDK (iOS) | Germany | Remote"
+    },
+    {
+      "company": "Grafana Labs",
+      "job": "job_4c84899d2f8c27e2362727653985fe42",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          24
+        ]
+      },
+      "title": "Staff Backend Software Engineer - Loki | Singapore | Remote"
+    },
+    {
+      "company": "Chainguard",
+      "job": "job_06dab5ec574a4fa2c896278390639c4d",
+      "reading": {
+        "breadth": "focused",
+        "breadth_cue": null,
+        "concern": "database",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          7,
+          8
+        ]
+      },
+      "title": "Staff Platform Database Engineer"
+    },
+    {
+      "company": "Chainguard",
+      "job": "job_ce3954800a44fb1d8c8ca169269ec7dc",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          9
+        ]
+      },
+      "title": "Senior Manager, Engineering (Container Product Engineering)"
+    },
+    {
+      "company": "EBANX",
+      "job": "job_3e9b671e7a3fce5c83ef6ba567c90ad4",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          0,
+          0
+        ]
+      },
+      "title": "Data Science Specialist"
+    },
+    {
+      "company": "Wikimedia Foundation",
+      "job": "job_f3597013186a2fe2ae54cef66da9dfec",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          2,
+          3
+        ]
+      },
+      "title": "Senior Data Scientist, Safety & Security"
+    },
+    {
+      "company": "Grafana Labs",
+      "job": "job_168db1f8b32f91b0cf8d47b10c428569",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          21
+        ]
+      },
+      "title": "Staff Frontend Engineer - Grafana DataViz | US | Remote"
+    },
+    {
+      "company": "Spotify",
+      "job": "job_46ac82b8b388dbe82989db01419d8cb6",
+      "reading": {
+        "breadth": "focused",
+        "breadth_cue": null,
+        "concern": "media",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          7
+        ]
+      },
+      "title": "Staff Engineer - Content Platform"
+    },
+    {
+      "company": "GitLab",
+      "job": "job_19d5c2b81cfabaff6650cf76293c142f",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          6,
+          16
+        ]
+      },
+      "title": "Professional Services - Technical Architect"
+    },
+    {
+      "company": "Chainguard",
+      "job": "job_f56131a4fc5d6ae538da347ea2dc8bb8",
+      "reading": {
+        "breadth": "focused",
+        "breadth_cue": null,
+        "concern": "test",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          6
+        ]
+      },
+      "title": "Senior Software Engineer, Sustaining Automation"
+    },
+    {
+      "company": "clickhouse",
+      "job": "job_c88e3c54e69d8795bdacc37f1ccaa911",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          8
+        ]
+      },
+      "title": "Senior Engineering Manager, Postgres"
+    },
+    {
+      "company": "Zoox",
+      "job": "job_839ea970cb0039ef27a0b553ef8fb165",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "wide range of",
+        "concern": "rendering",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          5
+        ]
+      },
+      "title": "Senior Software Engineer - Mapping Web"
+    },
+    {
+      "company": "attio",
+      "job": "job_2d5c9f25ee00b76536c5a4f28266ad72",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          6
+        ]
+      },
+      "title": "Senior Platform Engineer"
+    },
+    {
+      "company": "Vanta",
+      "job": "job_89b3efb3f6564e8da32a292102cec2db",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          16
+        ]
+      },
+      "title": "Senior Fullstack Software Engineer, Authoring Experience"
+    },
+    {
+      "company": "Anthropic",
+      "job": "job_723a8748d7a5a00bb6bf385bd55ce520",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          2
+        ]
+      },
+      "title": "Staff+ Software Engineer, Developer Experience"
+    },
+    {
+      "company": "Stripe",
+      "job": "job_bc44928a8ed58a5ca18aa5697954f311",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "across the stack",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          6
+        ]
+      },
+      "title": "Full Stack Engineer, Bridge"
+    },
+    {
+      "company": "Tailscale",
+      "job": "job_cdfb67abf7425da25069b4a7c2a5a677",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": "internals",
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          27
+        ]
+      },
+      "title": "Security Infrastructure Engineer"
+    },
+    {
+      "company": "Modal",
+      "job": "job_225bf64f8d7813c90db4ea4b55d6f7aa",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          16
+        ]
+      },
+      "title": "Detection and Response Engineer"
+    },
+    {
+      "company": "mintlify",
+      "job": "job_2fd59cee01d091da79a6281b57fe6ca4",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "across the stack",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          5
+        ]
+      },
+      "title": "Backend Engineer"
+    },
+    {
+      "company": "GitLab",
+      "job": "job_224aa8aa6f8789cf6ade05d989682e42",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          8
+        ]
+      },
+      "title": "Senior Frontend Engineer (Vue), Create: Repository Management"
+    },
+    {
+      "company": "clickhouse",
+      "job": "job_adfc3f2225eff7d8a522e44eaf2466c0",
+      "reading": {
+        "breadth": "focused",
+        "breadth_cue": null,
+        "concern": "cost",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          6
+        ]
+      },
+      "title": "Senior Cloud Software Engineer - Efficiency Engineering"
+    },
+    {
+      "company": "Vanta",
+      "job": "job_e4ec4db0eaf9f1a312e40a91da964785",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          7,
+          38
+        ]
+      },
+      "title": "Senior Data Scientist"
+    },
+    {
+      "company": "n8n",
+      "job": "job_23ce39601ada0db7654135919425bbde",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": "primitives",
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          12
+        ]
+      },
+      "title": "Staff Core Platform Engineer"
+    },
+    {
+      "company": "Notion",
+      "job": "job_be99a8f95167c527a1baa26491b5a678",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "across the stack",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          9
+        ]
+      },
+      "title": "Software Engineer, Product Infrastructure"
+    },
+    {
+      "company": "Spotify",
+      "job": "job_0acca2c148ff3ee885fc56ce69009e41",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          6
+        ]
+      },
+      "title": "Senior Staff Engineer - Platform & Partner Experience"
+    },
+    {
+      "company": "PostHog",
+      "job": "job_8bc16a77b1abcb6cbeebf80f10aead37",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          11
+        ]
+      },
+      "title": "Site Reliability Engineer (US - Pacific time)"
+    },
+    {
+      "company": "GitLab",
+      "job": "job_300134474bf07934b9849c7acbf487a3",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "generalist",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          8
+        ]
+      },
+      "title": "Staff Backend Engineer, Architecture Engineering: Nonlinear Productivity"
+    },
+    {
+      "company": "Tailscale",
+      "job": "job_2a7f5915c13ffb6a42233b0da839c130",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          15
+        ]
+      },
+      "title": "Analytics Engineer, Data"
+    },
+    {
+      "company": "render",
+      "job": "job_79f1512848714c77337e5fe834ca6f60",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": "primitives",
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          8
+        ]
+      },
+      "title": "Staff Product Manager, CI/CD & Developer Productivity"
+    },
+    {
+      "company": "Replit",
+      "job": "job_45560d4bc573fababb5c31f7d59a4ddd",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "across the full stack",
+        "concern": null,
+        "depth_cue": "primitives",
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          12
+        ]
+      },
+      "title": "Product Engineer, New Products"
+    },
+    {
+      "company": "GitLab",
+      "job": "job_774d75a8c019755f78a0f76a489e513e",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          8
+        ]
+      },
+      "title": "Principal Product Manager, AI Software Factory"
+    },
+    {
+      "company": "Spotify",
+      "job": "job_9e3c531e6368884cc693fac85ac8490c",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          7
+        ]
+      },
+      "title": "Senior Fullstack Engineer"
+    },
+    {
+      "company": "Tailscale",
+      "job": "job_a60ba4631667f11fa2f3e2c11394ea36",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          4,
+          23
+        ]
+      },
+      "title": "Customer Reliability Engineer"
+    },
+    {
+      "company": "Wildlife Studios",
+      "job": "job_8e3cfe3de3532c8484fc6ae10978b7e9",
+      "reading": {
+        "breadth": "focused",
+        "breadth_cue": null,
+        "concern": "game",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          4,
+          6
+        ]
+      },
+      "title": "UI Designer"
+    },
+    {
+      "company": "Stripe",
+      "job": "job_bd01b04814ce79b6480b2e549cc37e67",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          6
+        ]
+      },
+      "title": "Full Stack Engineer, Link"
+    },
+    {
+      "company": "Anthropic",
+      "job": "job_80d9cb0b51e9cdbeb78ab3857b981cdf",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": "primitives",
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          35
+        ]
+      },
+      "title": "Staff+ Software Engineer, Safeguards Human Review Tooling"
+    },
+    {
+      "company": "Vercel",
+      "job": "job_2804cb08166145d9f1e325ad9b380527",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          7
+        ]
+      },
+      "title": "Security Engineer, Detection Response"
+    },
+    {
+      "company": "paddle",
+      "job": "job_81d21f0c166680c5fbea37d35fd1e75c",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "every part of",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          27
+        ]
+      },
+      "title": "Site Reliability Engineer"
+    },
+    {
+      "company": "Chainguard",
+      "job": "job_49a7c8c75008a4aead82a5b2d786e0b3",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          9
+        ]
+      },
+      "title": "Senior Product Security Engineer"
+    },
+    {
+      "company": "Linear",
+      "job": "job_4f719d8a2e9e216c1d2d104c91423b51",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "generalists",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          6
+        ]
+      },
+      "title": "Product Engineer"
+    },
+    {
+      "company": "resend",
+      "job": "job_9a8c6151f006dc784cade261625e9fd7",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          8,
+          31
+        ]
+      },
+      "title": "Security Engineer, Platform"
+    },
+    {
+      "company": "clickhouse",
+      "job": "job_8e67e9dbc540e407a7ef00c85da32b71",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "full stack systems role",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          9
+        ]
+      },
+      "title": "Senior Software Engineer - Postgres"
+    },
+    {
+      "company": "Replit",
+      "job": "job_6c5b279ab85677f9f010d818e25e6997",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          6,
+          22
+        ]
+      },
+      "title": "Staff Infrastructure Engineer"
+    },
+    {
+      "company": "attio",
+      "job": "job_e3e7ea8c553368d19a143d7987b91b33",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          4
+        ]
+      },
+      "title": "Product Engineer"
+    },
+    {
+      "company": "Anthropic",
+      "job": "job_accfe5319f7eea6065b387bca2e795e0",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          10,
+          35
+        ]
+      },
+      "title": "Data Scientist, Policy"
+    },
+    {
+      "company": "attio",
+      "job": "job_670e9d09a67a218df2020582dfacb3d8",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          5
+        ]
+      },
+      "title": "Senior Product Engineer [Backend]"
+    },
+    {
+      "company": "Canonical",
+      "job": "job_a9326166f433bf93f4f4e8ec833f348b",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          1,
+          1
+        ]
+      },
+      "title": "Embedded Devices Software Solution Sales Account Manager"
+    },
+    {
+      "company": "Vanta",
+      "job": "job_16aef475d03cef97ef708de9e773e8de",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": "primitives",
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          41
+        ]
+      },
+      "title": "Backend Senior Software Engineer, Identity"
+    },
+    {
+      "company": "knock",
+      "job": "job_c909a32ac906d97177271bde791daffa",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "collection of hats",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          2,
+          4
+        ]
+      },
+      "title": "Infrastructure Engineer"
+    },
+    {
+      "company": "duck-duck-go",
+      "job": "job_f326781d78183f2475d0d8ee045e40f2",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "any part of",
+        "concern": "agentic",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          5
+        ]
+      },
+      "title": "Senior Web Security Engineer, Browser Platform"
+    },
+    {
+      "company": "LaunchDarkly",
+      "job": "job_2abc1ee4e166b3037aa0697a33c33ce8",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          7
+        ]
+      },
+      "title": "Staff Engineer, Experimentation"
+    },
+    {
+      "company": "duck-duck-go",
+      "job": "job_02b2aaea7d9eed348d965ba112904d4e",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "any part of",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          4
+        ]
+      },
+      "title": "Senior Backend Engineer"
+    },
+    {
+      "company": "Replit",
+      "job": "job_1e8a31c84b5b7a33647e808ce3b37247",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          10
+        ]
+      },
+      "title": "Software Engineer, Mobile"
+    },
+    {
+      "company": "warp",
+      "job": "job_d35d031599e1c85613cd3d8f774560d7",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          7
+        ]
+      },
+      "title": "Design Engineer"
+    },
+    {
+      "company": "sentry",
+      "job": "job_145e2665001c4784f9c17b67eec95a09",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          4,
+          9
+        ]
+      },
+      "title": "Staff Software Engineer, Issues"
+    },
+    {
+      "company": "Figma",
+      "job": "job_330cd5704889d1c4b9d158c35c67b86c",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          1,
+          4
+        ]
+      },
+      "title": "Security Engineer"
+    },
+    {
+      "company": "clickhouse",
+      "job": "job_d1e36e85f78762f48f2d4926e52659a3",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          10
+        ]
+      },
+      "title": "Senior Cloud Performance Engineer"
+    },
+    {
+      "company": "Figma",
+      "job": "job_d1b3e6615d68cd4488c826e4d6267d57",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "wide range of",
+        "concern": null,
+        "depth_cue": "first principles",
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          36
+        ]
+      },
+      "title": "Software Engineer - Developer Experience"
+    },
+    {
+      "company": "Replit",
+      "job": "job_44f902c74eb0428dd2edf73f15bebfb2",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          8,
+          18
+        ]
+      },
+      "title": "Software Engineer, Enterprise Platform"
+    },
+    {
+      "company": "workos",
+      "job": "job_af0af6731f9f30485e8bc9066e02c266",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          7
+        ]
+      },
+      "title": "Product Engineer - Feature Flags"
+    },
+    {
+      "company": "Zoox",
+      "job": "job_109cd3df8a80644c5fe4885b6e5d6191",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          1,
+          5
+        ]
+      },
+      "title": "Program Tooling & Analytics Developer"
+    },
+    {
+      "company": "workos",
+      "job": "job_2f0f323850fc0ddd46a8cc5b2f176dd1",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "wide surface",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          9
+        ]
+      },
+      "title": "Product Engineer - Pipes & Vault"
+    },
+    {
+      "company": "workos",
+      "job": "job_d3fcc9fa0930f88a1990cea612d3f674",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          8
+        ]
+      },
+      "title": "Product Engineer - Enterprise"
+    },
+    {
+      "company": "workos",
+      "job": "job_f041d02636576b37598993103694b17f",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "generalist",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          15
+        ]
+      },
+      "title": "Site Reliability Engineer"
+    },
+    {
+      "company": "Spotify",
+      "job": "job_bf397101fedeac6b2b731c5f69f5a047",
+      "reading": {
+        "breadth": "focused",
+        "breadth_cue": null,
+        "concern": "squad",
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          3,
+          4
+        ]
+      },
+      "title": "Senior Backend Engineer - Subscriptions"
+    },
+    {
+      "company": "sentry",
+      "job": "job_2d720f3e85fb55204933f542b09f39e7",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          4,
+          11
+        ]
+      },
+      "title": "Senior Developer Experience Engineer"
+    },
+    {
+      "company": "Vanta",
+      "job": "job_d51b1d908015d9f95db9234192d4e3a9",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          31
+        ]
+      },
+      "title": "Senior Fullstack Software Engineer, GRC"
+    },
+    {
+      "company": "Ramp",
+      "job": "job_49ad88571e27f349013e581cedc99496",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          5
+        ]
+      },
+      "title": "Mobile Engineer, iOS"
+    },
+    {
+      "company": "Stripe",
+      "job": "job_ab1477a74699ca1edd907c6cb1621552",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "wide range of",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          6
+        ]
+      },
+      "title": "Fullstack Engineer, Payments and Risk"
+    },
+    {
+      "company": "inngest",
+      "job": "job_1758060fee827d6638f0d28171b134f7",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "generalist",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          15
+        ]
+      },
+      "title": "Distributed Systems Engineer - Platform"
+    },
+    {
+      "company": "Zoox",
+      "job": "job_8f356bfba5bf286e6b1fcae4649a1efc",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          4
+        ]
+      },
+      "title": "Software Engineer - Learned Trajectory Machine Learning Engineer"
+    },
+    {
+      "company": "Zoox",
+      "job": "job_d4ebf25ba500f56a8e8e08a9708e8c92",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          4
+        ]
+      },
+      "title": "Senior / Staff Software Engineer - Learned Trajectory Machine Learning Engineer"
+    },
+    {
+      "company": "Palantir",
+      "job": "job_c247a3ded5afcaaafac5f49a1945b28a",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          2,
+          7
+        ]
+      },
+      "title": "Senior Front End Software Engineer - Application Development"
+    },
+    {
+      "company": "Palantir",
+      "job": "job_c16a46b9c8d2af888b7209502cee87ce",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          2,
+          4
+        ]
+      },
+      "title": "Backend Software Engineer - Application Development"
+    },
+    {
+      "company": "Palantir",
+      "job": "job_3b598202e9315e725de4c1171d7edb9b",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          4,
+          26
+        ]
+      },
+      "title": "Web Application Developer - Defense"
+    },
+    {
+      "company": "Canonical",
+      "job": "job_d2371d59c6f4b9d077efaefb8fa54fb6",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          1,
+          2
+        ]
+      },
+      "title": "Senior Ubuntu Embedded IoT System Engineer"
+    },
+    {
+      "company": "Palantir",
+      "job": "job_dc28716083346ca6573c97046e1d61f1",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "spectrum of areas",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          4,
+          26
+        ]
+      },
+      "title": "Software Engineer - Developer Productivity"
+    },
+    {
+      "company": "Canonical",
+      "job": "job_52386f37cf5c5e91c213cc2868ae3ee2",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          1,
+          1
+        ]
+      },
+      "title": "Senior Web Engineer"
+    },
+    {
+      "company": "Linear",
+      "job": "job_8c2599d7351484819ee4a151a0015dae",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "generalists",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          1,
+          6
+        ]
+      },
+      "title": "Senior / Staff Product Engineer"
+    },
+    {
+      "company": "Canonical",
+      "job": "job_c11948c42adf86865efd2f0b12541d53",
+      "reading": {
+        "breadth": "unclear",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "addressed",
+        "share": [
+          1,
+          2
+        ]
+      },
+      "title": "Software Engineer - Python - Cloud - graduate level"
+    },
+    {
+      "company": "Linear",
+      "job": "job_02e51190085f8a9a0772e845ddd9f329",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": "generalists",
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          2,
+          7
+        ]
+      },
+      "title": "Senior / Staff Fullstack Engineer"
+    },
+    {
+      "company": "DoorDash",
+      "job": "job_b4a859642a8529e40228ccec6a106084",
+      "reading": {
+        "breadth": "broad",
+        "breadth_cue": null,
+        "concern": null,
+        "depth_cue": null,
+        "duties_from": "responsibilities",
+        "share": [
+          5,
+          28
+        ]
+      },
+      "title": "Software Engineer, Core Platform"
+    }
+  ]
+}

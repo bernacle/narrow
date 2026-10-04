@@ -22,6 +22,8 @@
 //!   job only, never a candidate), scored against real postings.
 //! * [`job_function`]: its function-only follow-up, measured on a fresh
 //!   real-posting snapshot.
+//! * [`breadth`]: how concentrated a role's own work is (broad, focused,
+//!   deep specialist), read without a specialty taxonomy.
 //! * [`job_ic`]: a binary "software engineering IC or not" classifier with
 //!   three votes per posting, its follow-up.
 //!
@@ -29,6 +31,7 @@
 //! model calls, a fixed clock. `docs/recommendation-quality.md` says what
 //! future ranking work must preserve.
 
+pub mod breadth;
 pub mod build;
 pub mod fixture;
 pub mod job_class;

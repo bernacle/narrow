@@ -1,0 +1,1256 @@
+{
+ "about": "Human role-breadth annotations for the role-breadth experiment (docs/role-breadth-fit-experiment.md). Each label describes how concentrated the job's own work is: broad, focused, deep_specialist, unclear; out_of_scope marks postings the deterministic filter let through that are not software-engineering IC work (excluded from metrics). Not a candidate fit. Not read by production code.",
+ "annotator": "one annotator (Claude), from exactly the job-only text breadth_probe dumps, after the pre-registration (5864c38) and before any breadth logic existed.",
+ "snapshot": {
+  "fetched": "2026-10-03T02:58:55Z to 2026-10-03T02:59:06Z",
+  "sources": 60,
+  "source_failures": 0,
+  "open_postings": 4643,
+  "corpus_sha256": "fb25765eb84e969a708813c56b34399b17468c5acc4dd5446eed1d6a4a4aabfb",
+  "id_fingerprint_manifest_sha256": "2733c94e23cfcec85eaaec3e890aa7d278638393b6f2e32d5b6c937439af1f02"
+ },
+ "selection": {
+  "seed": "role-breadth/1 2026-10-03",
+  "open_postings": 4643,
+  "engineering_ic_population": 1442,
+  "excluded": 239,
+  "company_cap": 4,
+  "strata": [
+   {
+    "drawn": 3,
+    "pool": 9,
+    "quota": 3,
+    "stratum": "backend/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 81,
+    "quota": 5,
+    "stratum": "backend/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 65,
+    "quota": 3,
+    "stratum": "data_ml/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 246,
+    "quota": 5,
+    "stratum": "data_ml/qualified"
+   },
+   {
+    "drawn": 2,
+    "pool": 2,
+    "quota": 3,
+    "stratum": "developer_tooling/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 14,
+    "quota": 5,
+    "stratum": "developer_tooling/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 12,
+    "quota": 3,
+    "stratum": "frontend/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 19,
+    "quota": 5,
+    "stratum": "frontend/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 4,
+    "quota": 3,
+    "stratum": "full_stack/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 40,
+    "quota": 5,
+    "stratum": "full_stack/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 9,
+    "quota": 3,
+    "stratum": "infrastructure/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 90,
+    "quota": 5,
+    "stratum": "infrastructure/qualified"
+   },
+   {
+    "drawn": 2,
+    "pool": 8,
+    "quota": 3,
+    "stratum": "mobile/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 32,
+    "quota": 5,
+    "stratum": "mobile/qualified"
+   },
+   {
+    "drawn": 8,
+    "pool": 538,
+    "quota": 8,
+    "stratum": "other_engineering"
+   },
+   {
+    "drawn": 3,
+    "pool": 10,
+    "quota": 3,
+    "stratum": "platform/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 68,
+    "quota": 5,
+    "stratum": "platform/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 14,
+    "quota": 3,
+    "stratum": "product/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 12,
+    "quota": 5,
+    "stratum": "product/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 56,
+    "quota": 3,
+    "stratum": "security/plain"
+   },
+   {
+    "drawn": 5,
+    "pool": 67,
+    "quota": 5,
+    "stratum": "security/qualified"
+   },
+   {
+    "drawn": 3,
+    "pool": 15,
+    "quota": 3,
+    "stratum": "sre/plain"
+   },
+   {
+    "drawn": 1,
+    "pool": 31,
+    "quota": 5,
+    "stratum": "sre/qualified"
+   }
+  ],
+  "sampled": 90
+ },
+ "conventions": {
+  "breadth": "see the pre-registration, section 5",
+  "also": "another acceptable label for a borderline job; strict agreement uses breadth alone",
+  "family": "breadth is judged within the role family the work belongs to (security work against security, platform work against platform)"
+ },
+ "jobs": [
+  {
+   "job": "job_2fd59cee01d091da79a6281b57fe6ca4",
+   "company": "mintlify",
+   "title": "Backend Engineer",
+   "stratum": "backend/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "backend systems end to end across APIs, content infrastructure, AI infrastructure and reliability",
+   "evidence": "Building backend systems end to end"
+  },
+  {
+   "job": "job_670e9d09a67a218df2020582dfacb3d8",
+   "company": "attio",
+   "title": "Senior Product Engineer [Backend]",
+   "stratum": "backend/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "leads projects end to end, architects systems for new features, API design",
+   "evidence": "Lead projects end-to-end to solve real customer problems"
+  },
+  {
+   "job": "job_02b2aaea7d9eed348d965ba112904d4e",
+   "company": "duck-duck-go",
+   "title": "Senior Backend Engineer",
+   "stratum": "backend/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "projects across company-wide objectives: search answers, AI chat, data pipelines",
+   "evidence": "you'll lead complex projects across key company-wide objectives"
+  },
+  {
+   "job": "job_300134474bf07934b9849c7acbf487a3",
+   "company": "GitLab",
+   "title": "Staff Backend Engineer, Architecture Engineering: Nonlinear Productivity",
+   "stratum": "backend/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "generalist team working across any part of the codebase",
+   "evidence": "operates like a small, generalist group rather than one scoped to a single service"
+  },
+  {
+   "job": "job_c16a46b9c8d2af888b7209502cee87ce",
+   "company": "Palantir",
+   "title": "Backend Software Engineer - Application Development",
+   "stratum": "backend/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "product lifecycle work across teams and technologies",
+   "evidence": "involved throughout the product lifecycle"
+  },
+  {
+   "job": "job_bf397101fedeac6b2b731c5f69f5a047",
+   "company": "Spotify",
+   "title": "Senior Backend Engineer - Subscriptions",
+   "stratum": "backend/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "backend services, data models and APIs for one product domain",
+   "evidence": "Architect, develop and operate Java services"
+  },
+  {
+   "job": "job_16aef475d03cef97ef708de9e773e8de",
+   "company": "Vanta",
+   "title": "Backend Senior Software Engineer, Identity",
+   "stratum": "backend/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "identity primitives and permission checks are the center of the work",
+   "evidence": "design the identity primitives"
+  },
+  {
+   "job": "job_4c84899d2f8c27e2362727653985fe42",
+   "company": "Grafana Labs",
+   "title": "Staff Backend Software Engineer - Loki | Singapore | Remote",
+   "stratum": "backend/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "one system: a multi-tenant log database; generic duties",
+   "evidence": "The Databases team owns the telemetry databases"
+  },
+  {
+   "job": "job_16c721c5caccc12e3fa707a7052c403f",
+   "company": "Modal",
+   "title": "Analytics Engineer",
+   "stratum": "data_ml/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "analytics engineering",
+   "evidence": ""
+  },
+  {
+   "job": "job_e4ec4db0eaf9f1a312e40a91da964785",
+   "company": "Vanta",
+   "title": "Senior Data Scientist",
+   "stratum": "data_ml/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "data scientist",
+   "evidence": ""
+  },
+  {
+   "job": "job_3e9b671e7a3fce5c83ef6ba567c90ad4",
+   "company": "EBANX",
+   "title": "Data Science Specialist",
+   "stratum": "data_ml/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "data scientist",
+   "evidence": ""
+  },
+  {
+   "job": "job_2a7f5915c13ffb6a42233b0da839c130",
+   "company": "Tailscale",
+   "title": "Analytics Engineer, Data",
+   "stratum": "data_ml/qualified",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "analytics engineering",
+   "evidence": ""
+  },
+  {
+   "job": "job_8f356bfba5bf286e6b1fcae4649a1efc",
+   "company": "Zoox",
+   "title": "Software Engineer - Learned Trajectory Machine Learning Engineer",
+   "stratum": "data_ml/qualified",
+   "annotation": {
+    "breadth": "deep_specialist",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "deep learned trajectory models (imitation and reinforcement learning) are the work",
+   "evidence": "develop new deep learning models that use imitation learning and reinforcement learning"
+  },
+  {
+   "job": "job_d4ebf25ba500f56a8e8e08a9708e8c92",
+   "company": "Zoox",
+   "title": "Senior / Staff Software Engineer - Learned Trajectory Machine Learning Engineer",
+   "stratum": "data_ml/qualified",
+   "annotation": {
+    "breadth": "deep_specialist",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "same as the previous posting at a higher level",
+   "evidence": "develop new deep learning models that use imitation learning and reinforcement learning"
+  },
+  {
+   "job": "job_accfe5319f7eea6065b387bca2e795e0",
+   "company": "Anthropic",
+   "title": "Data Scientist, Policy",
+   "stratum": "data_ml/qualified",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "data scientist",
+   "evidence": ""
+  },
+  {
+   "job": "job_774d75a8c019755f78a0f76a489e513e",
+   "company": "GitLab",
+   "title": "Principal Product Manager, AI Software Factory",
+   "stratum": "data_ml/qualified",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "product manager",
+   "evidence": ""
+  },
+  {
+   "job": "job_109cd3df8a80644c5fe4885b6e5d6191",
+   "company": "Zoox",
+   "title": "Program Tooling & Analytics Developer",
+   "stratum": "developer_tooling/plain",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "internal web tools and dashboards owned end to end",
+   "evidence": "own a piece of the stack end to end"
+  },
+  {
+   "job": "job_2d720f3e85fb55204933f542b09f39e7",
+   "company": "sentry",
+   "title": "Senior Developer Experience Engineer",
+   "stratum": "developer_tooling/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "developer relations and docs",
+   "evidence": ""
+  },
+  {
+   "job": "job_723a8748d7a5a00bb6bf385bd55ce520",
+   "company": "Anthropic",
+   "title": "Staff+ Software Engineer, Developer Experience",
+   "stratum": "developer_tooling/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "two workstreams: console and docs platform, SDKs in seven languages and the CLI",
+   "evidence": "The work splits into two workstreams"
+  },
+  {
+   "job": "job_80d9cb0b51e9cdbeb78ab3857b981cdf",
+   "company": "Anthropic",
+   "title": "Staff+ Software Engineer, Safeguards Human Review Tooling",
+   "stratum": "developer_tooling/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "investigation tooling plus the platform under it (data analysis, privacy primitives, sandbox)",
+   "evidence": "own the tools our safety investigators rely on ... as well as the platform underneath"
+  },
+  {
+   "job": "job_79f1512848714c77337e5fe834ca6f60",
+   "company": "render",
+   "title": "Staff Product Manager, CI/CD & Developer Productivity",
+   "stratum": "developer_tooling/qualified",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "product manager",
+   "evidence": ""
+  },
+  {
+   "job": "job_dc28716083346ca6573c97046e1d61f1",
+   "company": "Palantir",
+   "title": "Software Engineer - Developer Productivity",
+   "stratum": "developer_tooling/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "spans build and supply chain, runtime environments, telemetry, performance, monitoring",
+   "evidence": "The role spans a spectrum of areas"
+  },
+  {
+   "job": "job_d1b3e6615d68cd4488c826e4d6267d57",
+   "company": "Figma",
+   "title": "Software Engineer - Developer Experience",
+   "stratum": "developer_tooling/qualified",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "build systems, CI and test frameworks for one team",
+   "evidence": "Drive technical roadmap and strategy for the Build Systems team"
+  },
+  {
+   "job": "job_52386f37cf5c5e91c213cc2868ae3ee2",
+   "company": "Canonical",
+   "title": "Senior Web Engineer",
+   "stratum": "frontend/plain",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "generic senior engineering duties across a team's projects",
+   "evidence": "own the development of large projects"
+  },
+  {
+   "job": "job_8e3cfe3de3532c8484fc6ae10978b7e9",
+   "company": "Wildlife Studios",
+   "title": "UI Designer",
+   "stratum": "frontend/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "UI designer",
+   "evidence": ""
+  },
+  {
+   "job": "job_d35d031599e1c85613cd3d8f774560d7",
+   "company": "warp",
+   "title": "Design Engineer",
+   "stratum": "frontend/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "design and marketing assets",
+   "evidence": ""
+  },
+  {
+   "job": "job_839ea970cb0039ef27a0b553ef8fb165",
+   "company": "Zoox",
+   "title": "Senior Software Engineer - Mapping Web",
+   "stratum": "frontend/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "deep_specialist"
+    ]
+   },
+   "reason": "geospatial map rendering library",
+   "evidence": "Own and extend our deck.gl-based map visualization library"
+  },
+  {
+   "job": "job_c247a3ded5afcaaafac5f49a1945b28a",
+   "company": "Palantir",
+   "title": "Senior Front End Software Engineer - Application Development",
+   "stratum": "frontend/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "front-end application development across data-intensive workflows",
+   "evidence": "architecting and developing interfaces, state management and access patterns"
+  },
+  {
+   "job": "job_224aa8aa6f8789cf6ade05d989682e42",
+   "company": "GitLab",
+   "title": "Senior Frontend Engineer (Vue), Create: Repository Management",
+   "stratum": "frontend/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "frontend features and performance in one product area",
+   "evidence": "Develop secure, well-tested, performant features"
+  },
+  {
+   "job": "job_168db1f8b32f91b0cf8d47b10c428569",
+   "company": "Grafana Labs",
+   "title": "Staff Frontend Engineer - Grafana DataViz | US | Remote",
+   "stratum": "frontend/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "the visualization library of one product",
+   "evidence": "We build and evolve the Grafana Visualizations"
+  },
+  {
+   "job": "job_3b598202e9315e725de4c1171d7edb9b",
+   "company": "Palantir",
+   "title": "Web Application Developer - Defense",
+   "stratum": "frontend/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "frontend application development for a product vertical",
+   "evidence": "crafting the applications that organizations use every day"
+  },
+  {
+   "job": "job_9e3c531e6368884cc693fac85ac8490c",
+   "company": "Spotify",
+   "title": "Senior Fullstack Engineer",
+   "stratum": "full_stack/plain",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "localization and internationalization platform, frontend and backend",
+   "evidence": "power localization, translation workflows, and global content delivery"
+  },
+  {
+   "job": "job_02e51190085f8a9a0772e845ddd9f329",
+   "company": "Linear",
+   "title": "Senior / Staff Fullstack Engineer",
+   "stratum": "full_stack/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "features from database models to UI, sync, editor, performance, monitoring",
+   "evidence": "Build new user-facing features with everything from database models to GraphQL resolvers and UI components"
+  },
+  {
+   "job": "job_ad92dc5a779cc7ef948399152b531fd3",
+   "company": "LaunchDarkly",
+   "title": "Full Stack Engineer",
+   "stratum": "full_stack/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "end-to-end product capabilities across frontend and backend",
+   "evidence": "Build and ship end-to-end product capabilities across frontend and backend systems"
+  },
+  {
+   "job": "job_d51b1d908015d9f95db9234192d4e3a9",
+   "company": "Vanta",
+   "title": "Senior Fullstack Software Engineer, GRC",
+   "stratum": "full_stack/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "core product org; generic description",
+   "evidence": "driving complex projects across our technical stack"
+  },
+  {
+   "job": "job_ab1477a74699ca1edd907c6cb1621552",
+   "company": "Stripe",
+   "title": "Fullstack Engineer, Payments and Risk",
+   "stratum": "full_stack/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "wide range of systems owned end to end",
+   "evidence": "Work with a wide range of systems, processes, and technologies to own and solve problems from end-to-end"
+  },
+  {
+   "job": "job_bd01b04814ce79b6480b2e549cc37e67",
+   "company": "Stripe",
+   "title": "Full Stack Engineer, Link",
+   "stratum": "full_stack/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "next generation of products, debugging across the stack",
+   "evidence": "Debug and solve critical production issues across services and multiple levels of the stack"
+  },
+  {
+   "job": "job_89b3efb3f6564e8da32a292102cec2db",
+   "company": "Vanta",
+   "title": "Senior Fullstack Software Engineer, Authoring Experience",
+   "stratum": "full_stack/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "APIs, services and product experience of one product area",
+   "evidence": "from the APIs and services underneath to the product experiences on top"
+  },
+  {
+   "job": "job_bc44928a8ed58a5ca18aa5697954f311",
+   "company": "Stripe",
+   "title": "Full Stack Engineer, Bridge",
+   "stratum": "full_stack/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "frontend, backend services, APIs and data systems",
+   "evidence": "Build and ship end-to-end product experiences across frontend applications, backend services, APIs, and data systems"
+  },
+  {
+   "job": "job_c909a32ac906d97177271bde791daffa",
+   "company": "knock",
+   "title": "Infrastructure Engineer",
+   "stratum": "infrastructure/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "early-stage platform role wearing many hats",
+   "evidence": "Here are a collection of hats we need you to be OK with wearing"
+  },
+  {
+   "job": "job_d1e36e85f78762f48f2d4926e52659a3",
+   "company": "clickhouse",
+   "title": "Senior Cloud Performance Engineer",
+   "stratum": "infrastructure/plain",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "benchmarking and performance analysis, chaos experiments",
+   "evidence": "Benchmark system performance, database performance analysis, capacity sizing"
+  },
+  {
+   "job": "job_6c5b279ab85677f9f010d818e25e6997",
+   "company": "Replit",
+   "title": "Staff Infrastructure Engineer",
+   "stratum": "infrastructure/plain",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "reliability across the stack: automation, CI/CD, monitoring, self-healing",
+   "evidence": "proactively find and analyze reliability problems across our stack"
+  },
+  {
+   "job": "job_adfc3f2225eff7d8a522e44eaf2466c0",
+   "company": "clickhouse",
+   "title": "Senior Cloud Software Engineer - Efficiency Engineering",
+   "stratum": "infrastructure/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "cloud cost efficiency over infrastructure",
+   "evidence": "Optimize cost efficiency systematically"
+  },
+  {
+   "job": "job_5b7adc2d56a4031a4f83c7ec6ab82a78",
+   "company": "Stripe",
+   "title": "Staff Software Engineer, Infrastructure",
+   "stratum": "infrastructure/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "container and compute infrastructure for every service team",
+   "evidence": "Design, plan, build, and maintain container infrastructure used by all Stripe service teams"
+  },
+  {
+   "job": "job_71d2646372fca9eb1f88999e85089e3e",
+   "company": "Anthropic",
+   "title": "Staff + Sr. Software Engineer, Cloud Inference Launch Engineering",
+   "stratum": "infrastructure/qualified",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "validation pipeline for inference launches on cloud platforms",
+   "evidence": "owns the validation pipeline for our inference server and load balancer"
+  },
+  {
+   "job": "job_be99a8f95167c527a1baa26491b5a678",
+   "company": "Notion",
+   "title": "Software Engineer, Product Infrastructure",
+   "stratum": "infrastructure/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "frameworks and abstractions across product surfaces, frontend and backend",
+   "evidence": "problems that span multiple product surfaces"
+  },
+  {
+   "job": "job_c11948c42adf86865efd2f0b12541d53",
+   "company": "Canonical",
+   "title": "Software Engineer - Python - Cloud - graduate level",
+   "stratum": "infrastructure/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "building and releasing cloud images",
+   "evidence": "develop, test and release improvements to the Ubuntu cloud images"
+  },
+  {
+   "job": "job_a9326166f433bf93f4f4e8ec833f348b",
+   "company": "Canonical",
+   "title": "Embedded Devices Software Solution Sales Account Manager",
+   "stratum": "mobile/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "sales",
+   "evidence": ""
+  },
+  {
+   "job": "job_d2371d59c6f4b9d077efaefb8fa54fb6",
+   "company": "Canonical",
+   "title": "Senior Ubuntu Embedded IoT System Engineer",
+   "stratum": "mobile/plain",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "deep_specialist"
+    ]
+   },
+   "reason": "Linux enablement on partner hardware, platform bring-up",
+   "evidence": "Work closely with partners on platform bring up"
+  },
+  {
+   "job": "job_8f929c8434df00ff75496302da5d9014",
+   "company": "Grafana Labs",
+   "title": "Senior Mobile Engineer - Instrumentation SDK (iOS) | Germany | Remote",
+   "stratum": "mobile/qualified",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "iOS instrumentation SDK",
+   "evidence": "Build and evolve mobile instrumentation SDKs for iOS"
+  },
+  {
+   "job": "job_49ad88571e27f349013e581cedc99496",
+   "company": "Ramp",
+   "title": "Mobile Engineer, iOS",
+   "stratum": "mobile/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "features and engineering processes for the iOS app",
+   "evidence": "Design, build, and launch new products to Ramp's iOS app"
+  },
+  {
+   "job": "job_1e8a31c84b5b7a33647e808ce3b37247",
+   "company": "Replit",
+   "title": "Software Engineer, Mobile",
+   "stratum": "mobile/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "end-to-end mobile user experience",
+   "evidence": "shape our end to end user experience"
+  },
+  {
+   "job": "job_7a6258b1383d9ae3eef600aaeef31f0a",
+   "company": "Wikimedia Foundation",
+   "title": "Senior Software Engineer, iOS (Contract)",
+   "stratum": "mobile/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "mobile product experiences and system design",
+   "evidence": "Improving the mobile Wikipedia product experiences"
+  },
+  {
+   "job": "job_aa6c57ee24b07fde44dd6e716d486222",
+   "company": "Grafana Labs",
+   "title": "Senior Mobile Engineer - Instrumentation SDK (iOS) | Ireland | Remote",
+   "stratum": "mobile/qualified",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "iOS instrumentation SDK",
+   "evidence": "Build and evolve mobile instrumentation SDKs for iOS"
+  },
+  {
+   "job": "job_19d5c2b81cfabaff6650cf76293c142f",
+   "company": "GitLab",
+   "title": "Professional Services - Technical Architect",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "professional services",
+   "evidence": ""
+  },
+  {
+   "job": "job_f56131a4fc5d6ae538da347ea2dc8bb8",
+   "company": "Chainguard",
+   "title": "Senior Software Engineer, Sustaining Automation",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "package and image build automation",
+   "evidence": "the systems that keep packages and images current, tested, and building cleanly"
+  },
+  {
+   "job": "job_225bf64f8d7813c90db4ea4b55d6f7aa",
+   "company": "Modal",
+   "title": "Detection and Response Engineer",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "detection and incident response",
+   "evidence": "build detections, investigation tooling, and response capabilities"
+  },
+  {
+   "job": "job_99d6f863dab130d07b89cf75b0079f68",
+   "company": "resend",
+   "title": "Software Engineer, Developer Tools",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "SDKs, CLI, MCP, services, compatibility and releases",
+   "evidence": "Build and maintain developer tools that make Resend easy to integrate with"
+  },
+  {
+   "job": "job_8e67e9dbc540e407a7ef00c85da32b71",
+   "company": "clickhouse",
+   "title": "Senior Software Engineer - Postgres",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "deep_specialist"
+    ]
+   },
+   "reason": "control plane services, extensions, automation, APIs, observability",
+   "evidence": "a flexible, full-stack systems role"
+  },
+  {
+   "job": "job_145e2665001c4784f9c17b67eec95a09",
+   "company": "sentry",
+   "title": "Staff Software Engineer, Issues",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "pipelines, search backends and analysis systems of the main product",
+   "evidence": "building real-time data pipelines, search backends, and analysis systems"
+  },
+  {
+   "job": "job_c88e3c54e69d8795bdacc37f1ccaa911",
+   "company": "clickhouse",
+   "title": "Senior Engineering Manager, Postgres",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "engineering manager",
+   "evidence": ""
+  },
+  {
+   "job": "job_2abc1ee4e166b3037aa0697a33c33ce8",
+   "company": "LaunchDarkly",
+   "title": "Staff Engineer, Experimentation",
+   "stratum": "other_engineering",
+   "annotation": {
+    "breadth": "deep_specialist",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "statistical engine and adaptive experimentation, deep applied statistics",
+   "evidence": "We want someone who brings genuine depth in applied statistics and ML"
+  },
+  {
+   "job": "job_06dab5ec574a4fa2c896278390639c4d",
+   "company": "Chainguard",
+   "title": "Staff Platform Database Engineer",
+   "stratum": "platform/plain",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "database infrastructure strategy and operations, not internals",
+   "evidence": "define how databases are deployed, managed, scaled, and operated"
+  },
+  {
+   "job": "job_23ce39601ada0db7654135919425bbde",
+   "company": "n8n",
+   "title": "Staff Core Platform Engineer",
+   "stratum": "platform/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "architecture across execution, infrastructure, data and frontend platform",
+   "evidence": "ensuring execution, infrastructure, data, and frontend platform systems evolve as a coherent whole"
+  },
+  {
+   "job": "job_2d5c9f25ee00b76536c5a4f28266ad72",
+   "company": "attio",
+   "title": "Senior Platform Engineer",
+   "stratum": "platform/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "infrastructure as code, CI/CD, observability, SLOs, incident response",
+   "evidence": "You'll own the infrastructure, tooling and pipelines"
+  },
+  {
+   "job": "job_0acca2c148ff3ee885fc56ce69009e41",
+   "company": "Spotify",
+   "title": "Senior Staff Engineer - Platform & Partner Experience",
+   "stratum": "platform/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "architecture across studios and systems",
+   "evidence": "complex technical initiatives that span multiple studios"
+  },
+  {
+   "job": "job_b4a859642a8529e40228ccec6a106084",
+   "company": "DoorDash",
+   "title": "Software Engineer, Core Platform",
+   "stratum": "platform/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "core backend services for engineers",
+   "evidence": "Designing and implementing backend services"
+  },
+  {
+   "job": "job_44f902c74eb0428dd2edf73f15bebfb2",
+   "company": "Replit",
+   "title": "Software Engineer, Enterprise Platform",
+   "stratum": "platform/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "deployment, networking, authorization and data controls for enterprises",
+   "evidence": "deployment flexibility, networking capabilities, authorization systems, and data controls"
+  },
+  {
+   "job": "job_1758060fee827d6638f0d28171b134f7",
+   "company": "inngest",
+   "title": "Distributed Systems Engineer - Platform",
+   "stratum": "platform/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "queueing layer, state store, execution layer, APIs and SDKs",
+   "evidence": "a Systems Engineer needs to be both a generalist and a specialist"
+  },
+  {
+   "job": "job_46ac82b8b388dbe82989db01419d8cb6",
+   "company": "Spotify",
+   "title": "Staff Engineer - Content Platform",
+   "stratum": "platform/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "media pipeline: ingestion, transcoding, codecs, delivery",
+   "evidence": "the end-to-end media pipeline"
+  },
+  {
+   "job": "job_4f719d8a2e9e216c1d2d104c91423b51",
+   "company": "Linear",
+   "title": "Product Engineer",
+   "stratum": "product/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "generalists across the full stack",
+   "evidence": "we're all generalists that work across the full stack"
+  },
+  {
+   "job": "job_8c2599d7351484819ee4a151a0015dae",
+   "company": "Linear",
+   "title": "Senior / Staff Product Engineer",
+   "stratum": "product/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "generalists across the full stack",
+   "evidence": "we're all generalists that work across the full stack"
+  },
+  {
+   "job": "job_e3e7ea8c553368d19a143d7987b91b33",
+   "company": "attio",
+   "title": "Product Engineer",
+   "stratum": "product/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "product features across backend and frontend",
+   "evidence": "implement product features in our Node.js backend and React frontend"
+  },
+  {
+   "job": "job_af0af6731f9f30485e8bc9066e02c266",
+   "company": "workos",
+   "title": "Product Engineer - Feature Flags",
+   "stratum": "product/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "unclear"
+    ]
+   },
+   "reason": "product engineering for one product",
+   "evidence": "Design and engineer delightful developer and end-user experiences"
+  },
+  {
+   "job": "job_45560d4bc573fababb5c31f7d59a4ddd",
+   "company": "Replit",
+   "title": "Product Engineer, New Products",
+   "stratum": "product/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "new products across AI, agentic workflows and web infrastructure",
+   "evidence": "working across AI models, agentic workflows, and all parts of web infrastructure"
+  },
+  {
+   "job": "job_2f0f323850fc0ddd46a8cc5b2f176dd1",
+   "company": "workos",
+   "title": "Product Engineer - Pipes & Vault",
+   "stratum": "product/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "wide surface: APIs, connectors, pipelines, secure storage, prototypes",
+   "evidence": "You'll work across a wide surface area"
+  },
+  {
+   "job": "job_d3fcc9fa0930f88a1990cea612d3f674",
+   "company": "workos",
+   "title": "Product Engineer - Enterprise",
+   "stratum": "product/qualified",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "several enterprise products (SSO, SCIM, RBAC, audit logs)",
+   "evidence": "Develop a deep understanding of evolving products (RBAC, FGA, Audit Logs)"
+  },
+  {
+   "job": "job_ce3954800a44fb1d8c8ca169269ec7dc",
+   "company": "Chainguard",
+   "title": "Senior Manager, Engineering (Container Product Engineering)",
+   "stratum": "product/qualified",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "engineering manager",
+   "evidence": ""
+  },
+  {
+   "job": "job_330cd5704889d1c4b9d158c35c67b86c",
+   "company": "Figma",
+   "title": "Security Engineer",
+   "stratum": "security/plain",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "security across AI, platform, product and anti-abuse teams",
+   "evidence": "We are hiring for multiple teams within Security Engineering"
+  },
+  {
+   "job": "job_cdfb67abf7425da25069b4a7c2a5a677",
+   "company": "Tailscale",
+   "title": "Security Infrastructure Engineer",
+   "stratum": "security/plain",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "security controls across cloud, OS, Kubernetes, networks, CI/CD",
+   "evidence": "Design and build security controls across diverse layers"
+  },
+  {
+   "job": "job_49a7c8c75008a4aead82a5b2d786e0b3",
+   "company": "Chainguard",
+   "title": "Senior Product Security Engineer",
+   "stratum": "security/plain",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "CI/CD and supply-chain security, cloud-native hardening",
+   "evidence": "Implement and enforce software supply chain security controls"
+  },
+  {
+   "job": "job_2804cb08166145d9f1e325ad9b380527",
+   "company": "Vercel",
+   "title": "Security Engineer, Detection Response",
+   "stratum": "security/qualified",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "corporate detection and response, SIEM",
+   "evidence": "Monitor and respond to security alerts"
+  },
+  {
+   "job": "job_f3597013186a2fe2ae54cef66da9dfec",
+   "company": "Wikimedia Foundation",
+   "title": "Senior Data Scientist, Safety & Security",
+   "stratum": "security/qualified",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "data scientist",
+   "evidence": ""
+  },
+  {
+   "job": "job_f326781d78183f2475d0d8ee045e40f2",
+   "company": "duck-duck-go",
+   "title": "Senior Web Security Engineer, Browser Platform",
+   "stratum": "security/qualified",
+   "annotation": {
+    "breadth": "focused",
+    "also": [
+     "broad"
+    ]
+   },
+   "reason": "application security for search and browser",
+   "evidence": "execute on SERP security mitigations"
+  },
+  {
+   "job": "job_9a8c6151f006dc784cade261625e9fd7",
+   "company": "resend",
+   "title": "Security Engineer, Platform",
+   "stratum": "security/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "platform security foundations: keys, permissions, secrets, isolation, audit, detection",
+   "evidence": "Build and improve the security foundations of Resend's platform"
+  },
+  {
+   "job": "job_000dbcc1c7a4bcf1450a70af004f6d09",
+   "company": "Notion",
+   "title": "Security Engineer, Detection and Response",
+   "stratum": "security/qualified",
+   "annotation": {
+    "breadth": "focused"
+   },
+   "reason": "detection and response engineering",
+   "evidence": "build and operate the systems and workflows we use to detect and respond to attacks"
+  },
+  {
+   "job": "job_a60ba4631667f11fa2f3e2c11394ea36",
+   "company": "Tailscale",
+   "title": "Customer Reliability Engineer",
+   "stratum": "sre/plain",
+   "annotation": {
+    "breadth": "out_of_scope"
+   },
+   "reason": "customer escalations",
+   "evidence": ""
+  },
+  {
+   "job": "job_81d21f0c166680c5fbea37d35fd1e75c",
+   "company": "paddle",
+   "title": "Site Reliability Engineer",
+   "stratum": "sre/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "\"Everything SRE\" across platform teams",
+   "evidence": "Paddle SRE team's role is \"Everything SRE\""
+  },
+  {
+   "job": "job_f041d02636576b37598993103694b17f",
+   "company": "workos",
+   "title": "Site Reliability Engineer",
+   "stratum": "sre/plain",
+   "annotation": {
+    "breadth": "broad"
+   },
+   "reason": "generalist reliability across infrastructure layers",
+   "evidence": "Bring a generalist mindset and are comfortable working across infrastructure layers"
+  },
+  {
+   "job": "job_8bc16a77b1abcb6cbeebf80f10aead37",
+   "company": "PostHog",
+   "title": "Site Reliability Engineer (US - Pacific time)",
+   "stratum": "sre/qualified",
+   "annotation": {
+    "breadth": "broad",
+    "also": [
+     "focused"
+    ]
+   },
+   "reason": "platform operations across clusters, accounts, IaC and tooling",
+   "evidence": "turning a fast-growing, stateful system into a predictable, well-automated platform"
+  }
+ ]
+}
