@@ -1,0 +1,7008 @@
+{
+ "run": "2026-10-05",
+ "command": "narrow sources discover --file candidates-2026-10-05.txt --json",
+ "companies": [
+  {
+   "company": "Netlify",
+   "domain": "netlify.com",
+   "outcome": "board",
+   "careers_url": "https://www.netlify.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://netlify.com/",
+     "status": 200,
+     "final_url": "https://www.netlify.com/"
+    },
+    {
+     "url": "https://www.netlify.com/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:netlify",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 5,
+     "with_provider_id": 5,
+     "naming_company": 5,
+     "naming_domain": 5,
+     "website": null,
+     "freshness": {
+      "total": 5,
+      "under_7_days": 1,
+      "under_30_days": 4,
+      "over_90_days": 1,
+      "over_180_days": 1,
+      "over_365_days": 1,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 5 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (0 engineering of 5 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 5,
+      "engineering": 0,
+      "brazil_open": 0,
+      "brazil_unclear": 5,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        5
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 5,
+       "under_7_days": 1,
+       "under_30_days": 4,
+       "over_90_days": 1,
+       "over_180_days": 1,
+       "over_365_days": 1,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Fly.io",
+   "domain": "fly.io",
+   "outcome": "board",
+   "careers_url": "https://fly.io/jobs/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://fly.io/",
+     "status": 200
+    },
+    {
+     "url": "https://fly.io/jobs/",
+     "status": 200
+    },
+    {
+     "url": "https://fly.io/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fly.io/jobs",
+     "status": 200,
+     "final_url": "https://fly.io/jobs/"
+    },
+    {
+     "url": "https://fly.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fly.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fly.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.fly.io/",
+     "status": null,
+     "error": "request to https://careers.fly.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "lever:fly",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 1,
+     "with_provider_id": 1,
+     "naming_company": 1,
+     "naming_domain": 1,
+     "website": null,
+     "freshness": {
+      "total": 1,
+      "under_7_days": 0,
+      "under_30_days": 1,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 1 postings",
+      "guessed slug; 1 of 1 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (0 engineering of 1 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 1,
+      "engineering": 0,
+      "brazil_open": 0,
+      "brazil_unclear": 1,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 1,
+       "under_7_days": 0,
+       "under_30_days": 1,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Deno",
+   "domain": "deno.com",
+   "outcome": "board",
+   "careers_url": "https://deno.com/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://deno.com/",
+     "status": 200
+    },
+    {
+     "url": "https://deno.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://deno.com/jobs",
+     "status": 200,
+     "final_url": "https://jobs.ashbyhq.com/Deno"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:deno",
+     "evidence": "redirect",
+     "matches_company": true,
+     "error": "Ashby job board \"deno\" was not found (https://api.ashbyhq.com/posting-api/job-board/deno?includeCompensation=true responded with HTTP 404)",
+     "jobs": 0,
+     "with_provider_id": 0,
+     "naming_company": 0,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 0,
+      "under_7_days": 0,
+      "under_30_days": 0,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "rejected",
+     "reasons": [
+      "adapter failed: Ashby job board \"deno\" was not found (https://api.ashbyhq.com/posting-api/job-board/deno?includeCompensation=true responded with HTTP 404)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 0,
+      "engineering": 0,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 0,
+       "under_7_days": 0,
+       "under_30_days": 0,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Prisma",
+   "domain": "prisma.io",
+   "outcome": "custom_page",
+   "careers_url": "https://www.prisma.io/company/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://prisma.io/",
+     "status": 200,
+     "final_url": "https://www.prisma.io/"
+    },
+    {
+     "url": "https://www.prisma.io/company/careers",
+     "status": 200
+    },
+    {
+     "url": "https://prisma.io/careers",
+     "status": 200,
+     "final_url": "https://www.prisma.io/company/careers"
+    },
+    {
+     "url": "https://prisma.io/jobs",
+     "status": 200,
+     "final_url": "https://www.prisma.io/company/careers"
+    },
+    {
+     "url": "https://prisma.io/company/careers",
+     "status": 200,
+     "final_url": "https://www.prisma.io/company/careers"
+    },
+    {
+     "url": "https://prisma.io/about/careers",
+     "status": 404,
+     "final_url": "https://www.prisma.io/about/careers"
+    },
+    {
+     "url": "https://prisma.io/join-us",
+     "status": 404,
+     "final_url": "https://www.prisma.io/join-us"
+    },
+    {
+     "url": "https://careers.prisma.io/",
+     "status": 200,
+     "final_url": "https://www.prisma.io/company/careers"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Turso",
+   "domain": "turso.tech",
+   "outcome": "no_careers_page",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://turso.tech/",
+     "status": 200
+    },
+    {
+     "url": "https://turso.tech/careers",
+     "status": 200,
+     "final_url": "https://turso.tech/"
+    },
+    {
+     "url": "https://turso.tech/jobs",
+     "status": 200,
+     "final_url": "https://turso.tech/"
+    },
+    {
+     "url": "https://turso.tech/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://turso.tech/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://turso.tech/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.turso.tech/",
+     "status": null,
+     "error": "request to https://careers.turso.tech/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.turso.tech/",
+     "status": null,
+     "error": "request to https://jobs.turso.tech/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Upstash",
+   "domain": "upstash.com",
+   "outcome": "custom_page",
+   "careers_url": "https://upstash.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://upstash.com/",
+     "status": 200
+    },
+    {
+     "url": "https://upstash.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://upstash.com/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://upstash.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://upstash.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://upstash.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.upstash.com/",
+     "status": null,
+     "error": "request to https://careers.upstash.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.upstash.com/",
+     "status": null,
+     "error": "request to https://jobs.upstash.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "DigitalOcean",
+   "domain": "digitalocean.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.digitalocean.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://digitalocean.com/",
+     "status": 200,
+     "final_url": "https://www.digitalocean.com/"
+    },
+    {
+     "url": "https://www.digitalocean.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://digitalocean.com/careers",
+     "status": 200,
+     "final_url": "https://www.digitalocean.com/careers"
+    },
+    {
+     "url": "https://digitalocean.com/jobs",
+     "status": 404,
+     "final_url": "https://www.digitalocean.com/jobs"
+    },
+    {
+     "url": "https://digitalocean.com/company/careers",
+     "status": 200,
+     "final_url": "https://www.digitalocean.com/careers"
+    },
+    {
+     "url": "https://digitalocean.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.digitalocean.com/about/careers"
+    },
+    {
+     "url": "https://digitalocean.com/join-us",
+     "status": 404,
+     "final_url": "https://www.digitalocean.com/join-us"
+    },
+    {
+     "url": "https://careers.digitalocean.com/",
+     "status": 200,
+     "final_url": "https://www.digitalocean.com/careers"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Elastic",
+   "domain": "elastic.co",
+   "outcome": "board",
+   "careers_url": "https://www.elastic.co/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://elastic.co/",
+     "status": 200,
+     "final_url": "https://www.elastic.co/"
+    },
+    {
+     "url": "https://www.elastic.co/careers",
+     "status": 200
+    },
+    {
+     "url": "https://jobs.elastic.co/",
+     "status": 200
+    },
+    {
+     "url": "https://www.elastic.co/careers/how-we-hire",
+     "status": 200
+    },
+    {
+     "url": "https://elastic.co/careers",
+     "status": 200,
+     "final_url": "https://www.elastic.co/careers"
+    },
+    {
+     "url": "https://elastic.co/jobs",
+     "status": 200,
+     "final_url": "https://www.elastic.co/careers"
+    },
+    {
+     "url": "https://elastic.co/company/careers",
+     "status": 404,
+     "final_url": "https://www.elastic.co/company/careers"
+    },
+    {
+     "url": "https://elastic.co/about/careers",
+     "status": 200,
+     "final_url": "https://www.elastic.co/careers"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:elastic",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 396,
+     "with_provider_id": 396,
+     "naming_company": 396,
+     "naming_domain": 396,
+     "website": null,
+     "freshness": {
+      "total": 396,
+      "under_7_days": 29,
+      "under_30_days": 127,
+      "over_90_days": 53,
+      "over_180_days": 14,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 396 postings",
+      "guessed slug; 396 of 396 postings are on or mention the company's domain"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 396,
+      "engineering": 196,
+      "brazil_open": 63,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 60,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        60
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        4
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        332
+       ]
+      ],
+      "freshness": {
+       "total": 396,
+       "under_7_days": 29,
+       "under_30_days": 127,
+       "over_90_days": 53,
+       "over_180_days": 14,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "MongoDB",
+   "domain": "mongodb.com",
+   "outcome": "board",
+   "careers_url": "https://www.mongodb.com/company/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://mongodb.com/",
+     "status": 200,
+     "final_url": "https://www.mongodb.com/"
+    },
+    {
+     "url": "https://www.mongodb.com/company/careers",
+     "status": 200
+    },
+    {
+     "url": "https://mongodb.com/careers",
+     "status": 200,
+     "final_url": "https://www.mongodb.com/company/careers"
+    },
+    {
+     "url": "https://mongodb.com/jobs",
+     "status": 200,
+     "final_url": "https://www.mongodb.com/company/careers"
+    },
+    {
+     "url": "https://mongodb.com/company/careers",
+     "status": 200,
+     "final_url": "https://www.mongodb.com/company/careers"
+    },
+    {
+     "url": "https://mongodb.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.mongodb.com/about/careers"
+    },
+    {
+     "url": "https://mongodb.com/join-us",
+     "status": 404,
+     "final_url": "https://www.mongodb.com/join-us"
+    },
+    {
+     "url": "https://careers.mongodb.com/",
+     "status": 200,
+     "final_url": "https://www.mongodb.com/company/careers"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:mongodb",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 390,
+     "with_provider_id": 390,
+     "naming_company": 389,
+     "naming_domain": 390,
+     "website": null,
+     "freshness": {
+      "total": 390,
+      "under_7_days": 24,
+      "under_30_days": 103,
+      "over_90_days": 135,
+      "over_180_days": 74,
+      "over_365_days": 23,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 390 postings",
+      "guessed slug; 390 of 390 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (123 engineering of 390 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 390,
+      "engineering": 123,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        25
+       ],
+       [
+        "europe",
+        13
+       ],
+       [
+        "other",
+        5
+       ],
+       [
+        "unknown_scope",
+        21
+       ],
+       [
+        "office",
+        326
+       ]
+      ],
+      "freshness": {
+       "total": 390,
+       "under_7_days": 24,
+       "under_30_days": 103,
+       "over_90_days": 135,
+       "over_180_days": 74,
+       "over_365_days": 23,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Redis",
+   "domain": "redis.io",
+   "outcome": "board",
+   "careers_url": "https://redis.io/company/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://redis.io/",
+     "status": 200
+    },
+    {
+     "url": "https://redis.io/company/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://redis.io/careers",
+     "status": 200,
+     "final_url": "https://redis.io/company/careers/"
+    },
+    {
+     "url": "https://redis.io/jobs",
+     "status": 200,
+     "final_url": "https://redis.io/company/careers/"
+    },
+    {
+     "url": "https://redis.io/company/careers",
+     "status": 200,
+     "final_url": "https://redis.io/company/careers/"
+    },
+    {
+     "url": "https://redis.io/about/careers",
+     "status": 404,
+     "final_url": "https://redis.io/about/careers/"
+    },
+    {
+     "url": "https://redis.io/join-us",
+     "status": 404,
+     "final_url": "https://redis.io/join-us/"
+    },
+    {
+     "url": "https://careers.redis.io/",
+     "status": null,
+     "error": "request to https://careers.redis.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:redis",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 32,
+     "with_provider_id": 32,
+     "naming_company": 32,
+     "naming_domain": 0,
+     "website": "https://redis.io/",
+     "freshness": {
+      "total": 32,
+      "under_7_days": 4,
+      "under_30_days": 18,
+      "over_90_days": 3,
+      "over_180_days": 1,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 32 postings",
+      "guessed slug; the board names the company's website (https://redis.io/)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (3 engineering of 32 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 32,
+      "engineering": 3,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        9
+       ],
+       [
+        "europe",
+        4
+       ],
+       [
+        "other",
+        6
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        13
+       ]
+      ],
+      "freshness": {
+       "total": 32,
+       "under_7_days": 4,
+       "under_30_days": 18,
+       "over_90_days": 3,
+       "over_180_days": 1,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Timescale",
+   "domain": "timescale.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.tigerdata.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://timescale.com/",
+     "status": 200,
+     "final_url": "https://www.tigerdata.com/"
+    },
+    {
+     "url": "https://timescale.com/careers",
+     "status": 200,
+     "final_url": "https://www.tigerdata.com/careers"
+    },
+    {
+     "url": "https://timescale.com/jobs",
+     "status": 404,
+     "final_url": "https://www.tigerdata.com/jobs"
+    },
+    {
+     "url": "https://timescale.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.tigerdata.com/company/careers"
+    },
+    {
+     "url": "https://timescale.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.tigerdata.com/about/careers"
+    },
+    {
+     "url": "https://timescale.com/join-us",
+     "status": 404,
+     "final_url": "https://www.tigerdata.com/join-us"
+    },
+    {
+     "url": "https://careers.timescale.com/",
+     "status": 200,
+     "final_url": "https://www.tigerdata.com/careers"
+    },
+    {
+     "url": "https://jobs.timescale.com/",
+     "status": null,
+     "error": "request to https://jobs.timescale.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Yugabyte",
+   "domain": "yugabyte.com",
+   "outcome": "board",
+   "careers_url": "https://www.yugabyte.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://yugabyte.com/",
+     "status": 200,
+     "final_url": "https://www.yugabyte.com/"
+    },
+    {
+     "url": "https://www.yugabyte.com/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:yugabyte",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 16,
+     "with_provider_id": 16,
+     "naming_company": 16,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 16,
+      "under_7_days": 2,
+      "under_30_days": 4,
+      "over_90_days": 9,
+      "over_180_days": 3,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 16 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (5 engineering of 16 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 16,
+      "engineering": 5,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        3
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        12
+       ]
+      ],
+      "freshness": {
+       "total": 16,
+       "under_7_days": 2,
+       "under_30_days": 4,
+       "over_90_days": 9,
+       "over_180_days": 3,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "SingleStore",
+   "domain": "singlestore.com",
+   "outcome": "board",
+   "careers_url": "https://www.singlestore.com/careers/jobs/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://singlestore.com/",
+     "status": 200,
+     "final_url": "https://www.singlestore.com/"
+    },
+    {
+     "url": "https://www.singlestore.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://singlestore.com/careers",
+     "status": 200,
+     "final_url": "https://www.singlestore.com/careers/"
+    },
+    {
+     "url": "https://singlestore.com/jobs",
+     "status": 200,
+     "final_url": "https://www.singlestore.com/careers/jobs/"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:singlestore",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 40,
+     "with_provider_id": 40,
+     "naming_company": 40,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 40,
+      "under_7_days": 3,
+      "under_30_days": 21,
+      "over_90_days": 14,
+      "over_180_days": 2,
+      "over_365_days": 0,
+      "unknown": 1
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 40 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (26 engineering of 40 open)"
+     ],
+     "yield": {
+      "open": 40,
+      "engineering": 26,
+      "brazil_open": 2,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        1
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        12
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        27
+       ]
+      ],
+      "freshness": {
+       "total": 40,
+       "under_7_days": 3,
+       "under_30_days": 21,
+       "over_90_days": 14,
+       "over_180_days": 2,
+       "over_365_days": 0,
+       "unknown": 1
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "dbt Labs",
+   "domain": "getdbt.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.getdbt.com/about-us/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://getdbt.com/",
+     "status": 200,
+     "final_url": "https://www.getdbt.com/"
+    },
+    {
+     "url": "https://www.getdbt.com/resources/webinars/cost-optimized-transformations-with-dbt-and-apache-iceberg-on-open-multi-engine-compute",
+     "status": 200
+    },
+    {
+     "url": "https://www.getdbt.com/dbt-labs/open-roles",
+     "status": 200,
+     "final_url": "https://www.getdbt.com/about-us/careers"
+    },
+    {
+     "url": "https://getdbt.com/careers",
+     "status": 200,
+     "final_url": "https://www.getdbt.com/about-us/careers"
+    },
+    {
+     "url": "https://getdbt.com/jobs",
+     "status": 200,
+     "final_url": "https://www.getdbt.com/about-us/careers"
+    },
+    {
+     "url": "https://getdbt.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.getdbt.com/company/careers"
+    },
+    {
+     "url": "https://getdbt.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.getdbt.com/about/careers"
+    },
+    {
+     "url": "https://getdbt.com/join-us",
+     "status": 404,
+     "final_url": "https://www.getdbt.com/join-us"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Dagster",
+   "domain": "dagster.io",
+   "outcome": "custom_page",
+   "careers_url": "https://www.prefect.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://dagster.io/",
+     "status": 200
+    },
+    {
+     "url": "https://dagster.io/careers",
+     "status": 200,
+     "final_url": "https://www.prefect.io/careers"
+    },
+    {
+     "url": "https://dagster.io/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://dagster.io/company/careers",
+     "status": 200,
+     "final_url": "https://www.prefect.io/careers"
+    },
+    {
+     "url": "https://dagster.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://dagster.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.dagster.io/",
+     "status": null,
+     "error": "request to https://careers.dagster.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.dagster.io/",
+     "status": null,
+     "error": "request to https://jobs.dagster.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Prefect",
+   "domain": "prefect.io",
+   "outcome": "board",
+   "careers_url": "https://www.prefect.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://prefect.io/",
+     "status": 200,
+     "final_url": "https://www.prefect.io/"
+    },
+    {
+     "url": "https://www.prefect.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://prefect.io/careers",
+     "status": 200,
+     "final_url": "https://www.prefect.io/careers"
+    },
+    {
+     "url": "https://prefect.io/jobs",
+     "status": 404,
+     "final_url": "https://www.prefect.io/jobs"
+    },
+    {
+     "url": "https://prefect.io/company/careers",
+     "status": 404,
+     "final_url": "https://www.prefect.io/company/careers"
+    },
+    {
+     "url": "https://prefect.io/about/careers",
+     "status": 200,
+     "final_url": "https://www.prefect.io/careers"
+    },
+    {
+     "url": "https://prefect.io/join-us",
+     "status": 404,
+     "final_url": "https://www.prefect.io/join-us"
+    },
+    {
+     "url": "https://careers.prefect.io/",
+     "status": null,
+     "error": "request to https://careers.prefect.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:prefect",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 9,
+     "with_provider_id": 9,
+     "naming_company": 9,
+     "naming_domain": 9,
+     "website": "https://prefect.io/",
+     "freshness": {
+      "total": 9,
+      "under_7_days": 2,
+      "under_30_days": 4,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 9 postings",
+      "guessed slug; the board names the company's website (https://prefect.io/)"
+     ],
+     "activation": [
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 9,
+      "engineering": 4,
+      "brazil_open": 0,
+      "brazil_unclear": 9,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 4,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        9
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 9,
+       "under_7_days": 2,
+       "under_30_days": 4,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Fivetran",
+   "domain": "fivetran.com",
+   "outcome": "board",
+   "careers_url": "https://www.fivetran.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://fivetran.com/",
+     "status": 200,
+     "final_url": "https://www.fivetran.com/"
+    },
+    {
+     "url": "https://www.fivetran.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://fivetran.com/careers",
+     "status": 200,
+     "final_url": "https://www.fivetran.com/careers"
+    },
+    {
+     "url": "https://fivetran.com/jobs",
+     "status": 200,
+     "final_url": "https://www.fivetran.com/careers"
+    },
+    {
+     "url": "https://fivetran.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fivetran.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fivetran.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.fivetran.com/",
+     "status": null,
+     "error": "request to https://careers.fivetran.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:fivetran",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 181,
+     "with_provider_id": 181,
+     "naming_company": 181,
+     "naming_domain": 181,
+     "website": null,
+     "freshness": {
+      "total": 181,
+      "under_7_days": 6,
+      "under_30_days": 50,
+      "over_90_days": 29,
+      "over_180_days": 6,
+      "over_365_days": 1,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 181 postings",
+      "guessed slug; 181 of 181 postings are on or mention the company's domain"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 181,
+      "engineering": 69,
+      "brazil_open": 1,
+      "brazil_unclear": 32,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 11,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        1
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        8
+       ],
+       [
+        "unknown_scope",
+        47
+       ],
+       [
+        "office",
+        125
+       ]
+      ],
+      "freshness": {
+       "total": 181,
+       "under_7_days": 6,
+       "under_30_days": 50,
+       "over_90_days": 29,
+       "over_180_days": 6,
+       "over_365_days": 1,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Hex",
+   "domain": "hex.tech",
+   "outcome": "board",
+   "careers_url": "https://hex.tech/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://hex.tech/",
+     "status": 200
+    },
+    {
+     "url": "https://hex.tech/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://hex.tech/careers",
+     "status": 200,
+     "final_url": "https://hex.tech/careers/"
+    },
+    {
+     "url": "https://hex.tech/jobs",
+     "status": 200,
+     "final_url": "https://hex.tech/careers/"
+    },
+    {
+     "url": "https://hex.tech/company/careers",
+     "status": 404,
+     "final_url": "https://hex.tech/company/careers/"
+    },
+    {
+     "url": "https://hex.tech/about/careers",
+     "status": 404,
+     "final_url": "https://hex.tech/about/careers/"
+    },
+    {
+     "url": "https://hex.tech/join-us",
+     "status": 404,
+     "final_url": "https://hex.tech/join-us/"
+    },
+    {
+     "url": "https://careers.hex.tech/",
+     "status": 200,
+     "final_url": "https://hex.tech/"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:hex",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 36,
+     "with_provider_id": 36,
+     "naming_company": 36,
+     "naming_domain": 36,
+     "website": "https://hex.tech/",
+     "freshness": {
+      "total": 36,
+      "under_7_days": 0,
+      "under_30_days": 8,
+      "over_90_days": 20,
+      "over_180_days": 18,
+      "over_365_days": 6,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 36 postings",
+      "guessed slug; the board names the company's website (https://hex.tech/)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (14 engineering of 36 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 36,
+      "engineering": 14,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        12
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        23
+       ]
+      ],
+      "freshness": {
+       "total": 36,
+       "under_7_days": 0,
+       "under_30_days": 8,
+       "over_90_days": 20,
+       "over_180_days": 18,
+       "over_365_days": 6,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Metabase",
+   "domain": "metabase.com",
+   "outcome": "board",
+   "careers_url": "https://www.metabase.com/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://metabase.com/",
+     "status": 200,
+     "final_url": "https://www.metabase.com/"
+    },
+    {
+     "url": "https://www.metabase.com/blog/ai-analytics-week",
+     "status": 200
+    },
+    {
+     "url": "https://www.metabase.com/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://metabase.com/careers",
+     "status": 200,
+     "final_url": "https://www.metabase.com/jobs"
+    },
+    {
+     "url": "https://metabase.com/jobs",
+     "status": 200,
+     "final_url": "https://www.metabase.com/jobs"
+    },
+    {
+     "url": "https://metabase.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.metabase.com/company/careers"
+    },
+    {
+     "url": "https://metabase.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.metabase.com/about/careers"
+    },
+    {
+     "url": "https://metabase.com/join-us",
+     "status": 404,
+     "final_url": "https://www.metabase.com/join-us"
+    }
+   ],
+   "boards": [
+    {
+     "source": "lever:metabase",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 18,
+     "with_provider_id": 18,
+     "naming_company": 18,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 18,
+      "under_7_days": 0,
+      "under_30_days": 1,
+      "over_90_days": 15,
+      "over_180_days": 11,
+      "over_365_days": 8,
+      "unknown": 0
+     },
+     "verdict": "inconclusive",
+     "reasons": [
+      "adapter read 18 postings",
+      "guessed slug; nothing ties the board to the company's domain (18 of 18 postings name the company, which is not enough)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 18,
+      "engineering": 8,
+      "brazil_open": 1,
+      "brazil_unclear": 11,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 7,
+      "geo": [
+       [
+        "global",
+        11
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        1
+       ],
+       [
+        "north_america",
+        5
+       ],
+       [
+        "europe",
+        1
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 18,
+       "under_7_days": 0,
+       "under_30_days": 1,
+       "over_90_days": 15,
+       "over_180_days": 11,
+       "over_365_days": 8,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Mixpanel",
+   "domain": "mixpanel.com",
+   "outcome": "board",
+   "careers_url": "https://mixpanel.com/jobs/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://mixpanel.com/",
+     "status": 200,
+     "final_url": "https://mixpanel.com/home/"
+    },
+    {
+     "url": "https://mixpanel.com/jobs/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:mixpanel",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 63,
+     "with_provider_id": 63,
+     "naming_company": 63,
+     "naming_domain": 63,
+     "website": null,
+     "freshness": {
+      "total": 63,
+      "under_7_days": 11,
+      "under_30_days": 23,
+      "over_90_days": 11,
+      "over_180_days": 2,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 63 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (19 engineering of 63 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 63,
+      "engineering": 19,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        21
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        42
+       ]
+      ],
+      "freshness": {
+       "total": 63,
+       "under_7_days": 11,
+       "under_30_days": 23,
+       "over_90_days": 11,
+       "over_180_days": 2,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Amplitude",
+   "domain": "amplitude.com",
+   "outcome": "board",
+   "careers_url": "https://amplitude.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://amplitude.com/",
+     "status": 200
+    },
+    {
+     "url": "https://amplitude.com/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:amplitude",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 36,
+     "with_provider_id": 36,
+     "naming_company": 36,
+     "naming_domain": 36,
+     "website": "https://amplitude.com/",
+     "freshness": {
+      "total": 36,
+      "under_7_days": 7,
+      "under_30_days": 19,
+      "over_90_days": 4,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 36 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (15 engineering of 36 open)"
+     ],
+     "yield": {
+      "open": 36,
+      "engineering": 15,
+      "brazil_open": 2,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        2
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        7
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        2
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        25
+       ]
+      ],
+      "freshness": {
+       "total": 36,
+       "under_7_days": 7,
+       "under_30_days": 19,
+       "over_90_days": 4,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Statsig",
+   "domain": "statsig.com",
+   "outcome": "custom_page",
+   "careers_url": "https://statsig.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://statsig.com/",
+     "status": 200
+    },
+    {
+     "url": "https://statsig.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://statsig.com/jobs",
+     "status": 200,
+     "final_url": "https://statsig.com/careers"
+    },
+    {
+     "url": "https://statsig.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://statsig.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://statsig.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.statsig.com/",
+     "status": null,
+     "error": "request to https://careers.statsig.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.statsig.com/",
+     "status": null,
+     "error": "request to https://jobs.statsig.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "GrowthBook",
+   "domain": "growthbook.io",
+   "outcome": "custom_page",
+   "careers_url": "https://www.growthbook.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://growthbook.io/",
+     "status": 200,
+     "final_url": "https://www.growthbook.io/"
+    },
+    {
+     "url": "https://www.growthbook.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://growthbook.io/careers",
+     "status": 200,
+     "final_url": "https://www.growthbook.io/careers"
+    },
+    {
+     "url": "https://growthbook.io/jobs",
+     "status": 404,
+     "final_url": "https://www.growthbook.io/jobs"
+    },
+    {
+     "url": "https://growthbook.io/company/careers",
+     "status": 404,
+     "final_url": "https://www.growthbook.io/company/careers"
+    },
+    {
+     "url": "https://growthbook.io/about/careers",
+     "status": 404,
+     "final_url": "https://www.growthbook.io/about/careers"
+    },
+    {
+     "url": "https://growthbook.io/join-us",
+     "status": 404,
+     "final_url": "https://www.growthbook.io/join-us"
+    },
+    {
+     "url": "https://careers.growthbook.io/",
+     "status": null,
+     "error": "request to https://careers.growthbook.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Unleash",
+   "domain": "getunleash.io",
+   "outcome": "custom_page",
+   "careers_url": "https://www.getunleash.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://getunleash.io/",
+     "status": 200,
+     "final_url": "https://www.getunleash.io/"
+    },
+    {
+     "url": "https://www.getunleash.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://getunleash.io/careers",
+     "status": 200,
+     "final_url": "https://www.getunleash.io/careers"
+    },
+    {
+     "url": "https://getunleash.io/jobs",
+     "status": 404,
+     "final_url": "https://www.getunleash.io/jobs"
+    },
+    {
+     "url": "https://getunleash.io/company/careers",
+     "status": 404,
+     "final_url": "https://www.getunleash.io/company/careers"
+    },
+    {
+     "url": "https://getunleash.io/about/careers",
+     "status": 404,
+     "final_url": "https://www.getunleash.io/about/careers"
+    },
+    {
+     "url": "https://getunleash.io/join-us",
+     "status": 404,
+     "final_url": "https://www.getunleash.io/join-us"
+    },
+    {
+     "url": "https://careers.getunleash.io/",
+     "status": null,
+     "error": "request to https://careers.getunleash.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Better Stack",
+   "domain": "betterstack.com",
+   "outcome": "custom_page",
+   "careers_url": "https://betterstack.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://betterstack.com/",
+     "status": 200
+    },
+    {
+     "url": "https://betterstack.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://betterstack.com/careers/engineering",
+     "status": 200
+    },
+    {
+     "url": "https://betterstack.com/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://betterstack.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://betterstack.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://betterstack.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.betterstack.com/",
+     "status": null,
+     "error": "request to https://careers.betterstack.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "incident.io",
+   "domain": "incident.io",
+   "outcome": "board",
+   "careers_url": "https://incident.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://incident.io/",
+     "status": 200
+    },
+    {
+     "url": "https://incident.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://incident.io/jobs",
+     "status": 200,
+     "final_url": "https://incident.io/careers"
+    },
+    {
+     "url": "https://incident.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://incident.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://incident.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.incident.io/",
+     "status": null,
+     "error": "request to https://careers.incident.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.incident.io/",
+     "status": 200,
+     "final_url": "https://incident.io/careers"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:incident",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 35,
+     "with_provider_id": 35,
+     "naming_company": 34,
+     "naming_domain": 34,
+     "website": "https://incident.io/",
+     "freshness": {
+      "total": 35,
+      "under_7_days": 3,
+      "under_30_days": 16,
+      "over_90_days": 9,
+      "over_180_days": 6,
+      "over_365_days": 1,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 35 postings",
+      "guessed slug; the board names the company's website (https://incident.io/)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (8 engineering of 35 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 35,
+      "engineering": 8,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        1
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        34
+       ]
+      ],
+      "freshness": {
+       "total": 35,
+       "under_7_days": 3,
+       "under_30_days": 16,
+       "over_90_days": 9,
+       "over_180_days": 6,
+       "over_365_days": 1,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "PagerDuty",
+   "domain": "pagerduty.com",
+   "outcome": "board",
+   "careers_url": "https://careers.pagerduty.com/home",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://pagerduty.com/",
+     "status": 200,
+     "final_url": "https://www.pagerduty.com/"
+    },
+    {
+     "url": "https://careers.pagerduty.com/home",
+     "status": 200
+    },
+    {
+     "url": "https://www.pagerduty.com/careers/",
+     "status": 200,
+     "final_url": "https://careers.pagerduty.com/"
+    },
+    {
+     "url": "https://pagerduty.com/careers",
+     "status": 200,
+     "final_url": "https://careers.pagerduty.com/"
+    },
+    {
+     "url": "https://pagerduty.com/jobs",
+     "status": 200,
+     "final_url": "https://careers.pagerduty.com/"
+    },
+    {
+     "url": "https://pagerduty.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.pagerduty.com/company/careers"
+    },
+    {
+     "url": "https://pagerduty.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.pagerduty.com/about/careers"
+    },
+    {
+     "url": "https://pagerduty.com/join-us",
+     "status": 404,
+     "final_url": "https://www.pagerduty.com/join-us"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:pagerduty",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 53,
+     "with_provider_id": 53,
+     "naming_company": 53,
+     "naming_domain": 53,
+     "website": null,
+     "freshness": {
+      "total": 53,
+      "under_7_days": 7,
+      "under_30_days": 21,
+      "over_90_days": 9,
+      "over_180_days": 6,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 53 postings",
+      "guessed slug; 53 of 53 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (4 engineering of 53 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 53,
+      "engineering": 4,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        15
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        38
+       ]
+      ],
+      "freshness": {
+       "total": 53,
+       "under_7_days": 7,
+       "under_30_days": 21,
+       "over_90_days": 9,
+       "over_180_days": 6,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Teleport",
+   "domain": "goteleport.com",
+   "outcome": "board",
+   "careers_url": "https://goteleport.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://goteleport.com/",
+     "status": 200
+    },
+    {
+     "url": "https://goteleport.com/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:goteleport",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 24,
+     "with_provider_id": 24,
+     "naming_company": 24,
+     "naming_domain": 24,
+     "website": "https://goteleport.com/",
+     "freshness": {
+      "total": 24,
+      "under_7_days": 4,
+      "under_30_days": 10,
+      "over_90_days": 6,
+      "over_180_days": 4,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 24 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (11 engineering of 24 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 24,
+      "engineering": 11,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        16
+       ],
+       [
+        "europe",
+        4
+       ],
+       [
+        "other",
+        3
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        1
+       ]
+      ],
+      "freshness": {
+       "total": 24,
+       "under_7_days": 4,
+       "under_30_days": 10,
+       "over_90_days": 6,
+       "over_180_days": 4,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "1Password",
+   "domain": "1password.com",
+   "outcome": "board",
+   "careers_url": "https://1password.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://1password.com/",
+     "status": 200
+    },
+    {
+     "url": "https://1password.com/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:1password",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 69,
+     "with_provider_id": 69,
+     "naming_company": 69,
+     "naming_domain": 69,
+     "website": "https://1password.com/",
+     "freshness": {
+      "total": 69,
+      "under_7_days": 27,
+      "under_30_days": 38,
+      "over_90_days": 8,
+      "over_180_days": 3,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 69 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (22 engineering of 69 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 69,
+      "engineering": 22,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        51
+       ],
+       [
+        "europe",
+        8
+       ],
+       [
+        "other",
+        1
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        9
+       ]
+      ],
+      "freshness": {
+       "total": 69,
+       "under_7_days": 27,
+       "under_30_days": 38,
+       "over_90_days": 8,
+       "over_180_days": 3,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Bitwarden",
+   "domain": "bitwarden.com",
+   "outcome": "board",
+   "careers_url": "https://bitwarden.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://bitwarden.com/",
+     "status": 200
+    },
+    {
+     "url": "https://bitwarden.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://bitwarden.com/careers",
+     "status": 200,
+     "final_url": "https://bitwarden.com/careers/"
+    },
+    {
+     "url": "https://bitwarden.com/jobs",
+     "status": 404,
+     "final_url": "https://bitwarden.com/jobs/"
+    },
+    {
+     "url": "https://bitwarden.com/company/careers",
+     "status": 404,
+     "final_url": "https://bitwarden.com/company/careers/"
+    },
+    {
+     "url": "https://bitwarden.com/about/careers",
+     "status": 404,
+     "final_url": "https://bitwarden.com/about/careers/"
+    },
+    {
+     "url": "https://bitwarden.com/join-us",
+     "status": 404,
+     "final_url": "https://bitwarden.com/join-us/"
+    },
+    {
+     "url": "https://careers.bitwarden.com/",
+     "status": null,
+     "error": "request to https://careers.bitwarden.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:bitwarden",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 34,
+     "with_provider_id": 34,
+     "naming_company": 34,
+     "naming_domain": 34,
+     "website": null,
+     "freshness": {
+      "total": 34,
+      "under_7_days": 4,
+      "under_30_days": 13,
+      "over_90_days": 1,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 34 postings",
+      "guessed slug; 34 of 34 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (19 engineering of 34 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 34,
+      "engineering": 19,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        13
+       ],
+       [
+        "europe",
+        5
+       ],
+       [
+        "other",
+        1
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        15
+       ]
+      ],
+      "freshness": {
+       "total": 34,
+       "under_7_days": 4,
+       "under_30_days": 13,
+       "over_90_days": 1,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Snyk",
+   "domain": "snyk.io",
+   "outcome": "board",
+   "careers_url": "https://snyk.io/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://snyk.io/",
+     "status": 200
+    },
+    {
+     "url": "https://snyk.io/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://snyk.io/careers",
+     "status": 200,
+     "final_url": "https://snyk.io/careers/"
+    },
+    {
+     "url": "https://snyk.io/jobs",
+     "status": 200,
+     "final_url": "https://snyk.io/careers/"
+    },
+    {
+     "url": "https://snyk.io/company/careers",
+     "status": 404,
+     "final_url": "https://snyk.io/company/careers/"
+    },
+    {
+     "url": "https://snyk.io/about/careers",
+     "status": 404,
+     "final_url": "https://snyk.io/about/careers/"
+    },
+    {
+     "url": "https://snyk.io/join-us",
+     "status": 404,
+     "final_url": "https://snyk.io/join-us/"
+    },
+    {
+     "url": "https://careers.snyk.io/",
+     "status": null,
+     "error": "request to https://careers.snyk.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:snyk",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 13,
+     "with_provider_id": 13,
+     "naming_company": 13,
+     "naming_domain": 0,
+     "website": "https://snyk.io/",
+     "freshness": {
+      "total": 13,
+      "under_7_days": 13,
+      "under_30_days": 13,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 13 postings",
+      "guessed slug; the board names the company's website (https://snyk.io/)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (2 engineering of 13 open)"
+     ],
+     "yield": {
+      "open": 13,
+      "engineering": 2,
+      "brazil_open": 2,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        1
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        6
+       ],
+       [
+        "europe",
+        1
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        5
+       ]
+      ],
+      "freshness": {
+       "total": 13,
+       "under_7_days": 13,
+       "under_30_days": 13,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Semgrep",
+   "domain": "semgrep.dev",
+   "outcome": "board",
+   "careers_url": "https://semgrep.dev/about/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://semgrep.dev/",
+     "status": 200
+    },
+    {
+     "url": "https://semgrep.dev/events/",
+     "status": 200
+    },
+    {
+     "url": "https://semgrep.dev/about/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:semgrep",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 13,
+     "with_provider_id": 13,
+     "naming_company": 13,
+     "naming_domain": 13,
+     "website": "https://semgrep.dev/",
+     "freshness": {
+      "total": 13,
+      "under_7_days": 4,
+      "under_30_days": 8,
+      "over_90_days": 3,
+      "over_180_days": 3,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 13 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (7 engineering of 13 open)"
+     ],
+     "yield": {
+      "open": 13,
+      "engineering": 7,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        1
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        2
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        10
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 13,
+       "under_7_days": 4,
+       "under_30_days": 8,
+       "over_90_days": 3,
+       "over_180_days": 3,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "GitGuardian",
+   "domain": "gitguardian.com",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://careers.gitguardian.com/",
+   "other_ats": [
+    {
+     "provider": "teamtailor",
+     "url": "https://app.teamtailor.com/companies/tEDJLN-tBng@eu/dashboard"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://gitguardian.com/",
+     "status": 200,
+     "final_url": "https://www.gitguardian.com/"
+    },
+    {
+     "url": "https://www.gitguardian.com/careers",
+     "status": 403
+    },
+    {
+     "url": "https://gitguardian.com/careers",
+     "status": 403
+    },
+    {
+     "url": "https://gitguardian.com/jobs",
+     "status": 404,
+     "final_url": "https://www.gitguardian.com/jobs"
+    },
+    {
+     "url": "https://gitguardian.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.gitguardian.com/company/careers"
+    },
+    {
+     "url": "https://gitguardian.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.gitguardian.com/about/careers"
+    },
+    {
+     "url": "https://gitguardian.com/join-us",
+     "status": 404,
+     "final_url": "https://www.gitguardian.com/join-us"
+    },
+    {
+     "url": "https://careers.gitguardian.com/",
+     "status": 200
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Docker",
+   "domain": "docker.com",
+   "outcome": "board",
+   "careers_url": "https://www.docker.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://docker.com/",
+     "status": 200,
+     "final_url": "https://www.docker.com/"
+    },
+    {
+     "url": "https://www.docker.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://docker.com/careers",
+     "status": 200,
+     "final_url": "https://www.docker.com/careers/"
+    },
+    {
+     "url": "https://docker.com/jobs",
+     "status": 404,
+     "final_url": "https://www.docker.com/jobs"
+    },
+    {
+     "url": "https://docker.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.docker.com/company/careers"
+    },
+    {
+     "url": "https://docker.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.docker.com/about/careers"
+    },
+    {
+     "url": "https://docker.com/join-us",
+     "status": 404,
+     "final_url": "https://www.docker.com/join-us"
+    },
+    {
+     "url": "https://careers.docker.com/",
+     "status": null,
+     "error": "request to https://careers.docker.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:docker",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 61,
+     "with_provider_id": 61,
+     "naming_company": 61,
+     "naming_domain": 0,
+     "website": "https://docker.com",
+     "freshness": {
+      "total": 61,
+      "under_7_days": 7,
+      "under_30_days": 19,
+      "over_90_days": 14,
+      "over_180_days": 7,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 61 postings",
+      "guessed slug; the board names the company's website (https://docker.com)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (22 engineering of 61 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 61,
+      "engineering": 22,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        42
+       ],
+       [
+        "europe",
+        11
+       ],
+       [
+        "other",
+        6
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        2
+       ]
+      ],
+      "freshness": {
+       "total": 61,
+       "under_7_days": 7,
+       "under_30_days": 19,
+       "over_90_days": 14,
+       "over_180_days": 7,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Gitpod",
+   "domain": "gitpod.io",
+   "outcome": "custom_page",
+   "careers_url": "https://gitpod.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://gitpod.io/",
+     "status": 200
+    },
+    {
+     "url": "https://gitpod.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://gitpod.io/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://gitpod.io/company/careers",
+     "status": 200
+    },
+    {
+     "url": "https://gitpod.io/about/careers",
+     "status": 200
+    },
+    {
+     "url": "https://gitpod.io/join-us",
+     "status": 200
+    },
+    {
+     "url": "https://careers.gitpod.io/",
+     "status": null,
+     "error": "request to https://careers.gitpod.io/ failed: error sending request: client error (Connect): invalid peer certificate: NotValidForName"
+    },
+    {
+     "url": "https://jobs.gitpod.io/",
+     "status": null,
+     "error": "request to https://jobs.gitpod.io/ failed: error sending request: client error (Connect): invalid peer certificate: NotValidForName"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Coder",
+   "domain": "coder.com",
+   "outcome": "board",
+   "careers_url": "https://coder.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://coder.com/",
+     "status": 200
+    },
+    {
+     "url": "https://coder.com/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:coder",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 27,
+     "with_provider_id": 27,
+     "naming_company": 27,
+     "naming_domain": 27,
+     "website": "https://coder.com/",
+     "freshness": {
+      "total": 27,
+      "under_7_days": 1,
+      "under_30_days": 10,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 27 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (8 engineering of 27 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 27,
+      "engineering": 8,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        14
+       ],
+       [
+        "europe",
+        12
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        1
+       ]
+      ],
+      "freshness": {
+       "total": 27,
+       "under_7_days": 1,
+       "under_30_days": 10,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Zed",
+   "domain": "zed.dev",
+   "outcome": "board",
+   "careers_url": "https://zed.dev/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://zed.dev/",
+     "status": 200
+    },
+    {
+     "url": "https://zed.dev/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://zed.dev/careers",
+     "status": 404
+    },
+    {
+     "url": "https://zed.dev/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://zed.dev/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://zed.dev/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.zed.dev/",
+     "status": null,
+     "error": "request to https://careers.zed.dev/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.zed.dev/",
+     "status": null,
+     "error": "request to https://jobs.zed.dev/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:zed",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 1,
+     "with_provider_id": 1,
+     "naming_company": 1,
+     "naming_domain": 0,
+     "website": "https://zed.dev",
+     "freshness": {
+      "total": 1,
+      "under_7_days": 0,
+      "under_30_days": 0,
+      "over_90_days": 1,
+      "over_180_days": 1,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 1 postings",
+      "guessed slug; the board names the company's website (https://zed.dev)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (0 engineering of 1 open)"
+     ],
+     "yield": {
+      "open": 1,
+      "engineering": 0,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        1
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 1,
+       "under_7_days": 0,
+       "under_30_days": 0,
+       "over_90_days": 1,
+       "over_180_days": 1,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Raycast",
+   "domain": "raycast.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.raycast.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://raycast.com/",
+     "status": 200,
+     "final_url": "https://www.raycast.com/"
+    },
+    {
+     "url": "https://www.raycast.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://raycast.com/careers",
+     "status": 200,
+     "final_url": "https://www.raycast.com/careers"
+    },
+    {
+     "url": "https://raycast.com/jobs",
+     "status": 200,
+     "final_url": "https://www.raycast.com/careers"
+    },
+    {
+     "url": "https://raycast.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.raycast.com/company/careers"
+    },
+    {
+     "url": "https://raycast.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.raycast.com/about/careers"
+    },
+    {
+     "url": "https://raycast.com/join-us",
+     "status": 404,
+     "final_url": "https://www.raycast.com/join-us"
+    },
+    {
+     "url": "https://careers.raycast.com/",
+     "status": null,
+     "error": "request to https://careers.raycast.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "tldraw",
+   "domain": "tldraw.com",
+   "outcome": "board",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://tldraw.com/",
+     "status": 200,
+     "final_url": "https://www.tldraw.com/"
+    },
+    {
+     "url": "https://tldraw.com/careers",
+     "status": 404,
+     "final_url": "https://www.tldraw.com/careers"
+    },
+    {
+     "url": "https://tldraw.com/jobs",
+     "status": 404,
+     "final_url": "https://www.tldraw.com/jobs"
+    },
+    {
+     "url": "https://tldraw.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.tldraw.com/company/careers"
+    },
+    {
+     "url": "https://tldraw.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.tldraw.com/about/careers"
+    },
+    {
+     "url": "https://tldraw.com/join-us",
+     "status": 404,
+     "final_url": "https://www.tldraw.com/join-us"
+    },
+    {
+     "url": "https://careers.tldraw.com/",
+     "status": 404
+    },
+    {
+     "url": "https://jobs.tldraw.com/",
+     "status": 404
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:tldraw",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 1,
+     "with_provider_id": 1,
+     "naming_company": 1,
+     "naming_domain": 1,
+     "website": "https://www.tldraw.com/",
+     "freshness": {
+      "total": 1,
+      "under_7_days": 0,
+      "under_30_days": 0,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 1 postings",
+      "guessed slug; the board names the company's website (https://www.tldraw.com/)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (1 engineering of 1 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 1,
+      "engineering": 1,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        1
+       ]
+      ],
+      "freshness": {
+       "total": 1,
+       "under_7_days": 0,
+       "under_30_days": 0,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Framer",
+   "domain": "framer.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.framer.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://framer.com/",
+     "status": 200,
+     "final_url": "https://www.framer.com/"
+    },
+    {
+     "url": "https://www.framer.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://framer.com/careers",
+     "status": 200,
+     "final_url": "https://www.framer.com/careers/"
+    },
+    {
+     "url": "https://framer.com/jobs",
+     "status": 404,
+     "final_url": "https://www.framer.com/jobs"
+    },
+    {
+     "url": "https://framer.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.framer.com/company/careers"
+    },
+    {
+     "url": "https://framer.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.framer.com/about/careers"
+    },
+    {
+     "url": "https://framer.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.framer.com/",
+     "status": null,
+     "error": "request to https://careers.framer.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Webflow",
+   "domain": "webflow.com",
+   "outcome": "board",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://webflow.com/",
+     "status": 200
+    },
+    {
+     "url": "https://webflow.com/company/careers",
+     "status": null,
+     "error": "request to https://webflow.com/company/careers failed: error sending request: client error (SendRequest): http2 error: stream error detected: unspecific protocol error detected"
+    },
+    {
+     "url": "https://webflow.com/careers",
+     "status": null,
+     "error": "request to https://webflow.com/careers failed: error sending request: client error (SendRequest): http2 error: stream error detected: unspecific protocol error detected"
+    },
+    {
+     "url": "https://webflow.com/jobs",
+     "status": null,
+     "error": "request to https://webflow.com/jobs failed: error sending request: client error (SendRequest): http2 error: stream error detected: unspecific protocol error detected"
+    },
+    {
+     "url": "https://webflow.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://webflow.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.webflow.com/",
+     "status": null,
+     "error": "request to https://careers.webflow.com/ failed: error sending request: client error (SendRequest): http2 error: stream error detected: unspecific protocol error detected"
+    },
+    {
+     "url": "https://jobs.webflow.com/",
+     "status": 404
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:webflow",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 25,
+     "with_provider_id": 25,
+     "naming_company": 25,
+     "naming_domain": 1,
+     "website": null,
+     "freshness": {
+      "total": 25,
+      "under_7_days": 0,
+      "under_30_days": 5,
+      "over_90_days": 10,
+      "over_180_days": 6,
+      "over_365_days": 6,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 25 postings",
+      "guessed slug; 1 of 25 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (8 engineering of 25 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 25,
+      "engineering": 8,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        14
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        5
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        6
+       ]
+      ],
+      "freshness": {
+       "total": 25,
+       "under_7_days": 0,
+       "under_30_days": 5,
+       "over_90_days": 10,
+       "over_180_days": 6,
+       "over_365_days": 6,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Contentful",
+   "domain": "contentful.com",
+   "outcome": "board",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://contentful.com/",
+     "status": 429
+    },
+    {
+     "url": "https://contentful.com/careers",
+     "status": 429
+    },
+    {
+     "url": "https://contentful.com/jobs",
+     "status": 429
+    },
+    {
+     "url": "https://contentful.com/company/careers",
+     "status": 429
+    },
+    {
+     "url": "https://contentful.com/about/careers",
+     "status": 429
+    },
+    {
+     "url": "https://contentful.com/join-us",
+     "status": 429
+    },
+    {
+     "url": "https://careers.contentful.com/",
+     "status": null,
+     "error": "request to https://careers.contentful.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.contentful.com/",
+     "status": null,
+     "error": "request to https://jobs.contentful.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:contentful",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 20,
+     "with_provider_id": 20,
+     "naming_company": 20,
+     "naming_domain": 20,
+     "website": null,
+     "freshness": {
+      "total": 20,
+      "under_7_days": 1,
+      "under_30_days": 19,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 20 postings",
+      "guessed slug; 20 of 20 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (9 engineering of 20 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 20,
+      "engineering": 9,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        1
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        19
+       ]
+      ],
+      "freshness": {
+       "total": 20,
+       "under_7_days": 1,
+       "under_30_days": 19,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Strapi",
+   "domain": "strapi.io",
+   "outcome": "custom_page",
+   "careers_url": "https://strapi.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://strapi.io/",
+     "status": 200
+    },
+    {
+     "url": "https://strapi.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://strapi.io/jobs",
+     "status": 200,
+     "final_url": "https://strapi.io/careers"
+    },
+    {
+     "url": "https://strapi.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://strapi.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://strapi.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.strapi.io/",
+     "status": null,
+     "error": "request to https://careers.strapi.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.strapi.io/",
+     "status": null,
+     "error": "request to https://jobs.strapi.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Directus",
+   "domain": "directus.io",
+   "outcome": "custom_page",
+   "careers_url": "https://directus.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://directus.io/",
+     "status": 200,
+     "final_url": "https://directus.com/"
+    },
+    {
+     "url": "https://directus.io/careers",
+     "status": 200,
+     "final_url": "https://directus.com/careers"
+    },
+    {
+     "url": "https://directus.io/jobs",
+     "status": 404,
+     "final_url": "https://directus.com/jobs"
+    },
+    {
+     "url": "https://directus.io/company/careers",
+     "status": 404,
+     "final_url": "https://directus.com/company/careers"
+    },
+    {
+     "url": "https://directus.io/about/careers",
+     "status": 404,
+     "final_url": "https://directus.com/about/careers"
+    },
+    {
+     "url": "https://directus.io/join-us",
+     "status": 404,
+     "final_url": "https://directus.com/join-us"
+    },
+    {
+     "url": "https://careers.directus.io/",
+     "status": null,
+     "error": "request to https://careers.directus.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.directus.io/",
+     "status": null,
+     "error": "request to https://jobs.directus.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Payload",
+   "domain": "payloadcms.com",
+   "outcome": "no_careers_page",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://payloadcms.com/",
+     "status": 200
+    },
+    {
+     "url": "https://payloadcms.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://payloadcms.com/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://payloadcms.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://payloadcms.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://payloadcms.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.payloadcms.com/",
+     "status": null,
+     "error": "request to https://careers.payloadcms.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.payloadcms.com/",
+     "status": null,
+     "error": "request to https://jobs.payloadcms.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Storyblok",
+   "domain": "storyblok.com",
+   "outcome": "board",
+   "careers_url": "https://www.storyblok.com/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://storyblok.com/",
+     "status": 200,
+     "final_url": "https://www.storyblok.com/"
+    },
+    {
+     "url": "https://www.storyblok.com/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://storyblok.com/careers",
+     "status": 200,
+     "final_url": "https://www.storyblok.com/jobs"
+    },
+    {
+     "url": "https://storyblok.com/jobs",
+     "status": 200,
+     "final_url": "https://www.storyblok.com/jobs"
+    },
+    {
+     "url": "https://storyblok.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.storyblok.com/company/careers"
+    },
+    {
+     "url": "https://storyblok.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.storyblok.com/about/careers"
+    },
+    {
+     "url": "https://storyblok.com/join-us",
+     "status": 404,
+     "final_url": "https://www.storyblok.com/join-us"
+    },
+    {
+     "url": "https://careers.storyblok.com/",
+     "status": null,
+     "error": "request to https://careers.storyblok.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:storyblok",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 11,
+     "with_provider_id": 11,
+     "naming_company": 11,
+     "naming_domain": 11,
+     "website": null,
+     "freshness": {
+      "total": 11,
+      "under_7_days": 0,
+      "under_30_days": 3,
+      "over_90_days": 4,
+      "over_180_days": 2,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 11 postings",
+      "guessed slug; 11 of 11 postings are on or mention the company's domain"
+     ],
+     "activation": [
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 11,
+      "engineering": 4,
+      "brazil_open": 0,
+      "brazil_unclear": 10,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 4,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        1
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        10
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 11,
+       "under_7_days": 0,
+       "under_30_days": 3,
+       "over_90_days": 4,
+       "over_180_days": 2,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Ghost",
+   "domain": "ghost.org",
+   "outcome": "board",
+   "careers_url": "https://careers.ghost.org/",
+   "other_ats": [
+    {
+     "provider": "homerun",
+     "url": "https://cdn.homerun.co/49753/a69c3c76-dbe9-4126-90a5-d77ed099f5c7.png"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://ghost.org/",
+     "status": 200
+    },
+    {
+     "url": "https://ghost.org/about/",
+     "status": 200
+    },
+    {
+     "url": "https://careers.ghost.org/",
+     "status": 200
+    },
+    {
+     "url": "https://ghost.org/careers",
+     "status": 200,
+     "final_url": "https://careers.ghost.org/"
+    },
+    {
+     "url": "https://ghost.org/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://ghost.org/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://ghost.org/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://ghost.org/join-us",
+     "status": 404
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:ghost",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 1,
+     "with_provider_id": 1,
+     "naming_company": 1,
+     "naming_domain": 0,
+     "website": "https://tryghost.ai",
+     "freshness": {
+      "total": 1,
+      "under_7_days": 0,
+      "under_30_days": 0,
+      "over_90_days": 1,
+      "over_180_days": 1,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "inconclusive",
+     "reasons": [
+      "adapter read 1 postings",
+      "guessed slug; nothing ties the board to the company's domain (1 of 1 postings name the company, which is not enough)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 1,
+      "engineering": 1,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        1
+       ]
+      ],
+      "freshness": {
+       "total": 1,
+       "under_7_days": 0,
+       "under_30_days": 0,
+       "over_90_days": 1,
+       "over_180_days": 1,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    },
+    {
+     "source": "greenhouse:ghost",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 6,
+     "with_provider_id": 6,
+     "naming_company": 6,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 6,
+      "under_7_days": 0,
+      "under_30_days": 3,
+      "over_90_days": 1,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "inconclusive",
+     "reasons": [
+      "adapter read 6 postings",
+      "guessed slug; nothing ties the board to the company's domain (6 of 6 postings name the company, which is not enough)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 6,
+      "engineering": 0,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        6
+       ]
+      ],
+      "freshness": {
+       "total": 6,
+       "under_7_days": 0,
+       "under_30_days": 3,
+       "over_90_days": 1,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Discourse",
+   "domain": "discourse.org",
+   "outcome": "custom_page",
+   "careers_url": "https://www.discourse.org/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://discourse.org/",
+     "status": 200,
+     "final_url": "https://www.discourse.org/"
+    },
+    {
+     "url": "https://www.discourse.org/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://discourse.org/careers",
+     "status": 404,
+     "final_url": "https://www.discourse.org/careers"
+    },
+    {
+     "url": "https://discourse.org/jobs",
+     "status": 200,
+     "final_url": "https://www.discourse.org/jobs"
+    },
+    {
+     "url": "https://discourse.org/company/careers",
+     "status": 404,
+     "final_url": "https://www.discourse.org/company/careers"
+    },
+    {
+     "url": "https://discourse.org/about/careers",
+     "status": 404,
+     "final_url": "https://www.discourse.org/about/careers"
+    },
+    {
+     "url": "https://discourse.org/join-us",
+     "status": 404,
+     "final_url": "https://www.discourse.org/join-us"
+    },
+    {
+     "url": "https://careers.discourse.org/",
+     "status": null,
+     "error": "request to https://careers.discourse.org/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Mattermost",
+   "domain": "mattermost.com",
+   "outcome": "board",
+   "careers_url": "https://mattermost.com/company/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://mattermost.com/",
+     "status": 200
+    },
+    {
+     "url": "https://mattermost.com/company/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:mattermost",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 14,
+     "with_provider_id": 14,
+     "naming_company": 14,
+     "naming_domain": 14,
+     "website": null,
+     "freshness": {
+      "total": 14,
+      "under_7_days": 0,
+      "under_30_days": 5,
+      "over_90_days": 3,
+      "over_180_days": 1,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 14 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (6 engineering of 14 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 14,
+      "engineering": 6,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        14
+       ]
+      ],
+      "freshness": {
+       "total": 14,
+       "under_7_days": 0,
+       "under_30_days": 5,
+       "over_90_days": 3,
+       "over_180_days": 1,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Nextcloud",
+   "domain": "nextcloud.com",
+   "outcome": "custom_page",
+   "careers_url": "https://nextcloud.com/jobs/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://nextcloud.com/",
+     "status": 200
+    },
+    {
+     "url": "https://nextcloud.com/jobs/",
+     "status": 200
+    },
+    {
+     "url": "https://nextcloud.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://nextcloud.com/jobs",
+     "status": 200,
+     "final_url": "https://nextcloud.com/jobs/"
+    },
+    {
+     "url": "https://nextcloud.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://nextcloud.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://nextcloud.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.nextcloud.com/",
+     "status": null,
+     "error": "request to https://careers.nextcloud.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Hasura",
+   "domain": "hasura.io",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://promptql.io/careers",
+   "other_ats": [
+    {
+     "provider": "gem",
+     "url": "https://jobs.gem.com/promptql"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://hasura.io/",
+     "status": 200
+    },
+    {
+     "url": "https://hasura.io/careers",
+     "status": 200,
+     "final_url": "https://promptql.io/careers"
+    },
+    {
+     "url": "https://hasura.io/jobs",
+     "status": 200,
+     "final_url": "https://promptql.io/careers"
+    },
+    {
+     "url": "https://hasura.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://hasura.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://hasura.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.hasura.io/",
+     "status": null,
+     "error": "request to https://careers.hasura.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.hasura.io/",
+     "status": null,
+     "error": "request to https://jobs.hasura.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Apollo",
+   "domain": "apollographql.com",
+   "outcome": "board",
+   "careers_url": "https://www.apollographql.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://apollographql.com/",
+     "status": 200,
+     "final_url": "https://www.apollographql.com/"
+    },
+    {
+     "url": "https://www.apollographql.com/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:apollo-graphql",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 6,
+     "with_provider_id": 6,
+     "naming_company": 6,
+     "naming_domain": 4,
+     "website": "https://www.apollographql.com/",
+     "freshness": {
+      "total": 6,
+      "under_7_days": 0,
+      "under_30_days": 2,
+      "over_90_days": 2,
+      "over_180_days": 1,
+      "over_365_days": 1,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 6 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (3 engineering of 6 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 6,
+      "engineering": 3,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        5
+       ],
+       [
+        "europe",
+        1
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 6,
+       "under_7_days": 0,
+       "under_30_days": 2,
+       "over_90_days": 2,
+       "over_180_days": 1,
+       "over_365_days": 1,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Trigger.dev",
+   "domain": "trigger.dev",
+   "outcome": "board",
+   "careers_url": "https://trigger.dev/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://trigger.dev/",
+     "status": 200
+    },
+    {
+     "url": "https://trigger.dev/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:triggerdev",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 6,
+     "with_provider_id": 6,
+     "naming_company": 6,
+     "naming_domain": 6,
+     "website": "https://trigger.dev",
+     "freshness": {
+      "total": 6,
+      "under_7_days": 0,
+      "under_30_days": 6,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 6 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 6,
+      "engineering": 3,
+      "brazil_open": 0,
+      "brazil_unclear": 2,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 2,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        1
+       ],
+       [
+        "europe",
+        4
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        1
+       ]
+      ],
+      "freshness": {
+       "total": 6,
+       "under_7_days": 0,
+       "under_30_days": 6,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Pipedream",
+   "domain": "pipedream.com",
+   "outcome": "custom_page",
+   "careers_url": "https://pipedream.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://pipedream.com/",
+     "status": 200
+    },
+    {
+     "url": "https://pipedream.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://pipedream.com/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://pipedream.com/company/careers",
+     "status": 200
+    },
+    {
+     "url": "https://pipedream.com/about/careers",
+     "status": 200,
+     "final_url": "https://pipedream.com/"
+    },
+    {
+     "url": "https://pipedream.com/join-us",
+     "status": 200
+    },
+    {
+     "url": "https://careers.pipedream.com/",
+     "status": null,
+     "error": "request to https://careers.pipedream.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.pipedream.com/",
+     "status": null,
+     "error": "request to https://jobs.pipedream.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Retool",
+   "domain": "retool.com",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://retool.com/careers",
+   "other_ats": [
+    {
+     "provider": "gem",
+     "url": "https://jobs.gem.com/retool/4003629005"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://retool.com/",
+     "status": 200
+    },
+    {
+     "url": "https://retool.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://retool.com/jobs",
+     "status": 200,
+     "final_url": "https://retool.com/careers"
+    },
+    {
+     "url": "https://retool.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://retool.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://retool.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.retool.com/",
+     "status": 200
+    },
+    {
+     "url": "https://jobs.retool.com/",
+     "status": 200
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Appsmith",
+   "domain": "appsmith.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.appsmith.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://appsmith.com/",
+     "status": 200,
+     "final_url": "https://www.appsmith.com/"
+    },
+    {
+     "url": "https://www.appsmith.com/case-study/heyjobs",
+     "status": 200,
+     "final_url": "https://www.appsmith.com/case-studies/heyjobs"
+    },
+    {
+     "url": "https://www.appsmith.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://appsmith.com/careers",
+     "status": 200,
+     "final_url": "https://www.appsmith.com/careers"
+    },
+    {
+     "url": "https://appsmith.com/jobs",
+     "status": 404,
+     "final_url": "https://www.appsmith.com/jobs"
+    },
+    {
+     "url": "https://appsmith.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.appsmith.com/company/careers"
+    },
+    {
+     "url": "https://appsmith.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.appsmith.com/about/careers"
+    },
+    {
+     "url": "https://appsmith.com/join-us",
+     "status": 404,
+     "final_url": "https://www.appsmith.com/join-us"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "ToolJet",
+   "domain": "tooljet.com",
+   "outcome": "unsupported_ats",
+   "careers_url": null,
+   "other_ats": [
+    {
+     "provider": "wellfound",
+     "url": "https://wellfound.com/company/tooljet/jobs"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://tooljet.com/",
+     "status": 200
+    },
+    {
+     "url": "https://tooljet.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://tooljet.com/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://tooljet.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://tooljet.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://tooljet.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.tooljet.com/",
+     "status": null,
+     "error": "request to https://careers.tooljet.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.tooljet.com/",
+     "status": null,
+     "error": "request to https://jobs.tooljet.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Stytch",
+   "domain": "stytch.com",
+   "outcome": "custom_page",
+   "careers_url": "https://jobs.twilio.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://stytch.com/",
+     "status": 200
+    },
+    {
+     "url": "https://stytch.com/careers",
+     "status": 200,
+     "final_url": "https://jobs.twilio.com/careers"
+    },
+    {
+     "url": "https://stytch.com/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://stytch.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://stytch.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://stytch.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.stytch.com/",
+     "status": 404
+    },
+    {
+     "url": "https://jobs.stytch.com/",
+     "status": null,
+     "error": "request to https://jobs.stytch.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "FusionAuth",
+   "domain": "fusionauth.io",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://fusionauth.io/careers",
+   "other_ats": [
+    {
+     "provider": "jazzhr",
+     "url": "https://fusionauth.applytojob.com/apply"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://fusionauth.io/",
+     "status": 200
+    },
+    {
+     "url": "https://fusionauth.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://fusionauth.io/jobs",
+     "status": 200,
+     "final_url": "https://fusionauth.io/careers"
+    },
+    {
+     "url": "https://fusionauth.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fusionauth.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://fusionauth.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.fusionauth.io/",
+     "status": null,
+     "error": "request to https://careers.fusionauth.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.fusionauth.io/",
+     "status": null,
+     "error": "request to https://jobs.fusionauth.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Ory",
+   "domain": "ory.sh",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://www.ory.com/jobs",
+   "other_ats": [
+    {
+     "provider": "personio",
+     "url": "https://ory.jobs.personio.de/"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://ory.sh/",
+     "status": 200,
+     "final_url": "https://www.ory.com/"
+    },
+    {
+     "url": "https://ory.sh/careers",
+     "status": 200,
+     "final_url": "https://www.ory.com/jobs"
+    },
+    {
+     "url": "https://ory.sh/jobs",
+     "status": 200,
+     "final_url": "https://www.ory.com/jobs"
+    },
+    {
+     "url": "https://ory.sh/company/careers",
+     "status": 404,
+     "final_url": "https://www.ory.com/company/careers"
+    },
+    {
+     "url": "https://ory.sh/about/careers",
+     "status": 404,
+     "final_url": "https://www.ory.com/about/careers"
+    },
+    {
+     "url": "https://ory.sh/join-us",
+     "status": 404,
+     "final_url": "https://www.ory.com/join-us"
+    },
+    {
+     "url": "https://careers.ory.sh/",
+     "status": null,
+     "error": "request to https://careers.ory.sh/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.ory.sh/",
+     "status": null,
+     "error": "request to https://jobs.ory.sh/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Novu",
+   "domain": "novu.co",
+   "outcome": "custom_page",
+   "careers_url": "https://novu.co/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://novu.co/",
+     "status": 200
+    },
+    {
+     "url": "https://novu.co/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://novu.co/careers",
+     "status": 200
+    },
+    {
+     "url": "https://novu.co/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://novu.co/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://novu.co/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://novu.co/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.novu.co/",
+     "status": null,
+     "error": "request to https://careers.novu.co/ failed: error sending request: client error (Connect): invalid peer certificate: NotValidForName"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Cal.com",
+   "domain": "cal.com",
+   "outcome": "custom_page",
+   "careers_url": "https://cal.com/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://cal.com/",
+     "status": 200
+    },
+    {
+     "url": "https://cal.com/scheduling/hiring-marketplaces",
+     "status": 200
+    },
+    {
+     "url": "https://cal.com/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://cal.com/careers",
+     "status": 200,
+     "final_url": "https://cal.com/careers/apply?user=careers"
+    },
+    {
+     "url": "https://cal.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://cal.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://cal.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.cal.com/",
+     "status": null,
+     "error": "request to https://careers.cal.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Dub",
+   "domain": "dub.co",
+   "outcome": "custom_page",
+   "careers_url": "https://dub.co/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://dub.co/",
+     "status": 200
+    },
+    {
+     "url": "https://dub.co/careers",
+     "status": 200
+    },
+    {
+     "url": "https://dub.co/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://dub.co/company/careers",
+     "status": 200
+    },
+    {
+     "url": "https://dub.co/about/careers",
+     "status": 200
+    },
+    {
+     "url": "https://dub.co/join-us",
+     "status": 200
+    },
+    {
+     "url": "https://careers.dub.co/",
+     "status": 404
+    },
+    {
+     "url": "https://jobs.dub.co/",
+     "status": 404
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Plausible",
+   "domain": "plausible.io",
+   "outcome": "no_careers_page",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://plausible.io/",
+     "status": 200
+    },
+    {
+     "url": "https://plausible.io/careers",
+     "status": 404
+    },
+    {
+     "url": "https://plausible.io/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://plausible.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://plausible.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://plausible.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.plausible.io/",
+     "status": null,
+     "error": "request to https://careers.plausible.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.plausible.io/",
+     "status": null,
+     "error": "request to https://jobs.plausible.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Hugging Face",
+   "domain": "huggingface.co",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://huggingface.co/careers",
+   "other_ats": [
+    {
+     "provider": "workable",
+     "url": "https://apply.workable.com/huggingface/"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://huggingface.co/",
+     "status": 200
+    },
+    {
+     "url": "https://huggingface.co/careers",
+     "status": 200,
+     "final_url": "https://apply.workable.com/huggingface"
+    },
+    {
+     "url": "https://huggingface.co/jobs",
+     "status": 200,
+     "final_url": "https://huggingface.co/login?next=%2Fsettings%2Fjobs"
+    },
+    {
+     "url": "https://huggingface.co/company/careers",
+     "status": 401
+    },
+    {
+     "url": "https://huggingface.co/about/careers",
+     "status": 401
+    },
+    {
+     "url": "https://huggingface.co/join-us",
+     "status": 200,
+     "final_url": "https://huggingface.co/JOIN-US"
+    },
+    {
+     "url": "https://careers.huggingface.co/",
+     "status": null,
+     "error": "request to https://careers.huggingface.co/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.huggingface.co/",
+     "status": null,
+     "error": "request to https://jobs.huggingface.co/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Replicate",
+   "domain": "replicate.com",
+   "outcome": "no_careers_page",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://replicate.com/",
+     "status": 200
+    },
+    {
+     "url": "https://replicate.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://replicate.com/careers",
+     "status": 200,
+     "final_url": "https://replicate.com/about"
+    },
+    {
+     "url": "https://replicate.com/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://replicate.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://replicate.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://replicate.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.replicate.com/",
+     "status": null,
+     "error": "request to https://careers.replicate.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Together AI",
+   "domain": "together.ai",
+   "outcome": "board",
+   "careers_url": "https://www.together.ai/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://together.ai/",
+     "status": 200,
+     "final_url": "https://www.together.ai/"
+    },
+    {
+     "url": "https://www.together.ai/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:togetherai",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 77,
+     "with_provider_id": 77,
+     "naming_company": 77,
+     "naming_domain": 77,
+     "website": null,
+     "freshness": {
+      "total": 77,
+      "under_7_days": 0,
+      "under_30_days": 22,
+      "over_90_days": 33,
+      "over_180_days": 21,
+      "over_365_days": 13,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 77 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 77,
+      "engineering": 46,
+      "brazil_open": 0,
+      "brazil_unclear": 5,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 2,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        3
+       ],
+       [
+        "unknown_scope",
+        7
+       ],
+       [
+        "office",
+        67
+       ]
+      ],
+      "freshness": {
+       "total": 77,
+       "under_7_days": 0,
+       "under_30_days": 22,
+       "over_90_days": 33,
+       "over_180_days": 21,
+       "over_365_days": 13,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Baseten",
+   "domain": "baseten.co",
+   "outcome": "board",
+   "careers_url": "https://www.baseten.co/resources/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://baseten.co/",
+     "status": 200,
+     "final_url": "https://www.baseten.co/"
+    },
+    {
+     "url": "https://www.baseten.co/resources/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:baseten",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 105,
+     "with_provider_id": 105,
+     "naming_company": 105,
+     "naming_domain": 105,
+     "website": "https://www.baseten.co/",
+     "freshness": {
+      "total": 105,
+      "under_7_days": 7,
+      "under_30_days": 26,
+      "over_90_days": 38,
+      "over_180_days": 27,
+      "over_365_days": 11,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 105 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 105,
+      "engineering": 39,
+      "brazil_open": 0,
+      "brazil_unclear": 11,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 7,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        11
+       ],
+       [
+        "office",
+        94
+       ]
+      ],
+      "freshness": {
+       "total": 105,
+       "under_7_days": 7,
+       "under_30_days": 26,
+       "over_90_days": 38,
+       "over_180_days": 27,
+       "over_365_days": 11,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Weights & Biases",
+   "domain": "wandb.ai",
+   "outcome": "custom_page",
+   "careers_url": "https://wandb.ai/site/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://wandb.ai/",
+     "status": 200,
+     "final_url": "https://forge.coreweave.com/wandb"
+    },
+    {
+     "url": "https://wandb.ai/careers",
+     "status": 200,
+     "final_url": "https://wandb.ai/site/careers/"
+    },
+    {
+     "url": "https://wandb.ai/jobs",
+     "status": 200,
+     "final_url": "https://forge.coreweave.com/wandb/jobs"
+    },
+    {
+     "url": "https://wandb.ai/company/careers",
+     "status": 200,
+     "final_url": "https://forge.coreweave.com/wandb/company/careers"
+    },
+    {
+     "url": "https://wandb.ai/about/careers",
+     "status": 200,
+     "final_url": "https://forge.coreweave.com/wandb/about/careers"
+    },
+    {
+     "url": "https://wandb.ai/join-us",
+     "status": 200,
+     "final_url": "https://forge.coreweave.com/wandb/join-us"
+    },
+    {
+     "url": "https://careers.wandb.ai/",
+     "status": null,
+     "error": "request to https://careers.wandb.ai/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.wandb.ai/",
+     "status": null,
+     "error": "request to https://jobs.wandb.ai/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "LangChain",
+   "domain": "langchain.com",
+   "outcome": "board",
+   "careers_url": "https://www.langchain.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://langchain.com/",
+     "status": 200,
+     "final_url": "https://www.langchain.com/"
+    },
+    {
+     "url": "https://www.langchain.com/careers",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:langchain",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 102,
+     "with_provider_id": 102,
+     "naming_company": 102,
+     "naming_domain": 2,
+     "website": "https://www.langchain.com/",
+     "freshness": {
+      "total": 102,
+      "under_7_days": 3,
+      "under_30_days": 26,
+      "over_90_days": 29,
+      "over_180_days": 9,
+      "over_365_days": 3,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 102 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (51 engineering of 102 open)"
+     ],
+     "yield": {
+      "open": 102,
+      "engineering": 51,
+      "brazil_open": 3,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        27
+       ],
+       [
+        "europe",
+        5
+       ],
+       [
+        "other",
+        2
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        67
+       ]
+      ],
+      "freshness": {
+       "total": 102,
+       "under_7_days": 3,
+       "under_30_days": 26,
+       "over_90_days": 29,
+       "over_180_days": 9,
+       "over_365_days": 3,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Pinecone",
+   "domain": "pinecone.io",
+   "outcome": "board",
+   "careers_url": "https://www.pinecone.io/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://pinecone.io/",
+     "status": 200,
+     "final_url": "https://www.pinecone.io/"
+    },
+    {
+     "url": "https://www.pinecone.io/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:pinecone",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 5,
+     "with_provider_id": 5,
+     "naming_company": 5,
+     "naming_domain": 5,
+     "website": "https://pinecone.io",
+     "freshness": {
+      "total": 5,
+      "under_7_days": 0,
+      "under_30_days": 1,
+      "over_90_days": 1,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 5 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (3 engineering of 5 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 5,
+      "engineering": 3,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        1
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        4
+       ]
+      ],
+      "freshness": {
+       "total": 5,
+       "under_7_days": 0,
+       "under_30_days": 1,
+       "over_90_days": 1,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Weaviate",
+   "domain": "weaviate.io",
+   "outcome": "board",
+   "careers_url": "https://weaviate.io/company/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://weaviate.io/",
+     "status": 200
+    },
+    {
+     "url": "https://weaviate.io/company/careers",
+     "status": 200
+    },
+    {
+     "url": "https://weaviate.io/careers",
+     "status": 404
+    },
+    {
+     "url": "https://weaviate.io/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://weaviate.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://weaviate.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.weaviate.io/",
+     "status": 200,
+     "final_url": "https://weaviate.io/company/careers"
+    },
+    {
+     "url": "https://jobs.weaviate.io/",
+     "status": null,
+     "error": "request to https://jobs.weaviate.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:weaviate",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 3,
+     "with_provider_id": 3,
+     "naming_company": 3,
+     "naming_domain": 3,
+     "website": "https://weaviate.io/",
+     "freshness": {
+      "total": 3,
+      "under_7_days": 0,
+      "under_30_days": 2,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 3 postings",
+      "guessed slug; the board names the company's website (https://weaviate.io/)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (0 engineering of 3 open)"
+     ],
+     "yield": {
+      "open": 3,
+      "engineering": 0,
+      "brazil_open": 1,
+      "brazil_unclear": 1,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        1
+       ],
+       [
+        "europe",
+        1
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 3,
+       "under_7_days": 0,
+       "under_30_days": 2,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Qdrant",
+   "domain": "qdrant.tech",
+   "outcome": "no_careers_page",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://qdrant.tech/",
+     "status": 200
+    },
+    {
+     "url": "https://qdrant.tech/careers",
+     "status": 404
+    },
+    {
+     "url": "https://qdrant.tech/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://qdrant.tech/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://qdrant.tech/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://qdrant.tech/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.qdrant.tech/",
+     "status": null,
+     "error": "request to https://careers.qdrant.tech/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.qdrant.tech/",
+     "status": null,
+     "error": "request to https://jobs.qdrant.tech/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "ElevenLabs",
+   "domain": "elevenlabs.io",
+   "outcome": "board",
+   "careers_url": "https://elevenlabs.io/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://elevenlabs.io/",
+     "status": 200
+    },
+    {
+     "url": "https://elevenlabs.io/careers",
+     "status": 200
+    },
+    {
+     "url": "https://elevenlabs.io/jobs",
+     "status": 404
+    },
+    {
+     "url": "https://elevenlabs.io/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://elevenlabs.io/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://elevenlabs.io/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.elevenlabs.io/",
+     "status": null,
+     "error": "request to https://careers.elevenlabs.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.elevenlabs.io/",
+     "status": null,
+     "error": "request to https://jobs.elevenlabs.io/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:elevenlabs",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 169,
+     "with_provider_id": 169,
+     "naming_company": 169,
+     "naming_domain": 3,
+     "website": "https://elevenlabs.io",
+     "freshness": {
+      "total": 169,
+      "under_7_days": 20,
+      "under_30_days": 33,
+      "over_90_days": 44,
+      "over_180_days": 19,
+      "over_365_days": 12,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 169 postings",
+      "guessed slug; the board names the company's website (https://elevenlabs.io)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 169,
+      "engineering": 24,
+      "brazil_open": 14,
+      "brazil_unclear": 1,
+      "engineering_brazil_open": 2,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        11
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        40
+       ],
+       [
+        "europe",
+        35
+       ],
+       [
+        "other",
+        56
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        26
+       ]
+      ],
+      "freshness": {
+       "total": 169,
+       "under_7_days": 20,
+       "under_30_days": 33,
+       "over_90_days": 44,
+       "over_180_days": 19,
+       "over_365_days": 12,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Doist",
+   "domain": "doist.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.todoist.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://doist.com/",
+     "status": 200,
+     "final_url": "https://www.todoist.com/about-us"
+    },
+    {
+     "url": "https://doist.com/careers",
+     "status": 200,
+     "final_url": "https://www.todoist.com/careers"
+    },
+    {
+     "url": "https://doist.com/jobs",
+     "status": 200,
+     "final_url": "https://www.todoist.com/careers"
+    },
+    {
+     "url": "https://doist.com/company/careers",
+     "status": 200,
+     "final_url": "https://www.todoist.com/about-us"
+    },
+    {
+     "url": "https://doist.com/about/careers",
+     "status": 200,
+     "final_url": "https://www.todoist.com/about-us"
+    },
+    {
+     "url": "https://doist.com/join-us",
+     "status": 200,
+     "final_url": "https://www.todoist.com/about-us"
+    },
+    {
+     "url": "https://careers.doist.com/",
+     "status": null,
+     "error": "request to https://careers.doist.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.doist.com/",
+     "status": null,
+     "error": "request to https://jobs.doist.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Buffer",
+   "domain": "buffer.com",
+   "outcome": "board",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://buffer.com/",
+     "status": 200
+    },
+    {
+     "url": "https://buffer.com/journey",
+     "status": 200
+    },
+    {
+     "url": "https://buffer.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://buffer.com/jobs",
+     "status": 200,
+     "final_url": "https://buffer.com/journey"
+    },
+    {
+     "url": "https://buffer.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://buffer.com/about/careers",
+     "status": 200,
+     "final_url": "https://buffer.com/about"
+    },
+    {
+     "url": "https://buffer.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.buffer.com/",
+     "status": null,
+     "error": "request to https://careers.buffer.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:buffer",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 1,
+     "with_provider_id": 1,
+     "naming_company": 1,
+     "naming_domain": 1,
+     "website": "https://buffer.com/",
+     "freshness": {
+      "total": 1,
+      "under_7_days": 0,
+      "under_30_days": 0,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 1 postings",
+      "guessed slug; the board names the company's website (https://buffer.com/)"
+     ],
+     "activation": [
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 1,
+      "engineering": 1,
+      "brazil_open": 0,
+      "brazil_unclear": 1,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 1,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 1,
+       "under_7_days": 0,
+       "under_30_days": 0,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Help Scout",
+   "domain": "helpscout.com",
+   "outcome": "board",
+   "careers_url": "https://www.helpscout.com/company/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://helpscout.com/",
+     "status": 200,
+     "final_url": "https://www.helpscout.com/"
+    },
+    {
+     "url": "https://www.helpscout.com/company/careers/",
+     "status": 200
+    }
+   ],
+   "boards": [
+    {
+     "source": "ashby:helpscout",
+     "evidence": "careers_page",
+     "matches_company": true,
+     "error": null,
+     "jobs": 7,
+     "with_provider_id": 7,
+     "naming_company": 7,
+     "naming_domain": 7,
+     "website": "https://helpscout.com",
+     "freshness": {
+      "total": 7,
+      "under_7_days": 0,
+      "under_30_days": 3,
+      "over_90_days": 0,
+      "over_180_days": 0,
+      "over_365_days": 0,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 7 postings",
+      "the company's site points at it (careers page)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (1 engineering of 7 open)",
+      "no posting open to Brazil or with a remote scope that includes it"
+     ],
+     "yield": {
+      "open": 7,
+      "engineering": 1,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        6
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        1
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 7,
+       "under_7_days": 0,
+       "under_30_days": 3,
+       "over_90_days": 0,
+       "over_180_days": 0,
+       "over_365_days": 0,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Toggl",
+   "domain": "toggl.com",
+   "outcome": "custom_page",
+   "careers_url": "https://toggl.com/jobs/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://toggl.com/",
+     "status": 200
+    },
+    {
+     "url": "https://toggl.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://toggl.com/jobs",
+     "status": 200,
+     "final_url": "https://toggl.com/jobs/"
+    },
+    {
+     "url": "https://toggl.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://toggl.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://toggl.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.toggl.com/",
+     "status": null,
+     "error": "request to https://careers.toggl.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.toggl.com/",
+     "status": 200,
+     "final_url": "https://toggl.com/jobs/"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Hotjar",
+   "domain": "hotjar.com",
+   "outcome": "board",
+   "careers_url": "https://contentsquare.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://hotjar.com/",
+     "status": 200,
+     "final_url": "https://contentsquare.com/hotjar/?utm_campaign=exp__hj_hp_redirection"
+    },
+    {
+     "url": "https://hotjar.com/careers",
+     "status": 200,
+     "final_url": "https://contentsquare.com/careers/"
+    },
+    {
+     "url": "https://hotjar.com/jobs",
+     "status": 404,
+     "final_url": "https://www.hotjar.com/jobs/"
+    },
+    {
+     "url": "https://hotjar.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.hotjar.com/company/careers/"
+    },
+    {
+     "url": "https://hotjar.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.hotjar.com/about/careers/"
+    },
+    {
+     "url": "https://hotjar.com/join-us",
+     "status": 404,
+     "final_url": "https://www.hotjar.com/join-us/"
+    },
+    {
+     "url": "https://careers.hotjar.com/",
+     "status": 200,
+     "final_url": "https://contentsquare.com/careers/"
+    },
+    {
+     "url": "https://jobs.hotjar.com/",
+     "status": null,
+     "error": "request to https://jobs.hotjar.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": [
+    {
+     "source": "lever:contentsquare",
+     "evidence": "careers_page",
+     "matches_company": false,
+     "error": null,
+     "jobs": 29,
+     "with_provider_id": 29,
+     "naming_company": 0,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 29,
+      "under_7_days": 4,
+      "under_30_days": 15,
+      "over_90_days": 8,
+      "over_180_days": 3,
+      "over_365_days": 1,
+      "unknown": 0
+     },
+     "verdict": "inconclusive",
+     "reasons": [
+      "adapter read 29 postings",
+      "the company's site points at it, but the slug doesn't match the company and nothing ties it to the company's domain (another company's board?)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 29,
+      "engineering": 2,
+      "brazil_open": 0,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        3
+       ],
+       [
+        "europe",
+        2
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        24
+       ]
+      ],
+      "freshness": {
+       "total": 29,
+       "under_7_days": 4,
+       "under_30_days": 15,
+       "over_90_days": 8,
+       "over_180_days": 3,
+       "over_365_days": 1,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Deel",
+   "domain": "deel.com",
+   "outcome": "custom_page",
+   "careers_url": "https://www.deel.com/careers/",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://deel.com/",
+     "status": 200,
+     "final_url": "https://www.deel.com/"
+    },
+    {
+     "url": "https://www.deel.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://www.deel.com/hiring/",
+     "status": 200
+    },
+    {
+     "url": "https://deel.com/careers",
+     "status": 200,
+     "final_url": "https://www.deel.com/careers/"
+    },
+    {
+     "url": "https://deel.com/jobs",
+     "status": 404,
+     "final_url": "https://www.deel.com/jobs/"
+    },
+    {
+     "url": "https://deel.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.deel.com/company/careers/"
+    },
+    {
+     "url": "https://deel.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.deel.com/about/careers/"
+    },
+    {
+     "url": "https://deel.com/join-us",
+     "status": 404,
+     "final_url": "https://www.deel.com/join-us/"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Toptal",
+   "domain": "toptal.com",
+   "outcome": "board",
+   "careers_url": "https://www.toptal.com/careers",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://toptal.com/",
+     "status": 200,
+     "final_url": "https://www.toptal.com/"
+    },
+    {
+     "url": "https://www.toptal.com/hire",
+     "status": 200
+    },
+    {
+     "url": "https://www.toptal.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://toptal.com/careers",
+     "status": 200,
+     "final_url": "https://www.toptal.com/careers"
+    },
+    {
+     "url": "https://toptal.com/jobs",
+     "status": 404,
+     "final_url": "https://www.toptal.com/jobs"
+    },
+    {
+     "url": "https://toptal.com/company/careers",
+     "status": 404,
+     "final_url": "https://www.toptal.com/company/careers"
+    },
+    {
+     "url": "https://toptal.com/about/careers",
+     "status": 404,
+     "final_url": "https://www.toptal.com/about/careers"
+    },
+    {
+     "url": "https://toptal.com/join-us",
+     "status": 200,
+     "final_url": "https://www.toptal.com/talent/apply?as=developer&partner=join-us&utm_source=event%7Cjoin-us2021&utm_medium=talent"
+    }
+   ],
+   "boards": [
+    {
+     "source": "lever:toptal",
+     "evidence": "slug_guess",
+     "matches_company": true,
+     "error": null,
+     "jobs": 32,
+     "with_provider_id": 32,
+     "naming_company": 32,
+     "naming_domain": 0,
+     "website": null,
+     "freshness": {
+      "total": 32,
+      "under_7_days": 1,
+      "under_30_days": 14,
+      "over_90_days": 10,
+      "over_180_days": 8,
+      "over_365_days": 6,
+      "unknown": 0
+     },
+     "verdict": "inconclusive",
+     "reasons": [
+      "adapter read 32 postings",
+      "guessed slug; nothing ties the board to the company's domain (32 of 32 postings name the company, which is not enough)"
+     ],
+     "activation": [],
+     "yield": {
+      "open": 32,
+      "engineering": 1,
+      "brazil_open": 10,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 1,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        1
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        9
+       ],
+       [
+        "north_america",
+        20
+       ],
+       [
+        "europe",
+        2
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        0
+       ]
+      ],
+      "freshness": {
+       "total": 32,
+       "under_7_days": 1,
+       "under_30_days": 14,
+       "over_90_days": 10,
+       "over_180_days": 8,
+       "over_365_days": 6,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "CloudWalk",
+   "domain": "cloudwalk.io",
+   "outcome": "custom_page",
+   "careers_url": "https://lp.cloudwalk.io/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://cloudwalk.io/",
+     "status": 200,
+     "final_url": "https://www.cloudwalk.io/"
+    },
+    {
+     "url": "https://www.cloudwalk.io/jobs",
+     "status": 200,
+     "final_url": "https://lp.cloudwalk.io/jobs"
+    },
+    {
+     "url": "https://cloudwalk.io/careers",
+     "status": 404,
+     "final_url": "https://www.cloudwalk.io/careers"
+    },
+    {
+     "url": "https://cloudwalk.io/jobs",
+     "status": 200,
+     "final_url": "https://lp.cloudwalk.io/jobs"
+    },
+    {
+     "url": "https://cloudwalk.io/company/careers",
+     "status": 404,
+     "final_url": "https://www.cloudwalk.io/company/careers"
+    },
+    {
+     "url": "https://cloudwalk.io/about/careers",
+     "status": 404,
+     "final_url": "https://www.cloudwalk.io/about/careers"
+    },
+    {
+     "url": "https://cloudwalk.io/join-us",
+     "status": 404,
+     "final_url": "https://www.cloudwalk.io/join-us"
+    },
+    {
+     "url": "https://careers.cloudwalk.io/",
+     "status": 200,
+     "final_url": "https://lp.cloudwalk.io/jobs"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "VTEX",
+   "domain": "vtex.com",
+   "outcome": "board",
+   "careers_url": null,
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://vtex.com/",
+     "status": 200,
+     "final_url": "https://www.vtex.com/en-us"
+    }
+   ],
+   "boards": [
+    {
+     "source": "greenhouse:vtex",
+     "evidence": "homepage",
+     "matches_company": true,
+     "error": null,
+     "jobs": 28,
+     "with_provider_id": 28,
+     "naming_company": 28,
+     "naming_domain": 22,
+     "website": null,
+     "freshness": {
+      "total": 28,
+      "under_7_days": 2,
+      "under_30_days": 3,
+      "over_90_days": 13,
+      "over_180_days": 7,
+      "over_365_days": 5,
+      "unknown": 0
+     },
+     "verdict": "validated",
+     "reasons": [
+      "adapter read 28 postings",
+      "the company's site points at it (homepage)"
+     ],
+     "activation": [
+      "no engineering posting open to Brazil (9 engineering of 28 open)"
+     ],
+     "yield": {
+      "open": 28,
+      "engineering": 9,
+      "brazil_open": 2,
+      "brazil_unclear": 0,
+      "engineering_brazil_open": 0,
+      "engineering_brazil_unclear": 0,
+      "geo": [
+       [
+        "global",
+        0
+       ],
+       [
+        "brazil",
+        0
+       ],
+       [
+        "americas",
+        0
+       ],
+       [
+        "north_america",
+        0
+       ],
+       [
+        "europe",
+        0
+       ],
+       [
+        "other",
+        0
+       ],
+       [
+        "unknown_scope",
+        0
+       ],
+       [
+        "office",
+        28
+       ]
+      ],
+      "freshness": {
+       "total": 28,
+       "under_7_days": 2,
+       "under_30_days": 3,
+       "over_90_days": 13,
+       "over_180_days": 7,
+       "over_365_days": 5,
+       "unknown": 0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "company": "Bitso",
+   "domain": "bitso.com",
+   "outcome": "unsupported_ats",
+   "careers_url": "https://bitso.com/jobs",
+   "other_ats": [
+    {
+     "provider": "bamboohr",
+     "url": "https://bitso.bamboohr.com/js/embed.js"
+    }
+   ],
+   "pages": [
+    {
+     "url": "https://bitso.com/",
+     "status": 200
+    },
+    {
+     "url": "https://bitso.com/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://bitso.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://bitso.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://bitso.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://bitso.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.bitso.com/",
+     "status": null,
+     "error": "request to https://careers.bitso.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    },
+    {
+     "url": "https://jobs.bitso.com/",
+     "status": null,
+     "error": "request to https://jobs.bitso.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  },
+  {
+   "company": "Hotmart",
+   "domain": "hotmart.com",
+   "outcome": "custom_page",
+   "careers_url": "https://hotmart.com/en/jobs",
+   "other_ats": [],
+   "pages": [
+    {
+     "url": "https://hotmart.com/",
+     "status": 200,
+     "final_url": "https://hotmart.com/en"
+    },
+    {
+     "url": "https://hotmart.com/en/jobs",
+     "status": 200
+    },
+    {
+     "url": "https://hotmart.com/careers",
+     "status": 404
+    },
+    {
+     "url": "https://hotmart.com/jobs",
+     "status": 200,
+     "final_url": "https://hotmart.com/pt-br/trabalhe-conosco"
+    },
+    {
+     "url": "https://hotmart.com/company/careers",
+     "status": 404
+    },
+    {
+     "url": "https://hotmart.com/about/careers",
+     "status": 404
+    },
+    {
+     "url": "https://hotmart.com/join-us",
+     "status": 404
+    },
+    {
+     "url": "https://careers.hotmart.com/",
+     "status": null,
+     "error": "request to https://careers.hotmart.com/ failed: error sending request: client error (Connect): dns error: error resolving DNS: failed to lookup address information: nodename nor servname provided, or not known"
+    }
+   ],
+   "boards": []
+  }
+ ]
+}
