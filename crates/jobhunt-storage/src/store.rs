@@ -46,6 +46,17 @@ impl std::fmt::Debug for WriteGuard {
     }
 }
 
+/// One stored scan of a source.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ScanRecord {
+    pub finished_at: DateTime<Utc>,
+    /// `listing`, `not_modified` or `failed`.
+    pub status: String,
+    /// Postings the source returned.
+    pub received: u64,
+    pub error: Option<String>,
+}
+
 /// One opportunity shown to the person in a shortlist.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Shown {
@@ -100,6 +111,13 @@ pub trait Store:
 
     /// When each source was last read successfully.
     async fn last_checked(&self) -> Result<HashMap<SourceKey, DateTime<Utc>>, StorageError>;
+
+    /// The latest `per_source` scans of every source, newest first (source
+    /// health).
+    async fn recent_scans(
+        &self,
+        per_source: usize,
+    ) -> Result<HashMap<SourceKey, Vec<ScanRecord>>, StorageError>;
 
     /// Counts for diagnostics.
     async fn stats(&self) -> Result<StoreStats, StorageError>;

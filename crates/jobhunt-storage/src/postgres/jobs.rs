@@ -30,6 +30,7 @@ use sqlx::{PgConnection, Postgres, QueryBuilder, Row};
 use tracing::debug;
 
 use super::{PgStore, corrupt, query_error};
+use crate::store::ScanRecord;
 
 /// Takes the transaction-scoped lock of a source: scans and single-job
 /// observations of the same source run one at a time.
@@ -757,6 +758,41 @@ impl PgStore {
             if let Ok(key) = SourceKey::new(&kind, &instance) {
                 out.insert(key, at);
             }
+        }
+        Ok(out)
+    }
+
+    /// The latest `per_source` scans of every source, newest first.
+    pub async fn recent_scans(
+        &self,
+        per_source: usize,
+    ) -> Result<HashMap<SourceKey, Vec<ScanRecord>>, StorageError> {
+        let rows = sqlx::query(
+            "SELECT source_kind, source_instance, finished_at, status, received, error FROM ( \
+               SELECT *, ROW_NUMBER() OVER ( \
+                 PARTITION BY source_kind, source_instance ORDER BY finished_at DESC, id DESC \
+               ) AS n FROM source_scans \
+             ) s WHERE n <= $1 ORDER BY source_kind, source_instance, n",
+        )
+        .bind(i64::try_from(per_source).unwrap_or(i64::MAX))
+        .fetch_all(self.pool())
+        .await
+        .map_err(query_error("loading recent source scans"))?;
+        let mut out: HashMap<SourceKey, Vec<ScanRecord>> = HashMap::new();
+        for row in rows {
+            let bad = |e| corrupt("<source_scans>", e);
+            let kind: String = row.try_get("source_kind").map_err(bad)?;
+            let instance: String = row.try_get("source_instance").map_err(bad)?;
+            let Ok(key) = SourceKey::new(&kind, &instance) else {
+                continue;
+            };
+            let received: i32 = row.try_get("received").map_err(bad)?;
+            out.entry(key).or_default().push(ScanRecord {
+                finished_at: row.try_get("finished_at").map_err(bad)?,
+                status: row.try_get("status").map_err(bad)?,
+                received: u64::try_from(received).unwrap_or(0),
+                error: row.try_get("error").map_err(bad)?,
+            });
         }
         Ok(out)
     }

@@ -25,6 +25,7 @@ mod rank_render;
 mod render;
 mod serve;
 mod show;
+mod sources;
 mod state;
 mod verify;
 
@@ -141,6 +142,9 @@ enum Command {
     Doctor,
     /// Show where Narrow keeps its files and the effective configuration.
     Config,
+    /// What each job board yields and how healthy it is; find the job
+    /// boards behind company careers pages.
+    Sources(sources::SourcesArgs),
     /// Sign in to Narrow Cloud (in the browser, or with --token).
     Login(cloud::LoginArgs),
     /// Sign out of Narrow Cloud on this machine (--everywhere: on every
@@ -269,6 +273,7 @@ async fn run(cli: Cli) -> anyhow::Result<ExitCode> {
         Command::Mcp => mcp(&loaded).await,
         Command::Doctor => doctor::run(&loaded).await,
         Command::Config => show_config(&loaded),
+        Command::Sources(args) => sources::run(args, &loaded).await,
         Command::Login(args) => cloud::login(args, &loaded).await,
         Command::Logout(args) => cloud::logout(args).await,
         Command::Account(args) => cloud::account(args, &loaded).await,
