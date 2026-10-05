@@ -1030,6 +1030,36 @@ mod tests {
         assert!(c.app.config.sources.specs().unwrap().len() >= 10);
     }
 
+    /// The registry (`deploy/sources.toml`) records the production sources
+    /// as active, and nothing else: activating a board means adding it to
+    /// both files.
+    #[test]
+    fn the_source_registry_matches_the_cloud_source_list() {
+        let deploy = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../deploy");
+        let c = config(&[(
+            "JOBHUNT_CONFIG",
+            deploy.join("cloud.toml").to_str().unwrap_or_default(),
+        )]);
+        let mut configured: Vec<String> = c
+            .app
+            .config
+            .sources
+            .specs()
+            .unwrap()
+            .iter()
+            .map(|s| s.key().to_string())
+            .collect();
+        let text = std::fs::read_to_string(deploy.join("sources.toml")).unwrap();
+        let registry = jobhunt_sources::registry::SourceRegistry::parse(&text).unwrap();
+        let mut active: Vec<String> = registry
+            .configured()
+            .map(|e| e.source.to_string())
+            .collect();
+        configured.sort();
+        active.sort();
+        assert_eq!(active, configured);
+    }
+
     #[test]
     fn email_and_notification_settings() {
         let base = [

@@ -1,0 +1,1053 @@
+# Narrow's source registry (BRU-343; docs/source-discovery-and-career-pages.md).
+#
+# What is known about each job board beyond "it is configured": company,
+# careers page, provenance and lifecycle status
+# (candidate → validated → active; active → unhealthy; disabled; rejected).
+# deploy/cloud.toml stays the list production reads: the entries marked
+# active here are exactly its sources (a test checks it), so activating a
+# board means adding it to both files.
+#
+# Scan-time facts (last scan, last success, open jobs, last error, health)
+# are derived from the database by `narrow sources report --registry
+# deploy/sources.toml`, never stored here. Reasons record the measurement
+# behind each status; `narrow sources discover --registry` adds and updates
+# candidate, validated and rejected entries and never overwrites active,
+# unhealthy or disabled ones.
+
+[[sources]]
+source = "ashby:linear"
+company = "Linear"
+domain = "linear.app"
+careers_url = "https://linear.app/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 30 open, 9 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 4 of 30 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (9 engineering of 30 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:ramp"
+company = "Ramp"
+domain = "ramp.com"
+careers_url = "https://ramp.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 158 open, 39 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 5 of 158 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (39 engineering of 158 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:notion"
+company = "Notion"
+domain = "notion.com"
+careers_url = "https://www.notion.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 136 open, 40 engineering, 0 open to Brazil (0 engineering) and 1 unclear (0 engineering), main geo office, 2 of 136 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (40 engineering of 136 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:supabase"
+company = "Supabase"
+domain = "supabase.com"
+careers_url = "https://supabase.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 48 open, 20 engineering, 38 open to Brazil (19 engineering) and 5 unclear (0 engineering), main geo global, 5 of 48 dated over a year old", "meets the activation bar"]
+
+[[sources]]
+source = "ashby:posthog"
+company = "PostHog"
+domain = "posthog.com"
+careers_url = "https://posthog.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 8 open, 5 engineering, 0 open to Brazil (0 engineering) and 3 unclear (2 engineering), main geo unknown_scope, 0 of 8 dated over a year old", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "yc:posthog"
+company = "PostHog"
+domain = "posthog.com"
+careers_url = "https://posthog.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 6 open, 5 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 0 dated over a year old, 6 undated", "below the activation bar today: no engineering posting open to Brazil (5 engineering of 6 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+notes = "Lists the same 6 roles as ashby:posthog with no shared ATS id or URL, so they stay 6 duplicate opportunities (look-alikes); it adds no unique posting. Candidate for disabling (BRU-343)."
+
+[[sources]]
+source = "ashby:modal"
+company = "Modal"
+domain = "modal.com"
+careers_url = "https://modal.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 37 open, 20 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 6 of 37 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (20 engineering of 37 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:replit"
+company = "Replit"
+domain = "replit.com"
+careers_url = "https://replit.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 72 open, 32 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 72 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (32 engineering of 72 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:vanta"
+company = "Vanta"
+domain = "vanta.com"
+careers_url = "https://www.vanta.com/company/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 83 open, 32 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 1 of 83 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (32 engineering of 83 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:anthropic"
+company = "Anthropic"
+domain = "anthropic.com"
+careers_url = "https://www.anthropic.com/careers/jobs"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 640 open, 274 engineering, 0 open to Brazil (0 engineering) and 14 unclear (12 engineering), main geo office, 27 of 640 dated over a year old", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:stripe"
+company = "Stripe"
+domain = "stripe.com"
+careers_url = "https://stripe.com/br/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 716 open, 182 engineering, 1 open to Brazil (0 engineering) and 17 unclear (0 engineering), main geo office, 23 of 716 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (182 engineering of 716 open)"]
+
+[[sources]]
+source = "greenhouse:figma"
+company = "Figma"
+domain = "figma.com"
+careers_url = "https://www.figma.com/careers/"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 162 open, 35 engineering, 0 open to Brazil (0 engineering) and 1 unclear (0 engineering), main geo unknown_scope, 19 of 162 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (35 engineering of 162 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:airbnb"
+company = "Airbnb"
+domain = "airbnb.com"
+careers_url = "https://careers.airbnb.com/"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 152 open, 49 engineering, 10 open to Brazil (6 engineering) and 1 unclear (1 engineering), main geo north_america, 4 of 152 dated over a year old", "meets the activation bar"]
+
+[[sources]]
+source = "lever:spotify"
+company = "Spotify"
+domain = "spotify.com"
+careers_url = "https://www.spotify.com/br-pt/careers/"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 82 open, 43 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 82 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (43 engineering of 82 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "lever:palantir"
+company = "Palantir"
+domain = "palantir.com"
+careers_url = "https://www.palantir.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 319 open, 125 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 182 of 319 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (125 engineering of 319 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "lever:zoox"
+company = "Zoox"
+domain = "zoox.com"
+careers_url = "https://zoox.com/careers"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 234 open, 144 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 20 of 234 dated over a year old", "below the activation bar today: no engineering posting open to Brazil (144 engineering of 234 open)", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "yc:doordash"
+company = "DoorDash"
+domain = "doordash.com"
+status = "active"
+since = "2026-09-25"
+provenance = "initial production list (9e7af02)"
+reasons = ["2026-10-05: 9 open, 9 engineering, 0 open to Brazil (0 engineering) and 2 unclear (2 engineering), main geo office, 0 of 0 dated over a year old, 9 undated", "below the activation bar today: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:railway"
+company = "Railway"
+domain = "railway.com"
+careers_url = "https://railway.com/careers"
+status = "active"
+since = "2026-10-05"
+provenance = "BRU-325 board set; re-measured and activated in BRU-343"
+reasons = ["2026-10-05: 8 open, 8 engineering, 0 open to Brazil (0 engineering) and 8 unclear (8 engineering), main geo global, 4 of 8 dated over a year old", "meets the activation bar"]
+notes = "BRU-325: 3 of the 5 practical strong yes. Evergreen postings (4 of 8 over a year old) kept on purpose."
+
+[[sources]]
+source = "ashby:oyster"
+company = "Oyster"
+domain = "oysterhr.com"
+careers_url = "https://www.oysterhr.com/careers"
+status = "active"
+since = "2026-10-05"
+provenance = "BRU-325 board set; re-measured and activated in BRU-343"
+reasons = ["2026-10-05: 26 open, 2 engineering, 10 open to Brazil (1 engineering) and 8 unclear (0 engineering), main geo europe, 1 of 26 dated over a year old", "meets the activation bar"]
+
+[[sources]]
+source = "ashby:zapier"
+company = "Zapier"
+domain = "zapier.com"
+careers_url = "https://zapier.com/jobs"
+status = "active"
+since = "2026-10-05"
+provenance = "BRU-325 board set; re-measured and activated in BRU-343"
+reasons = ["2026-10-05: 11 open, 1 engineering, 3 open to Brazil (1 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 11 dated over a year old", "meets the activation bar"]
+
+[[sources]]
+source = "greenhouse:wikimedia"
+company = "Wikimedia"
+domain = "wikimediafoundation.org"
+careers_url = "https://wikimediafoundation.org/jobs/"
+status = "active"
+since = "2026-10-05"
+provenance = "BRU-325 board set; re-measured and activated in BRU-343"
+reasons = ["2026-10-05: 11 open, 5 engineering, 10 open to Brazil (5 engineering) and 1 unclear (0 engineering), main geo unknown_scope, 0 of 11 dated over a year old", "meets the activation bar"]
+
+[[sources]]
+source = "ashby:airbyte"
+company = "Airbyte"
+domain = "airbyte.com"
+careers_url = "https://airbyte.com/company/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 12 open, 6 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 12 dated over a year old", "not yet: no engineering posting open to Brazil (6 engineering of 12 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:attio"
+company = "Attio"
+domain = "attio.com"
+careers_url = "https://attio.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 36 open, 18 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 36 dated over a year old", "not yet: no engineering posting open to Brazil (18 engineering of 36 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:axiom"
+company = "Axiom"
+domain = "axiom.co"
+careers_url = "https://axiom.co/company"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 3 open, 2 engineering, 0 open to Brazil (0 engineering) and 3 unclear (2 engineering), main geo unknown_scope, 2 of 3 dated over a year old", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:clerk"
+company = "Clerk"
+domain = "clerk.com"
+careers_url = "https://clerk.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 2 open, 1 engineering, 0 open to Brazil (0 engineering) and 1 unclear (1 engineering), main geo other, 0 of 2 dated over a year old", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:clickhouse"
+company = "ClickHouse"
+domain = "clickhouse.com"
+careers_url = "https://clickhouse.com/pt-BR/company/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 195 open, 107 engineering, 5 open to Brazil (2 engineering) and 2 unclear (0 engineering), main geo office, 2 of 195 dated over a year old", "ready to activate"]
+
+[[sources]]
+source = "ashby:convex-dev"
+company = "Convex"
+domain = "convex.dev"
+careers_url = "https://www.convex.dev/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 13 open, 9 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 2 of 13 dated over a year old", "not yet: no engineering posting open to Brazil (9 engineering of 13 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:duck-duck-go"
+company = "DuckDuckGo"
+domain = "duckduckgo.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 11 open, 5 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo brazil, 0 of 11 dated over a year old", "not yet: no engineering posting open to Brazil (5 engineering of 11 open)"]
+
+[[sources]]
+source = "ashby:knock"
+company = "Knock"
+domain = "knock.app"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 3 open, 3 engineering, 0 open to Brazil (0 engineering) and 3 unclear (3 engineering), main geo north_america, 0 of 3 dated over a year old", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:mintlify"
+company = "Mintlify"
+domain = "mintlify.com"
+careers_url = "https://www.mintlify.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 13 open, 8 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 13 dated over a year old", "not yet: no engineering posting open to Brazil (8 engineering of 13 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:n8n"
+company = "n8n"
+domain = "n8n.io"
+careers_url = "https://n8n.io/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 35 open, 4 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo europe, 0 of 35 dated over a year old", "not yet: no engineering posting open to Brazil (4 engineering of 35 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:neon"
+company = "Neon"
+domain = "neon.com"
+careers_url = "https://www.databricks.com/company/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 4 open, 2 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 4 dated over a year old", "not yet: no engineering posting open to Brazil (2 engineering of 4 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:paddle"
+company = "Paddle"
+domain = "paddle.com"
+careers_url = "https://www.paddle.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 23 open, 7 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo europe, 0 of 23 dated over a year old", "not yet: no engineering posting open to Brazil (7 engineering of 23 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:plain"
+company = "Plain"
+domain = "plain.com"
+careers_url = "https://www.plain.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 4 open, 3 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 4 dated over a year old", "not yet: no engineering posting open to Brazil (3 engineering of 4 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:render"
+company = "Render"
+domain = "render.com"
+careers_url = "https://render.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 40 open, 23 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 3 of 40 dated over a year old", "not yet: no engineering posting open to Brazil (23 engineering of 40 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:resend"
+company = "Resend"
+domain = "resend.com"
+careers_url = "https://resend.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 10 open, 9 engineering, 2 open to Brazil (1 engineering) and 0 unclear (0 engineering), main geo americas, 0 of 10 dated over a year old", "ready to activate"]
+
+[[sources]]
+source = "ashby:sanity"
+company = "Sanity"
+domain = "sanity.io"
+careers_url = "https://www.sanity.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 35 open, 10 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 35 dated over a year old", "not yet: no engineering posting open to Brazil (10 engineering of 35 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:sentry"
+company = "Sentry"
+domain = "sentry.io"
+careers_url = "https://sentry.io/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 43 open, 25 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 43 dated over a year old", "not yet: no engineering posting open to Brazil (25 engineering of 43 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:socket"
+company = "Socket"
+domain = "socket.dev"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 26 open, 5 engineering, 0 open to Brazil (0 engineering) and 2 unclear (2 engineering), main geo north_america, 1 of 26 dated over a year old", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+notes = "BRU-325 found one practical strong yes (Senior Platform Engineer). On 2026-10-05 that posting is still listed but publishes no geographic scope; 17 of 26 postings are US-only."
+
+[[sources]]
+source = "ashby:temporal"
+company = "Temporal"
+domain = "temporal.io"
+careers_url = "https://temporal.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 64 open, 27 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 3 of 64 dated over a year old", "not yet: no engineering posting open to Brazil (27 engineering of 64 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:warp"
+company = "Warp"
+domain = "warp.dev"
+careers_url = "https://www.warp.dev/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 22 open, 6 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 22 dated over a year old", "not yet: no engineering posting open to Brazil (6 engineering of 22 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:workos"
+company = "WorkOS"
+domain = "workos.com"
+careers_url = "https://workos.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 31 open, 17 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 31 dated over a year old", "not yet: no engineering posting open to Brazil (17 engineering of 31 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:inngest"
+company = "Inngest"
+domain = "inngest.com"
+status = "rejected"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 1 open, 1 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 1 of 1 dated over a year old", "every dated posting is over a year old"]
+notes = "Its only posting is over a year old."
+
+[[sources]]
+source = "greenhouse:automatticcareers"
+company = "Automattic"
+domain = "automattic.com"
+careers_url = "https://automattic.com/work-with-us/jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 14 open, 3 engineering, 2 open to Brazil (0 engineering) and 7 unclear (2 engineering), main geo unknown_scope, 7 of 14 dated over a year old", "ready to activate"]
+
+[[sources]]
+source = "greenhouse:chainguard"
+company = "Chainguard"
+domain = "chainguard.dev"
+careers_url = "https://www.chainguard.dev/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 82 open, 20 engineering, 0 open to Brazil (0 engineering) and 1 unclear (0 engineering), main geo north_america, 2 of 82 dated over a year old", "not yet: no engineering posting open to Brazil (20 engineering of 82 open)"]
+
+[[sources]]
+source = "greenhouse:circleci"
+company = "CircleCI"
+domain = "circleci.com"
+careers_url = "https://circleci.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 12 open, 3 engineering, 0 open to Brazil (0 engineering) and 1 unclear (0 engineering), main geo office, 1 of 12 dated over a year old", "not yet: no engineering posting open to Brazil (3 engineering of 12 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:cockroachlabs"
+company = "Cockroach Labs"
+domain = "cockroachlabs.com"
+careers_url = "https://www.cockroachlabs.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 19 open, 2 engineering, 1 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 1 of 19 dated over a year old", "not yet: no engineering posting open to Brazil (2 engineering of 19 open)"]
+
+[[sources]]
+source = "greenhouse:gitlab"
+company = "GitLab"
+domain = "gitlab.com"
+careers_url = "https://about.gitlab.com/jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 211 open, 94 engineering, 1 open to Brazil (1 engineering) and 4 unclear (1 engineering), main geo north_america, 0 of 211 dated over a year old", "ready to activate"]
+
+[[sources]]
+source = "greenhouse:grafanalabs"
+company = "Grafana Labs"
+domain = "grafana.com"
+careers_url = "https://grafana.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 121 open, 52 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo europe, 0 of 121 dated over a year old", "not yet: no engineering posting open to Brazil (52 engineering of 121 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:honeycomb"
+company = "Honeycomb"
+domain = "honeycomb.io"
+careers_url = "https://www.honeycomb.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 20 open, 7 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 5 of 20 dated over a year old", "not yet: no engineering posting open to Brazil (7 engineering of 20 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:launchdarkly"
+company = "LaunchDarkly"
+domain = "launchdarkly.com"
+careers_url = "https://launchdarkly.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 59 open, 22 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 59 dated over a year old", "not yet: no engineering posting open to Brazil (22 engineering of 59 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:planetscale"
+company = "PlanetScale"
+domain = "planetscale.com"
+careers_url = "https://planetscale.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 12 open, 5 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo other, 3 of 12 dated over a year old", "not yet: no engineering posting open to Brazil (5 engineering of 12 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:remotecom"
+company = "Remote"
+domain = "remote.com"
+careers_url = "https://remote.com/jobs"
+status = "rejected"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 0 open, 0 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo -, 0 of 0 dated over a year old", "lists no postings"]
+notes = "Remote.com now lists its own jobs on Personio (its /jobs page also links other companies' boards)."
+
+[[sources]]
+source = "greenhouse:sourcegraph91"
+company = "Sourcegraph"
+domain = "sourcegraph.com"
+careers_url = "https://sourcegraph.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 10 open, 2 engineering, 2 open to Brazil (2 engineering) and 5 unclear (0 engineering), main geo unknown_scope, 1 of 10 dated over a year old", "ready to activate"]
+
+[[sources]]
+source = "greenhouse:tailscale"
+company = "Tailscale"
+domain = "tailscale.com"
+careers_url = "https://tailscale.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 54 open, 20 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo north_america, 0 of 54 dated over a year old", "not yet: no engineering posting open to Brazil (20 engineering of 54 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:vercel"
+company = "Vercel"
+domain = "vercel.com"
+careers_url = "https://vercel.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 85 open, 30 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 9 of 85 dated over a year old", "not yet: no engineering posting open to Brazil (30 engineering of 85 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:canonical"
+company = "Canonical"
+domain = "canonical.com"
+careers_url = "https://canonical.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 310 open, 153 engineering, 130 open to Brazil (71 engineering) and 47 unclear (17 engineering), main geo americas, 234 of 310 dated over a year old", "not yet: 75% of dated postings are over a year old"]
+notes = "BRU-325: 60% of the wide universe's new actionable jobs; evergreen-heavy and a company shape the dogfood persona avoids."
+
+[[sources]]
+source = "greenhouse:ebanx"
+company = "EBANX"
+domain = "ebanx.com"
+careers_url = "https://www.ebanx.com/en/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 34 open, 6 engineering, 0 open to Brazil (0 engineering) and 2 unclear (0 engineering), main geo office, 0 of 34 dated over a year old", "not yet: no engineering posting open to Brazil (6 engineering of 34 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:wildlifestudios"
+company = "Wildlife Studios"
+domain = "wildlifestudios.com"
+careers_url = "https://careers.wildlifestudios.com/"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 13 open, 5 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 13 dated over a year old", "not yet: no engineering posting open to Brazil (5 engineering of 13 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "lever:pipedrive"
+company = "Pipedrive"
+domain = "pipedrive.com"
+careers_url = "https://www.pipedrive.com/en/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "BRU-323/BRU-325 board set (chosen by hand); re-measured in BRU-343"
+reasons = ["2026-10-05: 8 open, 8 engineering, 0 open to Brazil (0 engineering) and 0 unclear (0 engineering), main geo office, 0 of 8 dated over a year old", "not yet: no engineering posting open to Brazil (8 engineering of 8 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+# Company discovery, 2026-10-05: docs/source-discovery/candidates-2026-10-05.txt
+
+[[sources]]
+source = "greenhouse:netlify"
+company = "Netlify"
+domain = "netlify.com"
+careers_url = "https://www.netlify.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 5 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (0 engineering of 5 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "lever:fly"
+company = "Fly.io"
+domain = "fly.io"
+careers_url = "https://fly.io/jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 1 posting", "guessed slug; 1 of 1 postings are on or mention the company's domain", "not yet: no engineering posting open to Brazil (0 engineering of 1 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:deno"
+company = "Deno"
+domain = "deno.com"
+careers_url = "https://deno.com/jobs"
+status = "rejected"
+since = "2026-10-05"
+provenance = "company discovery (redirect)"
+reasons = ['adapter failed: Ashby job board "deno" was not found (https://api.ashbyhq.com/posting-api/job-board/deno?includeCompensation=true responded with HTTP 404)']
+
+[[sources]]
+source = "greenhouse:elastic"
+company = "Elastic"
+domain = "elastic.co"
+careers_url = "https://www.elastic.co/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 396 postings", "guessed slug; 396 of 396 postings are on or mention the company's domain", "ready to activate"]
+
+[[sources]]
+source = "greenhouse:mongodb"
+company = "MongoDB"
+domain = "mongodb.com"
+careers_url = "https://www.mongodb.com/company/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 390 postings", "guessed slug; 390 of 390 postings are on or mention the company's domain", "not yet: no engineering posting open to Brazil (123 engineering of 390 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:redis"
+company = "Redis"
+domain = "redis.io"
+careers_url = "https://redis.io/company/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 32 postings", "guessed slug; the board names the company's website (https://redis.io/)", "not yet: no engineering posting open to Brazil (3 engineering of 32 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:yugabyte"
+company = "Yugabyte"
+domain = "yugabyte.com"
+careers_url = "https://www.yugabyte.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 16 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (5 engineering of 16 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:singlestore"
+company = "SingleStore"
+domain = "singlestore.com"
+careers_url = "https://www.singlestore.com/careers/jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 40 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (26 engineering of 40 open)"]
+
+[[sources]]
+source = "ashby:prefect"
+company = "Prefect"
+domain = "prefect.io"
+careers_url = "https://www.prefect.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 9 postings", "guessed slug; the board names the company's website (https://prefect.io/)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:fivetran"
+company = "Fivetran"
+domain = "fivetran.com"
+careers_url = "https://www.fivetran.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 181 postings", "guessed slug; 181 of 181 postings are on or mention the company's domain", "ready to activate"]
+
+[[sources]]
+source = "ashby:hex"
+company = "Hex"
+domain = "hex.tech"
+careers_url = "https://hex.tech/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 36 postings", "guessed slug; the board names the company's website (https://hex.tech/)", "not yet: no engineering posting open to Brazil (14 engineering of 36 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "lever:metabase"
+company = "Metabase"
+domain = "metabase.com"
+careers_url = "https://www.metabase.com/jobs"
+status = "candidate"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 18 postings", "guessed slug; nothing ties the board to the company's domain (18 of 18 postings name the company, which is not enough)"]
+
+[[sources]]
+source = "greenhouse:mixpanel"
+company = "Mixpanel"
+domain = "mixpanel.com"
+careers_url = "https://mixpanel.com/jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 63 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (19 engineering of 63 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:amplitude"
+company = "Amplitude"
+domain = "amplitude.com"
+careers_url = "https://amplitude.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 36 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (15 engineering of 36 open)"]
+
+[[sources]]
+source = "ashby:incident"
+company = "incident.io"
+domain = "incident.io"
+careers_url = "https://incident.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 35 postings", "guessed slug; the board names the company's website (https://incident.io/)", "not yet: no engineering posting open to Brazil (8 engineering of 35 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:pagerduty"
+company = "PagerDuty"
+domain = "pagerduty.com"
+careers_url = "https://careers.pagerduty.com/home"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 53 postings", "guessed slug; 53 of 53 postings are on or mention the company's domain", "not yet: no engineering posting open to Brazil (4 engineering of 53 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:goteleport"
+company = "Teleport"
+domain = "goteleport.com"
+careers_url = "https://goteleport.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 24 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (11 engineering of 24 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:1password"
+company = "1Password"
+domain = "1password.com"
+careers_url = "https://1password.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 69 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (22 engineering of 69 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:bitwarden"
+company = "Bitwarden"
+domain = "bitwarden.com"
+careers_url = "https://bitwarden.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 34 postings", "guessed slug; 34 of 34 postings are on or mention the company's domain", "not yet: no engineering posting open to Brazil (19 engineering of 34 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:snyk"
+company = "Snyk"
+domain = "snyk.io"
+careers_url = "https://snyk.io/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 13 postings", "guessed slug; the board names the company's website (https://snyk.io/)", "not yet: no engineering posting open to Brazil (2 engineering of 13 open)"]
+
+[[sources]]
+source = "ashby:semgrep"
+company = "Semgrep"
+domain = "semgrep.dev"
+careers_url = "https://semgrep.dev/about/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 13 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (7 engineering of 13 open)"]
+
+[[sources]]
+source = "ashby:docker"
+company = "Docker"
+domain = "docker.com"
+careers_url = "https://www.docker.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 61 postings", "guessed slug; the board names the company's website (https://docker.com)", "not yet: no engineering posting open to Brazil (22 engineering of 61 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:coder"
+company = "Coder"
+domain = "coder.com"
+careers_url = "https://coder.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 27 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (8 engineering of 27 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:zed"
+company = "Zed"
+domain = "zed.dev"
+careers_url = "https://zed.dev/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 1 posting", "guessed slug; the board names the company's website (https://zed.dev)", "not yet: no engineering posting open to Brazil (0 engineering of 1 open)"]
+
+[[sources]]
+source = "ashby:tldraw"
+company = "tldraw"
+domain = "tldraw.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 1 posting", "guessed slug; the board names the company's website (https://www.tldraw.com/)", "not yet: no engineering posting open to Brazil (1 engineering of 1 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:webflow"
+company = "Webflow"
+domain = "webflow.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 25 postings", "guessed slug; 1 of 25 postings are on or mention the company's domain", "not yet: no engineering posting open to Brazil (8 engineering of 25 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:contentful"
+company = "Contentful"
+domain = "contentful.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 20 postings", "guessed slug; 20 of 20 postings are on or mention the company's domain", "not yet: no engineering posting open to Brazil (9 engineering of 20 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:storyblok"
+company = "Storyblok"
+domain = "storyblok.com"
+careers_url = "https://www.storyblok.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 11 postings", "guessed slug; 11 of 11 postings are on or mention the company's domain", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:ghost"
+company = "Ghost"
+domain = "ghost.org"
+careers_url = "https://careers.ghost.org/"
+status = "candidate"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 1 posting", "guessed slug; nothing ties the board to the company's domain (1 of 1 postings name the company, which is not enough)"]
+
+[[sources]]
+source = "greenhouse:ghost"
+company = "Ghost"
+domain = "ghost.org"
+careers_url = "https://careers.ghost.org/"
+status = "candidate"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 6 postings", "guessed slug; nothing ties the board to the company's domain (6 of 6 postings name the company, which is not enough)"]
+
+[[sources]]
+source = "greenhouse:mattermost"
+company = "Mattermost"
+domain = "mattermost.com"
+careers_url = "https://mattermost.com/company/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 14 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (6 engineering of 14 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:apollo-graphql"
+company = "Apollo"
+domain = "apollographql.com"
+careers_url = "https://www.apollographql.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (3 engineering of 6 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:triggerdev"
+company = "Trigger.dev"
+domain = "trigger.dev"
+careers_url = "https://trigger.dev/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "greenhouse:togetherai"
+company = "Together AI"
+domain = "together.ai"
+careers_url = "https://www.together.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 77 postings", "the company's site points at it (careers page)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:baseten"
+company = "Baseten"
+domain = "baseten.co"
+careers_url = "https://www.baseten.co/resources/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 105 postings", "the company's site points at it (careers page)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:langchain"
+company = "LangChain"
+domain = "langchain.com"
+careers_url = "https://www.langchain.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 102 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (51 engineering of 102 open)"]
+
+[[sources]]
+source = "ashby:pinecone"
+company = "Pinecone"
+domain = "pinecone.io"
+careers_url = "https://www.pinecone.io/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 5 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (3 engineering of 5 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:weaviate"
+company = "Weaviate"
+domain = "weaviate.io"
+careers_url = "https://weaviate.io/company/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 3 postings", "guessed slug; the board names the company's website (https://weaviate.io/)", "not yet: no engineering posting open to Brazil (0 engineering of 3 open)"]
+
+[[sources]]
+source = "ashby:elevenlabs"
+company = "ElevenLabs"
+domain = "elevenlabs.io"
+careers_url = "https://elevenlabs.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 169 postings", "guessed slug; the board names the company's website (https://elevenlabs.io)", "ready to activate"]
+
+[[sources]]
+source = "ashby:buffer"
+company = "Buffer"
+domain = "buffer.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 1 posting", "guessed slug; the board names the company's website (https://buffer.com/)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "ashby:helpscout"
+company = "Help Scout"
+domain = "helpscout.com"
+careers_url = "https://www.helpscout.com/company/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 7 postings", "the company's site points at it (careers page)", "not yet: no engineering posting open to Brazil (1 engineering of 7 open)", "not yet: no posting open to Brazil or with a remote scope that includes it"]
+
+[[sources]]
+source = "lever:contentsquare"
+company = "Hotjar"
+domain = "hotjar.com"
+careers_url = "https://contentsquare.com/careers/"
+status = "candidate"
+since = "2026-10-05"
+provenance = "company discovery (careers_page)"
+reasons = ["adapter read 29 postings", "the company's site points at it, but the slug doesn't match the company and nothing ties it to the company's domain (another company's board?)"]
+
+[[sources]]
+source = "lever:toptal"
+company = "Toptal"
+domain = "toptal.com"
+careers_url = "https://www.toptal.com/careers"
+status = "candidate"
+since = "2026-10-05"
+provenance = "company discovery (slug_guess)"
+reasons = ["adapter read 32 postings", "guessed slug; nothing ties the board to the company's domain (32 of 32 postings name the company, which is not enough)"]
+
+[[sources]]
+source = "greenhouse:vtex"
+company = "VTEX"
+domain = "vtex.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "company discovery (homepage)"
+reasons = ["adapter read 28 postings", "the company's site points at it (homepage)", "not yet: no engineering posting open to Brazil (9 engineering of 28 open)"]

@@ -58,6 +58,7 @@ pub mod profile_sources;
 pub mod profile_view;
 pub mod resolve;
 pub mod shortlist;
+pub mod sources;
 pub mod state;
 pub mod sync;
 pub mod taste_profile;

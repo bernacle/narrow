@@ -12,8 +12,11 @@
 //! | `lever`      | site name       | `api.lever.co/v0/postings/<site>`                  |
 //! | `yc`         | company slug    | `www.ycombinator.com/companies/<slug>/jobs`        |
 //!
-//! [`careers`] maps company careers pages onto these boards, and
-//! [`verify`] checks single jobs against the same sources. [`github`] is
+//! [`careers`] maps company careers pages onto these boards, [`company`]
+//! finds a company's careers page and board from its domain, [`registry`]
+//! keeps what is known about each board (status, provenance, health and
+//! yield rules), and [`verify`] checks single jobs against the same
+//! sources. [`github`] is
 //! not a job source: it reads a public GitHub account as evidence for the
 //! profile, over the same HTTP client.
 //!
@@ -30,10 +33,12 @@
 pub mod ashby;
 pub mod careers;
 mod common;
+pub mod company;
 pub mod github;
 pub mod greenhouse;
 pub mod http;
 pub mod lever;
+pub mod registry;
 pub mod verify;
 pub mod yc;
 
