@@ -178,8 +178,9 @@ enum DiscoveryCommand {
         select: Select,
         #[arg(long, value_enum, default_value = "config")]
         format: ExportFormat,
-        /// With `--format registry`: add the entries to this registry file
-        /// (entries recording a person's decision are kept as they are).
+        /// With `--format registry`: append the boards this registry file
+        /// doesn't list yet (existing entries and comments are kept as
+        /// they are).
         #[arg(long, value_name = "FILE")]
         registry: Option<PathBuf>,
     },
@@ -622,19 +623,38 @@ pub async fn run(args: DiscoveryArgs, loaded: &LoadedConfig) -> anyhow::Result<E
                         .collect();
                     match registry {
                         Some(path) => {
-                            let mut current = if path.exists() {
-                                read_registry(&path)?
+                            // Append boards the registry doesn't list yet;
+                            // existing entries (and the file's comments) are
+                            // a record of earlier decisions and stay as they
+                            // are.
+                            let text = if path.exists() {
+                                std::fs::read_to_string(&path)
+                                    .with_context(|| format!("could not read {}", path.display()))?
                             } else {
-                                SourceRegistry::default()
+                                String::new()
                             };
-                            let changed = entries
+                            let current = SourceRegistry::parse(&text)?;
+                            let added: Vec<RegistryEntry> = entries
                                 .into_iter()
-                                .filter(|e| current.upsert(e.clone()))
-                                .count();
-                            std::fs::write(&path, current.to_toml())
-                                .with_context(|| format!("could not write {}", path.display()))?;
+                                .filter(|e| current.get(&e.source).is_none())
+                                .collect();
+                            if !added.is_empty() {
+                                let block = SourceRegistry {
+                                    sources: added.clone(),
+                                }
+                                .to_toml();
+                                let text = format!(
+                                    "{}\n# Broad discovery (BRU-360), {date}: docs/broad-discovery-experiment-2026-10-05.md\n\n{block}",
+                                    text.trim_end()
+                                );
+                                SourceRegistry::parse(&text)?;
+                                std::fs::write(&path, text).with_context(|| {
+                                    format!("could not write {}", path.display())
+                                })?;
+                            }
                             eprintln!(
-                                "{changed} registry entries added or updated in {}",
+                                "{} registry entries added to {}",
+                                added.len(),
                                 path.display()
                             );
                             Ok(ExitCode::SUCCESS)

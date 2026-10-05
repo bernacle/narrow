@@ -357,6 +357,14 @@ pub struct BoardResult {
     /// Unmet activation conditions, for a validated board.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub activation: Vec<String>,
+    /// Whether ownership was looked into (the company's site read), as
+    /// opposed to skipped or timed out.
+    #[serde(default = "yes")]
+    pub ownership_checked: bool,
+}
+
+fn yes() -> bool {
+    true
 }
 
 /// What a job's board says about the job now.
@@ -733,7 +741,7 @@ impl DiscoveryStore {
         c.source = ats::source_key(board);
         c.hint(lead.company.as_deref(), domain, None);
         let mut sighting = lead.sighting.clone();
-        sighting.derived = derived;
+        sighting.derived |= derived;
         let new_sighting = c.sight(sighting);
         Added {
             key,
@@ -753,7 +761,7 @@ impl DiscoveryStore {
         c.domain_hint = Some(domain.to_owned());
         c.hint(lead.company.as_deref(), None, None);
         let mut sighting = lead.sighting.clone();
-        sighting.derived = derived;
+        sighting.derived |= derived;
         let new_sighting = c.sight(sighting);
         Added {
             key,

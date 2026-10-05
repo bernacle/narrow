@@ -91,6 +91,10 @@ impl ResolveSummary {
     }
 }
 
+/// Longest an ownership check (a few pages of the company's site) may
+/// take; past it the board stays inconclusive.
+const OWNERSHIP_DEADLINE: std::time::Duration = std::time::Duration::from_secs(60);
+
 fn status_of(verdict: Verdict) -> CandidateStatus {
     match verdict {
         Verdict::Validated => CandidateStatus::Validated,
@@ -280,24 +284,24 @@ impl LocalApp {
                 (i, independent, c.and_then(|c| c.company_hint.clone()))
             })
             .collect();
-        let owners: Vec<(usize, resolve::OwnershipResult)> = {
+        let owners: Vec<(usize, Option<resolve::OwnershipResult>)> = {
             let measured = &measured;
             futures::stream::iter(inputs)
                 .map(|(i, independent, company)| {
                     let http = &http;
                     async move {
                         let read = &measured[i].1;
+                        let check = resolve::establish_ownership(
+                            http,
+                            read,
+                            &independent,
+                            company.as_deref(),
+                            settings,
+                            now,
+                        );
                         (
                             i,
-                            resolve::establish_ownership(
-                                http,
-                                read,
-                                &independent,
-                                company.as_deref(),
-                                settings,
-                                now,
-                            )
-                            .await,
+                            tokio::time::timeout(OWNERSHIP_DEADLINE, check).await.ok(),
                         )
                     }
                 })
@@ -306,7 +310,15 @@ impl LocalApp {
                 .await
         };
         summary.ownership_checked = owners.len();
-        let mut owners: HashMap<usize, resolve::OwnershipResult> = owners.into_iter().collect();
+        let timed_out: std::collections::HashSet<usize> = owners
+            .iter()
+            .filter(|(_, o)| o.is_none())
+            .map(|(i, _)| *i)
+            .collect();
+        let mut owners: HashMap<usize, resolve::OwnershipResult> = owners
+            .into_iter()
+            .filter_map(|(i, o)| Some((i, o?)))
+            .collect();
 
         for (i, (key, read, y, records)) in measured.drain(..).enumerate() {
             // Settle every discovered job on the board.
@@ -408,6 +420,7 @@ impl LocalApp {
                             validation: o.validation,
                             yields: Some(y),
                             activation,
+                            ownership_checked: true,
                         },
                         status,
                     )
@@ -416,7 +429,12 @@ impl LocalApp {
                     let mut validation = resolve::validate_read(&read);
                     if validation.verdict != Verdict::Rejected {
                         validation.verdict = Verdict::Inconclusive;
-                        validation.reasons.push(if read.listing == "ok" {
+                        validation.reasons.push(if timed_out.contains(&i) {
+                            format!(
+                                "ownership check timed out after {}s",
+                                OWNERSHIP_DEADLINE.as_secs()
+                            )
+                        } else if read.listing == "ok" {
                             "ownership not checked (no engineering posting open to Brazil)".into()
                         } else {
                             format!("board could not be read ({})", read.listing)
@@ -437,6 +455,7 @@ impl LocalApp {
                             validation,
                             yields: (read.listing == "ok").then_some(y),
                             activation: Vec::new(),
+                            ownership_checked: false,
                         },
                         status,
                     )
@@ -628,6 +647,7 @@ impl LocalApp {
                     validation: assessment.validation.clone(),
                     yields: Some(assessment.yields.clone()),
                     activation: assessment.activation.clone(),
+                    ownership_checked: true,
                 };
                 self.file_board(
                     store,
@@ -679,6 +699,7 @@ impl LocalApp {
                         },
                         validation,
                         yields: Some(y),
+                        ownership_checked: true,
                     };
                     self.file_board(
                         store,

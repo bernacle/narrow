@@ -263,8 +263,10 @@ impl<'a> Facts<'a> {
                         && b.listing == "ok"
                     {
                         row.boards_read += 1;
-                        boards_ok += 1;
-                        first_party += usize::from(b.ownership.established());
+                        if b.ownership_checked {
+                            boards_ok += 1;
+                            first_party += usize::from(b.ownership.established());
+                        }
                     }
                     match c.status {
                         CandidateStatus::Validated => {
@@ -702,6 +704,7 @@ mod tests {
                 ..SourceYield::default()
             }),
             activation: vec![],
+            ownership_checked: true,
         });
         let gone = store.get_mut("board:lever:gone").unwrap();
         gone.status = CandidateStatus::Rejected;
