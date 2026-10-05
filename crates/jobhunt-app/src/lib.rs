@@ -43,6 +43,7 @@
 //! results are returned. That keeps an MCP server's stdout for the
 //! protocol alone.
 
+pub mod broad_discovery;
 pub mod config;
 pub mod context;
 pub mod controls;

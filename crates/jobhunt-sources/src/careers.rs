@@ -241,7 +241,7 @@ const OTHER_ATS_HOSTS: &[(&str, &str)] = &[
 
 /// Every absolute `http(s)` URL in `html` (links, scripts, inline JSON),
 /// with its byte offset, in page order.
-fn absolute_urls(html: &str) -> Vec<(usize, Url)> {
+pub(crate) fn absolute_urls(html: &str) -> Vec<(usize, Url)> {
     let mut out = Vec::new();
     for scheme in ["https://", "http://"] {
         let mut from = 0;

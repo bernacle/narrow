@@ -1051,3 +1051,1313 @@ status = "validated"
 since = "2026-10-05"
 provenance = "company discovery (homepage)"
 reasons = ["adapter read 28 postings", "the company's site points at it (homepage)", "not yet: no engineering posting open to Brazil (9 engineering of 28 open)"]
+# Broad discovery (BRU-360), 2026-10-05: docs/broad-discovery-experiment-2026-10-05.md
+
+[[sources]]
+source = "ashby:sardine"
+company = "Sardine.ai"
+domain = "sardine.ai"
+careers_url = "https://www.sardine.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, company_directory:yc-oss, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 37 postings", "guessed slug; the board names the company's website (https://www.sardine.ai/)", "2026-10-05: 37 open, 10 engineering, 1 engineering open to Brazil and 7 unclear"]
+
+[[sources]]
+source = "ashby:canals"
+company = "canals"
+domain = "canals.ai"
+careers_url = "https://www.canals.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 30 postings", "the company's site points at it (careers page)", "2026-10-05: 30 open, 13 engineering, 7 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:oscilar"
+company = "Oscilar.com"
+domain = "oscilar.com"
+careers_url = "https://oscilar.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 22 postings", "the company's site points at it (careers page)", "2026-10-05: 22 open, 9 engineering, 3 engineering open to Brazil and 3 unclear"]
+
+[[sources]]
+source = "ashby:nango"
+company = "Nango"
+domain = "nango.dev"
+careers_url = "https://nango.dev/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 9 postings", "the company's site points at it (careers page)", "2026-10-05: 9 open, 5 engineering, 5 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:hopper"
+company = "Hopper"
+domain = "hopper.com"
+careers_url = "https://hopper.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 19 postings", "guessed slug; the board names the company's website (https://www.hopper.com/)", "2026-10-05: 19 open, 7 engineering, 7 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:qed-ai"
+company = "qed-ai"
+domain = "qed.ai"
+careers_url = "https://about.qed.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 30 postings", "the company's site points at it (careers page)", "2026-10-05: 30 open, 11 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:truelogic"
+company = "Truelogic"
+domain = "truelogicsoftware.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 163 postings", "the company's site points at it (homepage)", "2026-10-05: 163 open, 94 engineering, 67 engineering open to Brazil and 24 unclear"]
+
+[[sources]]
+source = "ashby:withclutch"
+company = "withclutch"
+domain = "withclutch.com"
+careers_url = "https://withclutch.com/company/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 14 postings", "the company's site points at it (careers page)", "2026-10-05: 14 open, 2 engineering, 1 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:tessera-labs"
+company = "tessera-labs"
+domain = "tesseralabs.ai"
+careers_url = "https://tesseralabs.ai/about"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 20 postings", "the company's site points at it (careers page)", "2026-10-05: 20 open, 12 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:menlosecurity"
+company = "menlosecurity"
+domain = "menlosecurity.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 28 postings", "the company's site points at it (homepage)", "2026-10-05: 28 open, 12 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:onhires"
+company = "onhires"
+domain = "onhires.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 44 postings", "the company's site points at it (homepage)", "2026-10-05: 44 open, 13 engineering, 3 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:whippy"
+company = "whippy"
+domain = "whippy.ai"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 10 postings", "the company's site points at it (homepage)", "2026-10-05: 10 open, 3 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:g2i"
+company = "g2i"
+domain = "g2i.co"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 23 postings", "the company's site points at it (homepage)", "2026-10-05: 23 open, 23 engineering, 1 engineering open to Brazil and 9 unclear"]
+
+[[sources]]
+source = "greenhouse:twilio"
+company = "Twilio"
+domain = "twilio.com"
+careers_url = "https://www.twilio.com/en-us/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, company_directory:yc-oss, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 128 postings", "guessed slug; 128 of 128 postings are on or mention the company's domain", "2026-10-05: 128 open, 50 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "greenhouse:customerio"
+company = "Customer.io"
+domain = "customer.io"
+careers_url = "https://customer.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 27 postings", "the company's site points at it (careers page)", "2026-10-05: 27 open, 12 engineering, 12 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:coinbase"
+company = "Coinbase"
+domain = "coinbase.com"
+careers_url = "https://www.coinbase.com/pt-br/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 226 postings", "guessed slug; 226 of 226 postings are on or mention the company's domain", "2026-10-05: 226 open, 94 engineering, 0 engineering open to Brazil and 5 unclear"]
+
+[[sources]]
+source = "greenhouse:alpaca"
+company = "Alpaca"
+domain = "alpaca.markets"
+careers_url = "https://alpaca.markets/hiring"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 70 postings", "the company's site points at it (careers page)", "2026-10-05: 70 open, 30 engineering, 13 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:securityscorecard"
+company = "SecurityScorecard"
+domain = "securityscorecard.com"
+careers_url = "https://securityscorecard.com/company/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 11 postings", "the company's site points at it (careers page)", "2026-10-05: 11 open, 5 engineering, 1 engineering open to Brazil and 2 unclear"]
+
+[[sources]]
+source = "greenhouse:engine"
+company = "Engine"
+domain = "engine.com"
+careers_url = "https://engine.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 78 postings", "the company's site points at it (careers page)", "2026-10-05: 78 open, 10 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:techstars57"
+company = "Techstars"
+domain = "techstars.com"
+careers_url = "https://www.techstars.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 2 postings", "the company's site points at it (careers page)", "2026-10-05: 2 open, 1 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "greenhouse:platformscience"
+company = "Platform Science"
+domain = "platformscience.com"
+careers_url = "https://www.platformscience.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 24 postings", "the company's site points at it (careers page)", "2026-10-05: 24 open, 12 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:telnyx54"
+company = "Telnyx"
+domain = "telnyx.com"
+careers_url = "https://telnyx.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 52 postings", "the company's site points at it (careers page)", "2026-10-05: 52 open, 5 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:caylent"
+company = "Caylent"
+domain = "caylent.com"
+careers_url = "https://caylent.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 77 postings", "the company's site points at it (careers page)", "2026-10-05: 77 open, 54 engineering, 14 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:inflect"
+company = "Inflect"
+domain = "inflect.com"
+careers_url = "https://inflect.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "2026-10-05: 6 open, 5 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:sezzle"
+company = "Sezzle"
+domain = "sezzle.com"
+careers_url = "https://sezzle.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 238 postings", "the company's site points at it (careers page)", "2026-10-05: 238 open, 128 engineering, 104 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:itd"
+company = "itD Tech"
+domain = "itdtech.com"
+careers_url = "https://itdtech.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 23 postings", "the company's site points at it (homepage); the slug differs from the company's name, but 23 of 23 postings are on or mention the company's domain", "2026-10-05: 23 open, 5 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "greenhouse:charterup"
+company = "CharterUP"
+domain = "charterup.com"
+careers_url = "https://www.charterup.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 12 postings", "the company's site points at it (careers page)", "2026-10-05: 12 open, 4 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:extremenetworks"
+company = "Extreme Networks"
+domain = "extremenetworks.com"
+careers_url = "https://www.extremenetworks.com/about-extreme-networks/career"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech; ownership verified"
+reasons = ["adapter read 135 postings", "the company's site points at it (careers page)", "2026-10-05: 135 open, 77 engineering, 0 engineering open to Brazil and 11 unclear"]
+
+[[sources]]
+source = "lever:xsolla"
+company = "Xsolla"
+domain = "xsolla.com"
+careers_url = "https://xsolla.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 178 postings", "the company's site points at it (careers page)", "2026-10-05: 178 open, 78 engineering, 0 engineering open to Brazil and 2 unclear"]
+
+[[sources]]
+source = "lever:tryjeeves"
+company = "Jeeves"
+domain = "tryjeeves.com"
+careers_url = "https://www.tryjeeves.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 67 postings", "the company's site points at it (careers page)", "2026-10-05: 67 open, 8 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:vrchat"
+company = "VRChat"
+domain = "vrchat.com"
+careers_url = "https://hello.vrchat.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 13 postings", "the company's site points at it (careers page)", "2026-10-05: 13 open, 5 engineering, 5 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:zencore"
+company = "Zencore"
+domain = "zencore.dev"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 23 postings", "the company's site points at it (homepage)", "2026-10-05: 23 open, 12 engineering, 2 engineering open to Brazil and 3 unclear"]
+
+[[sources]]
+source = "lever:bluelightconsulting"
+company = "Bluelight Consulting"
+domain = "bluelight.co"
+careers_url = "https://bluelight.co/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 1523 postings", "the company's site points at it (careers page)", "2026-10-05: 1523 open, 1319 engineering, 156 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:loadsmart"
+company = "Loadsmart"
+domain = "loadsmart.com"
+careers_url = "https://loadsmart.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 15 postings", "the company's site points at it (careers page)", "2026-10-05: 15 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:megaport"
+company = "Megaport"
+domain = "megaport.com"
+careers_url = "https://www.megaport.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 46 postings", "the company's site points at it (careers page)", "2026-10-05: 46 open, 16 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:podium81"
+company = "Podium"
+domain = "podium.com"
+careers_url = "https://www.podium.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 59 postings", "the company's site points at it (careers page)", "2026-10-05: 59 open, 19 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:apolloio"
+company = "Apollo.io"
+domain = "apollo.io"
+careers_url = "https://www.apollo.io/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 48 postings", "guessed slug; 48 of 48 postings are on or mention the company's domain", "2026-10-05: 48 open, 10 engineering, 10 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:eqvilentjobs"
+company = "Eqvilent"
+domain = "eqvilent.com"
+careers_url = "https://www.eqvilent.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 24 postings", "the company's site points at it (careers page)", "2026-10-05: 24 open, 8 engineering, 7 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:aleph"
+company = "Aleph"
+domain = "getaleph.com"
+careers_url = "https://www.getaleph.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 13 postings", "the company's site points at it (careers page)", "2026-10-05: 13 open, 5 engineering, 5 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:camunda"
+company = "camunda"
+domain = "camunda.com"
+careers_url = "https://camunda.com/careers/all-jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 39 postings", "the company's site points at it (careers page)", "2026-10-05: 39 open, 13 engineering, 8 engineering open to Brazil and 5 unclear"]
+
+[[sources]]
+source = "greenhouse:coderoad"
+company = "CodeRoad"
+domain = "coderoad.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 24 postings", "the company's site points at it (homepage)", "2026-10-05: 24 open, 19 engineering, 18 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "lever:weloglobal"
+company = "Welo Global"
+domain = "weloglobal.com"
+careers_url = "https://www.weloglobal.com/company/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 519 postings", "the company's site points at it (careers page)", "2026-10-05: 519 open, 176 engineering, 1 engineering open to Brazil and 4 unclear"]
+
+[[sources]]
+source = "greenhouse:turing"
+company = "Turing"
+domain = "turing.com"
+careers_url = "https://work.turing.com/jobs?interest=software-engineer"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech; ownership corroborated"
+reasons = ["adapter read 30 postings", "guessed slug; 30 of 30 postings are on or mention the company's domain", "2026-10-05: 30 open, 16 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:deuna"
+company = "DEUNA"
+domain = "deuna.com"
+careers_url = "https://www.deuna.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search; ownership verified"
+reasons = ["adapter read 16 postings", "the company's site points at it (careers page)", "2026-10-05: 16 open, 4 engineering, 1 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "greenhouse:agencywithin"
+company = "WITHIN"
+domain = "within.co"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 60 postings", "the company's site points at it (homepage)", "2026-10-05: 60 open, 3 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:aestudio"
+company = "AEStudio"
+domain = "ae.studio"
+careers_url = "https://ae.studio/join-us"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (careers page)", "2026-10-05: 7 open, 4 engineering, 4 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:commure"
+company = "Athelas"
+domain = "athelas.com"
+careers_url = "https://www.athelas.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 76 postings", "the company's site points at it (careers page); the slug differs from the company's name, but 3 of 76 postings are on or mention the company's domain", "2026-10-05: 76 open, 33 engineering, 4 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:fal-ai"
+company = "fal-ai"
+domain = "fal.ai"
+careers_url = "https://fal.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 40 postings", "the company's site points at it (careers page)", "2026-10-05: 40 open, 16 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:river"
+company = "River"
+domain = "river.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 8 postings", "the company's site points at it (homepage)", "2026-10-05: 8 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:luxor"
+company = "Tenki Cloud by Luxor Tech"
+domain = "luxor.tech"
+careers_url = "https://luxor.tech/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 3 postings", "the company's site points at it (careers page)", "2026-10-05: 3 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:oneleet"
+company = "Oneleet"
+domain = "oneleet.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 12 postings", "the company's site points at it (homepage)", "2026-10-05: 12 open, 7 engineering, 7 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:bugcrowd"
+company = "Careers | Bugcrowd"
+domain = "bugcrowd.com"
+careers_url = "https://www.bugcrowd.com/about/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 8 postings", "the company's site points at it (careers page)", "2026-10-05: 8 open, 4 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:datacamp"
+company = "DataCamp"
+domain = "datacamp.com"
+careers_url = "https://www.datacamp.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 36 postings", "the company's site points at it (careers page)", "2026-10-05: 36 open, 13 engineering, 0 engineering open to Brazil and 4 unclear"]
+
+[[sources]]
+source = "greenhouse:datadog"
+company = "Datadog"
+domain = "datadoghq.com"
+careers_url = "https://careers.datadoghq.com/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 442 postings", "guessed slug; 442 of 442 postings are on or mention the company's domain", "2026-10-05: 442 open, 83 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "greenhouse:enveritas"
+company = "Enveritas"
+domain = "enveritas.org"
+careers_url = "https://www.enveritas.org/get-involved/work-with-us/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 5 postings", "the company's site points at it (careers page)", "2026-10-05: 5 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:able"
+company = "Able"
+domain = "able.co"
+careers_url = "https://able.co/team"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (careers page)", "2026-10-05: 7 open, 4 engineering, 4 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:b12"
+company = "page_title"
+domain = "b12.io"
+careers_url = "https://www.b12.io/about"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 4 postings", "the company's site points at it (careers page)", "2026-10-05: 4 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:brave"
+company = "Brave"
+domain = "brave.com"
+careers_url = "https://brave.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 12 postings", "the company's site points at it (careers page)", "2026-10-05: 12 open, 4 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "greenhouse:counterpart"
+company = "Counterpart"
+domain = "yourcounterpart.com"
+careers_url = "https://yourcounterpart.com/about"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 10 postings", "the company's site points at it (careers page)", "2026-10-05: 10 open, 6 engineering, 1 engineering open to Brazil and 2 unclear"]
+
+[[sources]]
+source = "greenhouse:donorbox"
+company = "Donorbox"
+domain = "donorbox.org"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (homepage)", "2026-10-05: 7 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:doximity"
+company = "Doximity"
+domain = "doximity.com"
+careers_url = "https://www.doximity.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 16 postings", "guessed slug; 1 of 16 postings are on or mention the company's domain", "2026-10-05: 16 open, 4 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:andotechnologies"
+company = "andotechnologies"
+domain = "ando.work"
+careers_url = "https://www.ando.work/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 2 postings", "the company's site points at it (careers page)", "2026-10-05: 2 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:andromeda"
+company = "andromeda"
+domain = "andromeda.ai"
+careers_url = "https://andromeda.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 16 postings", "the company's site points at it (careers page)", "2026-10-05: 16 open, 6 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:bespokelabs"
+company = "bespokelabs"
+domain = "bespokelabs.ai"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 4 postings", "the company's site points at it (homepage)", "2026-10-05: 4 open, 2 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:bunch"
+company = "bunch"
+domain = "bunch.capital"
+careers_url = "https://www.bunch.capital/company"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 35 postings", "the company's site points at it (careers page)", "2026-10-05: 35 open, 12 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:capchase"
+company = "Capchase"
+domain = "capchase.com"
+careers_url = "https://www.capchase.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "2026-10-05: 6 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:cas"
+company = "cas"
+domain = "cloudaccountantstaffing.com"
+careers_url = "https://www.cloudaccountantstaffing.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 13 postings", "the company's site points at it (careers page); the slug differs from the company's name, but the board names the company's website (https://cloudaccountantstaffing.com)", "2026-10-05: 13 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:centreforeffectivealtruism"
+company = "centreforeffectivealtruism"
+domain = "centreforeffectivealtruism.org"
+careers_url = "https://www.centreforeffectivealtruism.org/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 3 postings", "the company's site points at it (careers page)", "2026-10-05: 3 open, 1 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:clipbook"
+company = "clipbook"
+domain = "clipbook.com"
+careers_url = "https://clipbook.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 11 postings", "the company's site points at it (careers page)", "2026-10-05: 11 open, 3 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:connectly"
+company = "connectly"
+domain = "connectly.ai"
+careers_url = "https://www.connectly.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "2026-10-05: 6 open, 4 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:constructor"
+company = "constructor"
+domain = "constructor.io"
+careers_url = "https://constructor.com/about/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 33 postings", "the company's site points at it (careers page)", "2026-10-05: 33 open, 10 engineering, 0 engineering open to Brazil and 6 unclear"]
+
+[[sources]]
+source = "ashby:dualentry"
+company = "dualentry"
+domain = "dualentry.com"
+careers_url = "https://www.dualentry.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 76 postings", "the company's site points at it (careers page)", "2026-10-05: 76 open, 11 engineering, 5 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:eightsleep"
+company = "Eight Sleep"
+domain = "eightsleep.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 36 postings", "guessed slug; the board names the company's website (https://www.eightsleep.com/)", "2026-10-05: 36 open, 23 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:ekumenlabs"
+company = "ekumenlabs"
+domain = "ekumenlabs.com"
+careers_url = "https://ekumenlabs.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 4 postings", "the company's site points at it (careers page)", "2026-10-05: 4 open, 4 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:empirical"
+company = "empirical"
+domain = "goempirical.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (homepage)", "2026-10-05: 6 open, 1 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:flutterflow"
+company = "FlutterFlow"
+domain = "flutterflow.io"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 3 postings", "the company's site points at it (homepage)", "2026-10-05: 3 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:fonio"
+company = "fonio"
+domain = "fonio.ai"
+careers_url = "https://www.fonio.ai/en/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 74 postings", "the company's site points at it (careers page)", "2026-10-05: 74 open, 6 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:go-nimbly"
+company = "go-nimbly"
+domain = "gonimbly.com"
+careers_url = "https://www.gonimbly.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 4 postings", "the company's site points at it (careers page)", "2026-10-05: 4 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:govworx"
+company = "govworx"
+domain = "govworx.ai"
+careers_url = "https://www.govworx.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "2026-10-05: 6 open, 5 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:hauler-hero"
+company = "hauler-hero"
+domain = "haulerhero.com"
+careers_url = "https://www.haulerhero.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 14 postings", "the company's site points at it (careers page)", "2026-10-05: 14 open, 5 engineering, 0 engineering open to Brazil and 2 unclear"]
+
+[[sources]]
+source = "ashby:infinity-constellation"
+company = "infinity-constellation"
+domain = "infinityconstellation.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 20 postings", "the company's site points at it (homepage)", "2026-10-05: 20 open, 8 engineering, 0 engineering open to Brazil and 7 unclear"]
+
+[[sources]]
+source = "ashby:infisical"
+company = "Infisical"
+domain = "infisical.com"
+careers_url = "https://infisical.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 11 postings", "the company's site points at it (careers page)", "2026-10-05: 11 open, 4 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:injective-labs"
+company = "injective-labs"
+domain = "injectivelabs.org"
+careers_url = "https://injectivelabs.org/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (careers page)", "2026-10-05: 7 open, 2 engineering, 0 engineering open to Brazil and 2 unclear"]
+
+[[sources]]
+source = "ashby:jobs-valence"
+company = "jobs-valence"
+domain = "valence.co"
+careers_url = "https://www.valence.co/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 17 postings", "the company's site points at it (careers page)", "2026-10-05: 17 open, 6 engineering, 0 engineering open to Brazil and 2 unclear"]
+
+[[sources]]
+source = "ashby:katapult-labs"
+company = "katapult-labs"
+domain = "katapultlabs.ai"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 4 postings", "the company's site points at it (homepage)", "2026-10-05: 4 open, 2 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:lazer"
+company = "lazer"
+domain = "lazertechnologies.com"
+careers_url = "https://www.lazertechnologies.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 9 postings", "the company's site points at it (careers page)", "2026-10-05: 9 open, 4 engineering, 1 engineering open to Brazil and 3 unclear"]
+
+[[sources]]
+source = "ashby:leanlayer"
+company = "leanlayer"
+domain = "leanlayer.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (homepage)", "2026-10-05: 7 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:lemlist"
+company = "lemlist"
+domain = "lemlist.com"
+careers_url = "https://www.lemlist.com/join-lemlist"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 11 postings", "the company's site points at it (careers page)", "2026-10-05: 11 open, 4 engineering, 1 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:mimica"
+company = "mimica"
+domain = "mimica.ai"
+careers_url = "https://www.mimica.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 16 postings", "the company's site points at it (careers page)", "2026-10-05: 16 open, 6 engineering, 2 engineering open to Brazil and 4 unclear"]
+
+[[sources]]
+source = "ashby:montecarlodata"
+company = "montecarlodata"
+domain = "montecarlo.ai"
+careers_url = "https://montecarlo.ai/careers-at-monte-carlo/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "2026-10-05: 6 open, 2 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:nash"
+company = "Nash"
+domain = "usenash.com"
+careers_url = "https://www.nash.ai/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 21 postings", "the company's site points at it (careers page)", "2026-10-05: 21 open, 3 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:nexus.xyz"
+company = "nexus.xyz"
+domain = "nexus.xyz"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 3 postings", "the company's site points at it (homepage)", "2026-10-05: 3 open, 3 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:oplabs"
+company = "oplabs"
+domain = "oplabs.co"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 8 postings", "the company's site points at it (homepage)", "2026-10-05: 8 open, 1 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:partyhat"
+company = "partyhat"
+domain = "partyhat.com"
+careers_url = "https://partyhat.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 21 postings", "the company's site points at it (careers page)", "2026-10-05: 21 open, 4 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:percona"
+company = "Percona"
+domain = "percona.com"
+careers_url = "https://www.percona.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 15 postings", "the company's site points at it (careers page)", "2026-10-05: 15 open, 2 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:polaranalytics"
+company = "polaranalytics"
+domain = "polaranalytics.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 5 postings", "the company's site points at it (homepage)", "2026-10-05: 5 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:psi"
+company = "Paul Scherrer Institut"
+domain = "psi.ch"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): hiring_thread:hn, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 19 postings", "guessed slug; the board names the company's website (https://www.psi.inc/)", "2026-10-05: 19 open, 12 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:pyyne"
+company = "pyyne"
+domain = "pyyne.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (homepage)", "2026-10-05: 6 open, 3 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:ready"
+company = "Ready"
+domain = "ready.net"
+careers_url = "https://ready.net/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (careers page)", "2026-10-05: 7 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:reflow"
+company = "reflow"
+domain = "reflow.ai"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 15 postings", "the company's site points at it (homepage)", "2026-10-05: 15 open, 7 engineering, 6 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:retell-ai"
+company = "Retell AI"
+domain = "retellai.com"
+careers_url = "https://www.retellai.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 24 postings", "the company's site points at it (careers page)", "2026-10-05: 24 open, 6 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:revenuecat"
+company = "RevenueCat"
+domain = "revenuecat.com"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 19 postings", "the company's site points at it (homepage)", "2026-10-05: 19 open, 8 engineering, 8 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:rwazi"
+company = "rwazi"
+domain = "rwazi.com"
+careers_url = "https://rwazi.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 25 postings", "the company's site points at it (careers page)", "2026-10-05: 25 open, 3 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:savvy"
+company = "savvy"
+domain = "savvywealth.com"
+careers_url = "https://www.savvywealth.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 18 postings", "the company's site points at it (careers page)", "2026-10-05: 18 open, 5 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:searchapi"
+company = "SearchApi"
+domain = "searchapi.io"
+careers_url = "https://www.searchapi.io/google-jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 12 postings", "the company's site points at it (careers page)", "2026-10-05: 12 open, 9 engineering, 9 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:siena"
+company = "siena"
+domain = "siena.cx"
+careers_url = "https://www.siena.cx/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 15 postings", "the company's site points at it (careers page)", "2026-10-05: 15 open, 3 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:sierra-studio"
+company = "sierra-studio"
+domain = "sierra.studio"
+careers_url = "https://sierra.studio/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 15 postings", "the company's site points at it (careers page)", "2026-10-05: 15 open, 11 engineering, 8 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:silver"
+company = "silver"
+domain = "silver.dev"
+careers_url = "https://silver.dev/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 48 postings", "the company's site points at it (careers page)", "2026-10-05: 48 open, 33 engineering, 2 engineering open to Brazil and 4 unclear"]
+
+[[sources]]
+source = "ashby:singular"
+company = "singular"
+domain = "singular.net"
+careers_url = "https://www.singular.net/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 15 postings", "the company's site points at it (careers page)", "2026-10-05: 15 open, 4 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:slate"
+company = "slate"
+domain = "slateteams.com"
+careers_url = "https://slateteams.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 3 postings", "the company's site points at it (careers page)", "2026-10-05: 3 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:snowflake"
+company = "Snowflake"
+domain = "snowflake.com"
+careers_url = "https://careers.snowflake.com/us/en?_ga=2.189098923.1024280027.1746985324-1783381883.1746382047"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 348 postings", "guessed slug; the board names the company's website (https://www.snowflake.com/)", "2026-10-05: 348 open, 153 engineering, 1 engineering open to Brazil and 3 unclear"]
+
+[[sources]]
+source = "ashby:solvd"
+company = "solvd"
+domain = "solvd.com"
+careers_url = "https://solvd.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 27 postings", "the company's site points at it (careers page)", "2026-10-05: 27 open, 24 engineering, 8 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:southgeeks"
+company = "southgeeks"
+domain = "southgeeks.com"
+careers_url = "https://www.southgeeks.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 8 postings", "the company's site points at it (careers page)", "2026-10-05: 8 open, 5 engineering, 0 engineering open to Brazil and 5 unclear"]
+
+[[sources]]
+source = "ashby:squads"
+company = "squads"
+domain = "squads.xyz"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 5 postings", "the company's site points at it (homepage)", "2026-10-05: 5 open, 3 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:tailor"
+company = "Tailor"
+domain = "tailor.tech"
+careers_url = "https://careers.tailor.tech/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership corroborated"
+reasons = ["adapter read 54 postings", "guessed slug; the board names the company's website (https://www.tailor.tech/)", "2026-10-05: 54 open, 25 engineering, 0 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:talkiatry"
+company = "talkiatry"
+domain = "talkiatry.com"
+careers_url = "https://www.talkiatry.com/careers/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 182 postings", "the company's site points at it (careers page)", "2026-10-05: 182 open, 3 engineering, 0 engineering open to Brazil and 3 unclear"]
+
+[[sources]]
+source = "ashby:tempo-xyz"
+company = "tempo-xyz"
+domain = "tempo.xyz"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 16 postings", "the company's site points at it (homepage)", "2026-10-05: 16 open, 9 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:terac"
+company = "terac"
+domain = "terac.com"
+careers_url = "https://terac.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 63 postings", "the company's site points at it (careers page)", "2026-10-05: 63 open, 12 engineering, 1 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:the-global-talent-co"
+company = "the-global-talent-co"
+domain = "globaltalent.co"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 81 postings", "the company's site points at it (homepage)", "2026-10-05: 81 open, 13 engineering, 2 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "ashby:trust-wallet"
+company = "trust-wallet"
+domain = "trustwallet.com"
+careers_url = "https://trustwallet.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 14 postings", "the company's site points at it (careers page)", "2026-10-05: 14 open, 8 engineering, 8 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:uberall"
+company = "uberall"
+domain = "uberall.com"
+careers_url = "https://uberall.com/en-us/company/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 12 postings", "the company's site points at it (careers page)", "2026-10-05: 12 open, 6 engineering, 3 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:veda"
+company = "veda"
+domain = "veda.tech"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 3 postings", "the company's site points at it (homepage)", "2026-10-05: 3 open, 2 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:voldex"
+company = "voldex"
+domain = "voldex.com"
+careers_url = "https://voldex.com/careers/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 4 postings", "the company's site points at it (careers page)", "2026-10-05: 4 open, 1 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:wearebeyondsports"
+company = "wearebeyondsports"
+domain = "beyondsports.nl"
+careers_url = "https://www.beyondsports.nl/careers-page"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 33 postings", "the company's site points at it (careers page)", "2026-10-05: 33 open, 17 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:whetstoneresearch"
+company = "whetstoneresearch"
+domain = "whetstone.cc"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 5 postings", "the company's site points at it (homepage)", "2026-10-05: 5 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:whitecircle"
+company = "whitecircle"
+domain = "whitecircle.ai"
+careers_url = "https://whitecircle.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 22 postings", "the company's site points at it (careers page)", "2026-10-05: 22 open, 9 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:zeely"
+company = "zeely"
+domain = "zeely.ai"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
+reasons = ["adapter read 25 postings", "the company's site points at it (homepage)", "2026-10-05: 25 open, 5 engineering, 1 engineering open to Brazil and 4 unclear"]
+
+[[sources]]
+source = "ashby:atomic-invest"
+company = "Atomic"
+domain = "atomicvest.com"
+careers_url = "https://www.atomicvest.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss; ownership verified"
+reasons = ["adapter read 6 postings", "the company's site points at it (careers page)", "2026-10-05: 6 open, 2 engineering, 1 engineering open to Brazil and 1 unclear"]
+
+[[sources]]
+source = "lever:canarytechnologies"
+company = "Canary Technologies"
+domain = "canarytechnologies.com"
+careers_url = "https://canarytechnologies.com/jobs"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss; ownership verified"
+reasons = ["adapter read 37 postings", "the company's site points at it (careers page)", "2026-10-05: 37 open, 3 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "lever:mashgin"
+company = "Mashgin"
+domain = "mashgin.com"
+careers_url = "https://www.mashgin.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss; ownership verified"
+reasons = ["adapter read 12 postings", "the company's site points at it (careers page)", "2026-10-05: 12 open, 10 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:ava-labs"
+company = "ava-labs"
+domain = "avalabs.org"
+careers_url = "https://www.avalabs.org/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): hiring_thread:hn; ownership verified"
+reasons = ["adapter read 7 postings", "the company's site points at it (careers page)", "2026-10-05: 7 open, 3 engineering, 2 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "greenhouse:openzeppelin"
+company = "OpenZeppelin"
+domain = "openzeppelin.com"
+careers_url = "https://www.openzeppelin.com/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech; ownership corroborated"
+reasons = ["adapter read 6 postings", "guessed slug; 6 of 6 postings are on or mention the company's domain", "2026-10-05: 6 open, 4 engineering, 1 engineering open to Brazil and 3 unclear"]
+
+[[sources]]
+source = "greenhouse:platformsh"
+company = "platform.sh"
+domain = "platform.sh"
+careers_url = "https://upsun.com/jobs/"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech; ownership corroborated"
+reasons = ["adapter read 10 postings", "guessed slug; 10 of 10 postings are on or mention the company's domain", "2026-10-05: 10 open, 5 engineering, 1 engineering open to Brazil and 0 unclear"]
+
+[[sources]]
+source = "ashby:tempo"
+company = "Tempo"
+domain = "tempo.new"
+careers_url = "https://www.tempo.new/careers"
+status = "validated"
+since = "2026-10-05"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss; ownership corroborated"
+reasons = ["adapter read 9 postings", "guessed slug; the board names the company's website (https://www.tempo.new/)", "2026-10-05: 9 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]

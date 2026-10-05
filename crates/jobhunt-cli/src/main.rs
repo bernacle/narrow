@@ -10,6 +10,7 @@ mod cloud;
 mod config;
 mod context;
 mod credentials;
+mod discovery;
 mod doctor;
 mod eligibility;
 mod find;
@@ -145,6 +146,11 @@ enum Command {
     /// What each job board yields and how healthy it is; find the job
     /// boards behind company careers pages.
     Sources(sources::SourcesArgs),
+    /// Broad discovery: find companies and job boards Narrow doesn't know
+    /// yet (ATS search results, hiring threads, directories, crawls),
+    /// resolve them to first-party boards, and measure what each strategy
+    /// yields. Activates nothing.
+    Discovery(discovery::DiscoveryArgs),
     /// Sign in to Narrow Cloud (in the browser, or with --token).
     Login(cloud::LoginArgs),
     /// Sign out of Narrow Cloud on this machine (--everywhere: on every
@@ -274,6 +280,7 @@ async fn run(cli: Cli) -> anyhow::Result<ExitCode> {
         Command::Doctor => doctor::run(&loaded).await,
         Command::Config => show_config(&loaded),
         Command::Sources(args) => sources::run(args, &loaded).await,
+        Command::Discovery(args) => discovery::run(args, &loaded).await,
         Command::Login(args) => cloud::login(args, &loaded).await,
         Command::Logout(args) => cloud::logout(args).await,
         Command::Account(args) => cloud::account(args, &loaded).await,

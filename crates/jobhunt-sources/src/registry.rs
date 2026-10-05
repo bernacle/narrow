@@ -177,7 +177,7 @@ impl SourceRegistry {
 /// posting without a publish date is counted as unknown, never as fresh.
 /// The day counts are cumulative (`under_30_days` includes
 /// `under_7_days`).
-#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Freshness {
     pub total: usize,
     pub under_7_days: usize,
@@ -230,7 +230,7 @@ impl Freshness {
 
 /// Where a posting's remote work can be done, coarsely, from the
 /// posting's own location data (not from the company's reputation).
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum GeoBucket {
     /// Remote anywhere.
@@ -282,7 +282,7 @@ impl GeoBucket {
 /// The reference-profile counts read each posting's eligibility for a
 /// person living in Brazil who works remotely only and does not relocate:
 /// Narrow's core audience, without anyone's private profile.
-#[derive(Debug, Clone, Default, PartialEq, Serialize)]
+#[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
 pub struct SourceYield {
     pub open: usize,
     /// Engineering by title (Narrow's job-function reading).
@@ -298,12 +298,12 @@ pub struct SourceYield {
     pub geo: Vec<(GeoBucket, usize)>,
     pub freshness: Freshness,
     /// A person's own ranking, when one was run.
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
     pub person: Option<PersonYield>,
 }
 
 /// A source's yield for one person's profile and ranking.
-#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct PersonYield {
     /// Not excluded by eligibility or the person's requirements.
     pub actionable: usize,
@@ -335,7 +335,7 @@ impl SourceYield {
 // Validation and activation.
 
 /// The outcome of [`validate`].
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Verdict {
     Validated,
@@ -345,7 +345,7 @@ pub enum Verdict {
     Inconclusive,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Validation {
     pub verdict: Verdict,
     /// Every rule's finding, in order.
@@ -412,7 +412,12 @@ pub fn validate(check: &BoardCheck) -> Validation {
         BoardEvidence::Redirect => "redirect",
         BoardEvidence::CareersPage => "careers page",
         BoardEvidence::Homepage => "homepage",
-        BoardEvidence::SlugGuess => "",
+        BoardEvidence::SlugGuess | BoardEvidence::Discovered => "",
+    };
+    let how = if check.evidence == BoardEvidence::Discovered {
+        "found by broad discovery"
+    } else {
+        "guessed slug"
     };
     match (check.evidence.first_party(), check.matches_company, tie) {
         (true, true, _) => reasons.push(format!("the company's site points at it ({site})")),
@@ -430,10 +435,10 @@ pub fn validate(check: &BoardCheck) -> Validation {
                 reasons,
             };
         }
-        (false, _, Some(tie)) => reasons.push(format!("guessed slug; {tie}")),
+        (false, _, Some(tie)) => reasons.push(format!("{how}; {tie}")),
         (false, _, None) => {
             reasons.push(format!(
-                "guessed slug; nothing ties the board to the company's domain ({} of {} \
+                "{how}; nothing ties the board to the company's domain ({} of {} \
                  postings name the company, which is not enough)",
                 check.naming_company, check.jobs
             ));
