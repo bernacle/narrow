@@ -612,6 +612,33 @@ the probe), as here.
   reading them.
 - **Not deployed by this task.**
 
+**Production rollout, verified 2026-10-05.** PR #47 merged as `278883a`.
+- **Deployments:** `api`, `worker-discovery` and `worker-verification`
+  each reached SUCCESS for `278883a` (14:06–14:11 UTC). The worker's
+  deploy manifest is `narrow worker discovery` on cron `7,37 * * * *`,
+  built from the `Dockerfile` (which bakes in the 21-source `cloud.toml`).
+- **Scans:** the first run on the new image (14:11 UTC) read 13 due
+  sources with 0 failures, including the 4 new ones, which all came back
+  complete with 0 rejected: Railway 8 new, Oyster 23, Zapier 11,
+  Wikimedia 11. The next run (14:38) read 0 sources.
+- **Schedule:** the 4 sources were claimed as due, so they are in
+  `source_schedule`, and they were not re-read at 14:38, so their
+  `next_due_at` advanced. This was read from the worker logs, not from a
+  direct query: Postgres has no public proxy.
+- **Live funnel (real profile):**
+  - Production's own feed log at 14:28 UTC: 2,941 considered, 4 strong
+    fits, 1 company shown. It was 2,894 considered, 0 strong and 0 shown
+    before the deploy.
+  - A mirror of production (the 21 sources scanned at 14:37, with the
+    real profile synced from production at 14:35) gives 2,939 open, 221
+    actionable, 45 plausible, 4 strong, and Today of 1 company and 4 jobs
+    (Railway).
+  - Expected: 2,948 · 222 · 45 · 4 · 1/4. The differences are board
+    churn: Oyster lists 23 postings, not 26, and has 16 actionable, not
+    17.
+- **Status:** BRU-343 closed. The next batch is in
+  `source-expansion-batch-2a.md`.
+
 **Timing follow-up.** To measure a discovery-time advantage, keep a
 monitoring set (the 59 boards of this run), rescan on a schedule, and check
 each newly appearing posting against Himalayas and web search right away,
