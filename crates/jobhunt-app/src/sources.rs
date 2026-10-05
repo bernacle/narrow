@@ -284,31 +284,9 @@ impl LocalApp {
         let records = self.store().search(&query).await?;
         let scans = self.store().recent_scans(HEALTH_SCANS).await?;
 
-        // The person's ranking, per source of each ranked job.
-        let mut person: HashMap<SourceKey, PersonYield> = HashMap::new();
-        let ranked = self.profile_facts().await?.is_some();
-        if ranked {
-            let service = RankingService::new(self.store(), &RuleReader).with_policy(self.policy());
-            let query = RankQuery {
-                text: String::new(),
-                store_top: 0,
-                all: true,
-            };
-            let report = service.rank(&query, now).await?;
-            let source_of: HashMap<_, _> = records
-                .iter()
-                .map(|r| (r.id, r.posting.provenance.source.clone()))
-                .collect();
-            for r in &report.rankings {
-                let Some(source) = source_of.get(&r.job) else {
-                    continue;
-                };
-                let p = person.entry(source.clone()).or_default();
-                p.actionable += 1;
-                p.plausible += usize::from(r.tier == Tier::WorthReviewing);
-                p.strong += usize::from(r.tier == Tier::StrongFit);
-            }
-        }
+        let person = self.person_yields(&records, now).await?;
+        let ranked = person.is_some();
+        let person = person.unwrap_or_default();
 
         let mut by_source: HashMap<SourceKey, Vec<&JobRecord>> = HashMap::new();
         for r in &records {
@@ -395,6 +373,41 @@ impl LocalApp {
         })
     }
 
+    /// The person's ranking counts per source of each ranked job (rules
+    /// only: no model calls, nothing recorded as shown), or `None` without
+    /// a profile. `records` are the stored open jobs.
+    pub async fn person_yields(
+        &self,
+        records: &[JobRecord],
+        now: DateTime<Utc>,
+    ) -> Result<Option<HashMap<SourceKey, PersonYield>>, AppError> {
+        if self.profile_facts().await?.is_none() {
+            return Ok(None);
+        }
+        let service = RankingService::new(self.store(), &RuleReader).with_policy(self.policy());
+        let query = RankQuery {
+            text: String::new(),
+            store_top: 0,
+            all: true,
+        };
+        let report = service.rank(&query, now).await?;
+        let source_of: HashMap<_, _> = records
+            .iter()
+            .map(|r| (r.id, r.posting.provenance.source.clone()))
+            .collect();
+        let mut person: HashMap<SourceKey, PersonYield> = HashMap::new();
+        for r in &report.rankings {
+            let Some(source) = source_of.get(&r.job) else {
+                continue;
+            };
+            let p = person.entry(source.clone()).or_default();
+            p.actionable += 1;
+            p.plausible += usize::from(r.tier == Tier::WorthReviewing);
+            p.strong += usize::from(r.tier == Tier::StrongFit);
+        }
+        Ok(Some(person))
+    }
+
     /// Finds and checks the boards of each company, measuring every board
     /// found. Reads the network; stores nothing and changes no
     /// configuration.
@@ -422,13 +435,20 @@ impl LocalApp {
         let reference = reference_profile();
         let concurrency = self.config().discovery.concurrency.max(1);
         let mut out = Vec::with_capacity(targets.len());
-        // A few companies at a time, in order: each company's pages are read
-        // one by one, and the client limits requests per host.
-        let probes: Vec<CompanyProbe> = futures::stream::iter(targets)
-            .map(|t| company::discover(&http, t, settings, now))
-            .buffered(concurrency)
-            .collect()
-            .await;
+        // A few companies at a time: each company's pages are read one by
+        // one, and the client limits requests per host. Unordered, so one
+        // slow site doesn't hold back the others; reported in input order.
+        let mut probes: Vec<(usize, CompanyProbe)> =
+            futures::stream::iter(targets.iter().enumerate())
+                .map(|(i, t)| {
+                    let http = &http;
+                    async move { (i, company::discover(http, t, settings, now).await) }
+                })
+                .buffer_unordered(concurrency)
+                .collect()
+                .await;
+        probes.sort_by_key(|(i, _)| *i);
+        let probes = probes.into_iter().map(|(_, p)| p);
         {
             for mut probe in probes {
                 tracing::info!(

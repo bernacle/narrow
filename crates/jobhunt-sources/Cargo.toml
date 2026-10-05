@@ -10,6 +10,7 @@ publish.workspace = true
 [dependencies]
 async-trait.workspace = true
 chrono.workspace = true
+csv.workspace = true
 futures.workspace = true
 jobhunt-core.workspace = true
 jobhunt-jobs.workspace = true

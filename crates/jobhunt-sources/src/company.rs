@@ -147,6 +147,10 @@ pub enum BoardEvidence {
     /// No page named a board; the company's name is a board slug on the
     /// ATS. Weak: only the board's own postings can tie it to the company.
     SlugGuess,
+    /// Found by broad discovery (a search hit, a hiring post, a crawl),
+    /// not through the company's site. As weak as a guess until the
+    /// company's site is shown to point at it.
+    Discovered,
 }
 
 impl BoardEvidence {
@@ -156,12 +160,13 @@ impl BoardEvidence {
             Self::CareersPage => "careers_page",
             Self::Homepage => "homepage",
             Self::SlugGuess => "slug_guess",
+            Self::Discovered => "discovered",
         }
     }
 
     /// The company's own site points at the board.
     pub fn first_party(self) -> bool {
-        !matches!(self, Self::SlugGuess)
+        !matches!(self, Self::SlugGuess | Self::Discovered)
     }
 }
 
@@ -692,6 +697,37 @@ pub async fn check_board(
             });
     }
     check
+}
+
+/// Recomputes what ties a checked board to `target` (a company found after
+/// the board was read): the postings naming the company or its domain,
+/// and whether the website the board names is the company's.
+pub fn retarget(check: &mut BoardCheck, target: &CompanyTarget) {
+    check.matches_company =
+        slug_matches(check.source.split(':').nth(1).unwrap_or_default(), target);
+    check.naming_company = check
+        .postings
+        .iter()
+        .filter(|p| names_company(p, target))
+        .count();
+    check.naming_domain = check
+        .postings
+        .iter()
+        .filter(|p| ties_to_domain(p, target))
+        .count();
+    check.website_matches = check
+        .website
+        .as_deref()
+        .and_then(|w| Url::parse(w).ok())
+        .and_then(|u| u.host_str().map(str::to_ascii_lowercase))
+        .map(|host| website_is(&host, target));
+}
+
+fn website_is(host: &str, target: &CompanyTarget) -> bool {
+    let host = host.strip_prefix("www.").unwrap_or(host);
+    host == target.domain
+        || host.ends_with(&format!(".{}", target.domain))
+        || host.split('.').next() == Some(target.stem())
 }
 
 /// The website an Ashby board names (`"publicWebsite"` in its page data).

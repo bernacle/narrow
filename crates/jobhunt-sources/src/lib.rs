@@ -34,6 +34,7 @@ pub mod ashby;
 pub mod careers;
 mod common;
 pub mod company;
+pub mod discovery;
 pub mod github;
 pub mod greenhouse;
 pub mod http;
