@@ -1173,10 +1173,10 @@ reasons = ["adapter read 10 postings", "the company's site points at it (homepag
 source = "ashby:g2i"
 company = "g2i"
 domain = "g2i.co"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 23 postings", "the company's site points at it (homepage)", "2026-10-05: 23 open, 23 engineering, 1 engineering open to Brazil and 9 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 23 postings", "the company's site points at it (homepage)", "2026-10-05: 23 open, 23 engineering, 1 engineering open to Brazil and 9 unclear", "2026-10-11: 23 open, 22 engineering, 2 engineering open to Brazil and 8 unclear, 0 of 23 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "greenhouse:twilio"
@@ -1193,10 +1193,10 @@ source = "greenhouse:customerio"
 company = "Customer.io"
 domain = "customer.io"
 careers_url = "https://customer.io/careers"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 27 postings", "the company's site points at it (careers page)", "2026-10-05: 27 open, 12 engineering, 12 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:remoteintech, company_directory:yc-oss, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 27 postings", "the company's site points at it (careers page)", "2026-10-05: 27 open, 12 engineering, 12 engineering open to Brazil and 0 unclear", "2026-10-11: 30 open, 12 engineering, 12 engineering open to Brazil and 0 unclear, 0 of 30 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "greenhouse:coinbase"
@@ -1213,10 +1213,10 @@ source = "greenhouse:alpaca"
 company = "Alpaca"
 domain = "alpaca.markets"
 careers_url = "https://alpaca.markets/hiring"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 70 postings", "the company's site points at it (careers page)", "2026-10-05: 70 open, 30 engineering, 13 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 70 postings", "the company's site points at it (careers page)", "2026-10-05: 70 open, 30 engineering, 13 engineering open to Brazil and 0 unclear", "2026-10-11: 78 open, 33 engineering, 15 engineering open to Brazil and 0 unclear, 4 of 78 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "greenhouse:securityscorecard"
@@ -1293,10 +1293,10 @@ source = "greenhouse:sezzle"
 company = "Sezzle"
 domain = "sezzle.com"
 careers_url = "https://sezzle.com/careers"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 238 postings", "the company's site points at it (careers page)", "2026-10-05: 238 open, 128 engineering, 104 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 238 postings", "the company's site points at it (careers page)", "2026-10-05: 238 open, 128 engineering, 104 engineering open to Brazil and 0 unclear", "2026-10-11: 232 open, 121 engineering, 97 engineering open to Brazil and 0 unclear, 20 of 232 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "greenhouse:itd"
@@ -1439,22 +1439,22 @@ reasons = ["adapter read 13 postings", "the company's site points at it (careers
 
 [[sources]]
 source = "ashby:camunda"
-company = "camunda"
+company = "Camunda"
 domain = "camunda.com"
 careers_url = "https://camunda.com/careers/all-jobs/"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 39 postings", "the company's site points at it (careers page)", "2026-10-05: 39 open, 13 engineering, 8 engineering open to Brazil and 5 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): ats_search, company_directory:yc-oss, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 39 postings", "the company's site points at it (careers page)", "2026-10-05: 39 open, 13 engineering, 8 engineering open to Brazil and 5 unclear", "2026-10-11: 43 open, 13 engineering, 8 engineering open to Brazil and 5 unclear, 2 of 43 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "greenhouse:coderoad"
 company = "CodeRoad"
 domain = "coderoad.com"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 24 postings", "the company's site points at it (homepage)", "2026-10-05: 24 open, 19 engineering, 18 engineering open to Brazil and 1 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): ats_search, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 24 postings", "the company's site points at it (homepage)", "2026-10-05: 24 open, 19 engineering, 18 engineering open to Brazil and 1 unclear", "2026-10-11: 26 open, 22 engineering, 20 engineering open to Brazil and 1 unclear, 0 of 26 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "lever:weloglobal"
@@ -1548,10 +1548,10 @@ reasons = ["adapter read 3 postings", "the company's site points at it (careers 
 source = "ashby:oneleet"
 company = "Oneleet"
 domain = "oneleet.com"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 12 postings", "the company's site points at it (homepage)", "2026-10-05: 12 open, 7 engineering, 7 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 12 postings", "the company's site points at it (homepage)", "2026-10-05: 12 open, 7 engineering, 7 engineering open to Brazil and 0 unclear", "2026-10-11: 8 open, 3 engineering, 3 engineering open to Brazil and 0 unclear, 0 of 8 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "greenhouse:bugcrowd"
@@ -1654,13 +1654,13 @@ reasons = ["adapter read 16 postings", "guessed slug; 1 of 16 postings are on or
 
 [[sources]]
 source = "ashby:andotechnologies"
-company = "andotechnologies"
+company = "Ando Technologies"
 domain = "ando.work"
 careers_url = "https://www.ando.work/careers"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 2 postings", "the company's site points at it (careers page)", "2026-10-05: 2 open, 2 engineering, 2 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 2 postings", "the company's site points at it (careers page)", "2026-10-05: 2 open, 2 engineering, 2 engineering open to Brazil and 0 unclear", "2026-10-11: 2 open, 2 engineering, 2 engineering open to Brazil and 0 unclear, 0 of 2 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "ashby:andromeda"
@@ -2043,10 +2043,10 @@ reasons = ["adapter read 24 postings", "the company's site points at it (careers
 source = "ashby:revenuecat"
 company = "RevenueCat"
 domain = "revenuecat.com"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): company_directory:remoteintech, company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 19 postings", "the company's site points at it (homepage)", "2026-10-05: 19 open, 8 engineering, 8 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): company_directory:remoteintech, company_directory:yc-oss, hiring_thread:hn, web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 19 postings", "the company's site points at it (homepage)", "2026-10-05: 19 open, 8 engineering, 8 engineering open to Brazil and 0 unclear", "2026-10-11: 16 open, 7 engineering, 7 engineering open to Brazil and 0 unclear, 0 of 16 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "ashby:rwazi"
@@ -2237,12 +2237,12 @@ reasons = ["adapter read 12 postings", "the company's site points at it (careers
 
 [[sources]]
 source = "ashby:veda"
-company = "veda"
+company = "Veda"
 domain = "veda.tech"
-status = "validated"
-since = "2026-10-05"
-provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified"
-reasons = ["adapter read 3 postings", "the company's site points at it (homepage)", "2026-10-05: 3 open, 2 engineering, 1 engineering open to Brazil and 0 unclear"]
+status = "active"
+since = "2026-10-11"
+provenance = "broad discovery (BRU-360): web_index:commoncrawl; ownership verified; activated in BRU-389 slice 0"
+reasons = ["adapter read 3 postings", "the company's site points at it (homepage)", "2026-10-05: 3 open, 2 engineering, 1 engineering open to Brazil and 0 unclear", "2026-10-11: 3 open, 2 engineering, 1 engineering open to Brazil and 0 unclear, 0 of 3 dated over a year old; ownership re-verified", "meets the activation bar"]
 
 [[sources]]
 source = "ashby:voldex"

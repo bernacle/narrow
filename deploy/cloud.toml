@@ -76,6 +76,35 @@ company = "Oyster"
 board = "zapier"
 company = "Zapier"
 
+# BRU-389 slice 0: the BRU-360 first batch (minus Nango), boards whose
+# companies link them and that publish engineering jobs open to Brazil /
+# LATAM / worldwide remote (re-measured 2026-10-11; see
+# docs/broad-discovery-experiment-2026-10-05.md and deploy/sources.toml).
+
+[[sources.ashby]]
+board = "oneleet"
+company = "Oneleet"
+
+[[sources.ashby]]
+board = "g2i"
+company = "g2i"
+
+[[sources.ashby]]
+board = "andotechnologies"
+company = "Ando Technologies"
+
+[[sources.ashby]]
+board = "veda"
+company = "Veda"
+
+[[sources.ashby]]
+board = "camunda"
+company = "Camunda"
+
+[[sources.ashby]]
+board = "revenuecat"
+company = "RevenueCat"
+
 [[sources.greenhouse]]
 board = "anthropic"
 
@@ -91,6 +120,19 @@ board = "airbnb"
 # BRU-343 (see above).
 [[sources.greenhouse]]
 board = "wikimedia"
+
+# BRU-389 slice 0 (see above).
+[[sources.greenhouse]]
+board = "sezzle"
+
+[[sources.greenhouse]]
+board = "coderoad"
+
+[[sources.greenhouse]]
+board = "customerio"
+
+[[sources.greenhouse]]
+board = "alpaca"
 
 [[sources.lever]]
 site = "spotify"
