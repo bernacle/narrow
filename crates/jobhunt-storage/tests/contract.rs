@@ -233,6 +233,36 @@ async fn not_modified_and_failed_scans_change_nothing(store: &dyn Store) {
         checked.get(&SourceKey::new("ashby", "linear").unwrap()),
         Some(&at(1))
     );
+
+    // Recent scans (source health), newest first, failures included.
+    let recent = store.recent_scans(2).await.unwrap();
+    let scans = &recent[&source];
+    let seen: Vec<_> = scans
+        .iter()
+        .map(|s| (s.finished_at, s.status.as_str(), s.error.as_deref()))
+        .collect();
+    assert_eq!(
+        seen,
+        vec![
+            (at(6), "failed", Some("HTTP 503")),
+            (at(5), "not_modified", None)
+        ]
+    );
+    let all = store.recent_scans(10).await.unwrap();
+    let received: Vec<_> = all[&source]
+        .iter()
+        .map(|s| (s.status.as_str(), s.received))
+        .collect();
+    assert_eq!(
+        received,
+        vec![
+            ("failed", 0),
+            ("not_modified", 0),
+            ("listing", 1),
+            ("listing", 2)
+        ]
+    );
+    assert_eq!(all[&SourceKey::new("ashby", "linear").unwrap()].len(), 1);
 }
 
 async fn search_filters_orders_and_resolves_prefixes(store: &dyn Store) {

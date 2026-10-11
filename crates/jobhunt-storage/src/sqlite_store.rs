@@ -13,7 +13,7 @@ use sqlx::Row;
 
 use crate::sqlite::{SqliteJobStore, StoreStats, decode_timestamp, encode_timestamp};
 use crate::state::{StateImport, StateImported};
-use crate::store::{Store, WriteGuard};
+use crate::store::{ScanRecord, Store, WriteGuard};
 use crate::sync::{EntityBase, LedgerUpdate, SyncAccount, SyncConflict, SyncLedger};
 
 fn query_error(operation: &'static str) -> impl FnOnce(sqlx::Error) -> StorageError {
@@ -54,6 +54,13 @@ impl Store for SqliteJobStore {
 
     async fn last_checked(&self) -> Result<HashMap<SourceKey, DateTime<Utc>>, StorageError> {
         SqliteJobStore::last_checked(self).await
+    }
+
+    async fn recent_scans(
+        &self,
+        per_source: usize,
+    ) -> Result<HashMap<SourceKey, Vec<ScanRecord>>, StorageError> {
+        SqliteJobStore::recent_scans(self, per_source).await
     }
 
     async fn stats(&self) -> Result<StoreStats, StorageError> {

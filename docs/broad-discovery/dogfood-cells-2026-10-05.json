@@ -1,0 +1,130 @@
+{
+ "A": {
+  "now": "2026-10-05T20:00:00+00:00",
+  "considered": 2937,
+  "excluded": {
+   "below_minimum": 0,
+   "closed": 0,
+   "ineligible": 575,
+   "unmet_requirement": 2139
+  },
+  "actionable": 223,
+  "plausible": 45,
+  "strong": 4,
+  "today_companies": 1,
+  "today_jobs": 4,
+  "today": [
+   {
+    "company": "Railway",
+    "title": "Senior Infra Engineer: Baremetal Orchestration",
+    "also": [
+     "Senior Infra Engineer: Observability",
+     "Senior Platform Engineer: Storage",
+     "Infrastructure Engineer"
+    ]
+   }
+  ]
+ },
+ "C": {
+  "now": "2026-10-05T20:00:00+00:00",
+  "considered": 17566,
+  "excluded": {
+   "below_minimum": 0,
+   "closed": 0,
+   "ineligible": 5424,
+   "unmet_requirement": 7829
+  },
+  "actionable": 4313,
+  "plausible": 848,
+  "strong": 37,
+  "today_companies": 5,
+  "today_jobs": 10,
+  "today": [
+   {
+    "company": "andotechnologies",
+    "title": "Senior Backend Engineer (Contract to Hire)",
+    "also": []
+   },
+   {
+    "company": "Oneleet",
+    "title": "Backend Engineer",
+    "also": [
+     "Fullstack Engineer",
+     "Fullstack Engineer, AI Implementation"
+    ]
+   },
+   {
+    "company": "Nango",
+    "title": "Staff Engineer, Platform & Infrastructure",
+    "also": [
+     "Staff Software Engineer, Backend",
+     "Staff Platform Engineer",
+     "Staff Backend Engineer"
+    ]
+   },
+   {
+    "company": "veda",
+    "title": "Backend Engineer - Solana",
+    "also": []
+   },
+   {
+    "company": "scoreplay",
+    "title": "Senior Platform Engineer (SRE)",
+    "also": []
+   }
+  ]
+ },
+ "D": {
+  "now": "2026-10-05T20:00:00+00:00",
+  "considered": 10585,
+  "excluded": {
+   "below_minimum": 0,
+   "closed": 0,
+   "ineligible": 4205,
+   "unmet_requirement": 4272
+  },
+  "actionable": 2108,
+  "plausible": 491,
+  "strong": 14,
+  "today_companies": 5,
+  "today_jobs": 13,
+  "today": [
+   {
+    "company": "andotechnologies",
+    "title": "Senior Backend Engineer (Contract to Hire)",
+    "also": []
+   },
+   {
+    "company": "Oneleet",
+    "title": "Backend Engineer",
+    "also": [
+     "Fullstack Engineer",
+     "Fullstack Engineer, AI Implementation"
+    ]
+   },
+   {
+    "company": "Nango",
+    "title": "Staff Engineer, Platform & Infrastructure",
+    "also": [
+     "Staff Software Engineer, Backend",
+     "Staff Platform Engineer",
+     "Staff Backend Engineer"
+    ]
+   },
+   {
+    "company": "veda",
+    "title": "Backend Engineer - Solana",
+    "also": []
+   },
+   {
+    "company": "Railway",
+    "title": "Senior Infra Engineer: Baremetal Orchestration",
+    "also": [
+     "Senior Infra Engineer: Observability",
+     "Senior Platform Engineer: Storage",
+     "Infrastructure Engineer"
+    ]
+   }
+  ]
+ }
+}

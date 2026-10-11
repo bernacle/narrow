@@ -1,0 +1,65 @@
+# BRU-343 known-answer set: the companies whose boards Narrow already reads
+# (deploy/cloud.toml) or read in BRU-325, by domain, with the known board
+# after `#`. Discovery is run on the domains alone and scored against it.
+
+# Production (deploy/cloud.toml)
+linear.app, Linear                    # ashby:linear
+ramp.com, Ramp                        # ashby:ramp
+notion.com, Notion                    # ashby:notion
+supabase.com, Supabase                # ashby:supabase
+posthog.com, PostHog                  # ashby:posthog
+modal.com, Modal                      # ashby:modal
+replit.com, Replit                    # ashby:replit
+vanta.com, Vanta                      # ashby:vanta
+anthropic.com, Anthropic              # greenhouse:anthropic
+stripe.com, Stripe                    # greenhouse:stripe
+figma.com, Figma                      # greenhouse:figma
+airbnb.com, Airbnb                    # greenhouse:airbnb
+spotify.com, Spotify                  # lever:spotify
+palantir.com, Palantir                # lever:palantir
+zoox.com, Zoox                        # lever:zoox
+doordash.com, DoorDash                # yc:doordash
+railway.com, Railway                  # ashby:railway
+oysterhr.com, Oyster                  # ashby:oyster
+zapier.com, Zapier                    # ashby:zapier
+wikimediafoundation.org, Wikimedia    # greenhouse:wikimedia
+# BRU-325 board set
+airbyte.com, Airbyte                  # ashby:airbyte
+attio.com, Attio                      # ashby:attio
+axiom.co, Axiom                       # ashby:axiom
+clerk.com, Clerk                      # ashby:clerk
+clickhouse.com, ClickHouse            # ashby:clickhouse
+convex.dev, Convex                    # ashby:convex-dev
+duckduckgo.com, DuckDuckGo            # ashby:duck-duck-go
+knock.app, Knock                      # ashby:knock
+mintlify.com, Mintlify                # ashby:mintlify
+n8n.io, n8n                           # ashby:n8n
+neon.com, Neon                        # ashby:neon
+paddle.com, Paddle                    # ashby:paddle
+plain.com, Plain                      # ashby:plain
+render.com, Render                    # ashby:render
+resend.com, Resend                    # ashby:resend
+sanity.io, Sanity                     # ashby:sanity
+sentry.io, Sentry                     # ashby:sentry
+socket.dev, Socket                    # ashby:socket
+temporal.io, Temporal                 # ashby:temporal
+warp.dev, Warp                        # ashby:warp
+workos.com, WorkOS                    # ashby:workos
+inngest.com, Inngest                  # ashby:inngest
+automattic.com, Automattic            # greenhouse:automatticcareers
+chainguard.dev, Chainguard            # greenhouse:chainguard
+circleci.com, CircleCI                # greenhouse:circleci
+cockroachlabs.com, Cockroach Labs     # greenhouse:cockroachlabs
+gitlab.com, GitLab                    # greenhouse:gitlab
+grafana.com, Grafana Labs             # greenhouse:grafanalabs
+honeycomb.io, Honeycomb               # greenhouse:honeycomb
+launchdarkly.com, LaunchDarkly        # greenhouse:launchdarkly
+planetscale.com, PlanetScale          # greenhouse:planetscale
+remote.com, Remote                    # greenhouse:remotecom
+sourcegraph.com, Sourcegraph          # greenhouse:sourcegraph91
+tailscale.com, Tailscale              # greenhouse:tailscale
+vercel.com, Vercel                    # greenhouse:vercel
+canonical.com, Canonical              # greenhouse:canonical
+ebanx.com, EBANX                      # greenhouse:ebanx
+wildlifestudios.com, Wildlife Studios # greenhouse:wildlifestudios
+pipedrive.com, Pipedrive              # lever:pipedrive

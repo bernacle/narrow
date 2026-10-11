@@ -1,0 +1,69 @@
+# Narrow's ATS-index search matrix (BRU-360; docs/broad-discovery.md).
+#
+# Each query searches one ATS host for a role phrase in a place:
+#   site:jobs.ashbyhq.com "staff platform engineer" LATAM
+# The plan (`pairwise` by default) covers every pair of values across the
+# dimensions below at least once instead of the full cross product, so the
+# matrix stays a few dozen queries; `full` lists everything (with a cap).
+# Override with `narrow discovery queries --matrix FILE`.
+
+hosts = [
+  "jobs.ashbyhq.com",
+  "boards.greenhouse.io",
+  "job-boards.greenhouse.io",
+  "jobs.lever.co",
+  "jobs.eu.lever.co",
+]
+
+roles = [
+  "software engineer",
+  "backend engineer",
+  "backend software engineer",
+  "platform engineer",
+  "infrastructure engineer",
+  "cloud engineer",
+  "distributed systems engineer",
+  "developer infrastructure",
+  "data infrastructure",
+  "site reliability engineer",
+  "SRE",
+  "systems engineer",
+  "security engineer",
+]
+
+# "" is no seniority.
+seniority = ["", "senior", "staff", "principal", "lead"]
+
+# Places, grouped: the group is what yield is reported by.
+[[geo]]
+group = "global"
+terms = ["remote", "global", "worldwide"]
+
+[[geo]]
+group = "brazil"
+terms = ["Brazil"]
+
+[[geo]]
+group = "latam"
+terms = ["LATAM", "Latin America", "South America"]
+
+[[geo]]
+group = "americas"
+terms = ["Americas"]
+
+# Optional specialty terms, used by `--specialties`: each is searched as a
+# phrase with a place, without a role.
+[specialties]
+terms = [
+  "distributed systems",
+  "networking",
+  "databases",
+  "observability",
+  "developer tools",
+  "cloud infrastructure",
+  "infrastructure",
+  "payments",
+  "fintech",
+  "AI infrastructure",
+  "applied AI",
+]

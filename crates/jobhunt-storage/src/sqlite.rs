@@ -24,6 +24,8 @@ use sqlx::sqlite::{
 use sqlx::{QueryBuilder, Row, Sqlite, SqliteConnection};
 use tracing::{debug, info};
 
+use crate::store::ScanRecord;
+
 pub(crate) static MIGRATOR: sqlx::migrate::Migrator = sqlx::migrate!("./migrations/sqlite");
 
 /// Ids bound per statement in batched updates (well under SQLite's limit).
@@ -282,6 +284,48 @@ impl SqliteJobStore {
             let at = decode_timestamp(&at)
                 .map_err(|e| corrupt(&format!("scan of {key}"), e.to_string()))?;
             out.insert(key, at);
+        }
+        Ok(out)
+    }
+
+    /// The latest `per_source` scans of every source, newest first.
+    pub async fn recent_scans(
+        &self,
+        per_source: usize,
+    ) -> Result<HashMap<SourceKey, Vec<ScanRecord>>, StorageError> {
+        let rows = sqlx::query(
+            "SELECT source_kind, source_instance, finished_at, status, received, error FROM ( \
+               SELECT *, ROW_NUMBER() OVER ( \
+                 PARTITION BY source_kind, source_instance ORDER BY finished_at DESC, id DESC \
+               ) AS n FROM source_scans \
+             ) WHERE n <= ? ORDER BY source_kind, source_instance, n",
+        )
+        .bind(i64::try_from(per_source).unwrap_or(i64::MAX))
+        .fetch_all(&self.pool)
+        .await
+        .map_err(query_error("loading recent source scans"))?;
+        let mut out: HashMap<SourceKey, Vec<ScanRecord>> = HashMap::new();
+        for row in rows {
+            let get = |name: &str| -> Result<String, StorageError> {
+                row.try_get(name).map_err(column_error("source_scans"))
+            };
+            let Ok(key) = SourceKey::new(&get("source_kind")?, &get("source_instance")?) else {
+                continue;
+            };
+            let at = get("finished_at")?;
+            let finished_at = decode_timestamp(&at)
+                .map_err(|e| corrupt(&format!("scan of {key}"), e.to_string()))?;
+            let received: i64 = row
+                .try_get("received")
+                .map_err(column_error("source_scans"))?;
+            let error: Option<String> =
+                row.try_get("error").map_err(column_error("source_scans"))?;
+            out.entry(key).or_default().push(ScanRecord {
+                finished_at,
+                status: get("status")?,
+                received: u64::try_from(received).unwrap_or(0),
+                error,
+            });
         }
         Ok(out)
     }

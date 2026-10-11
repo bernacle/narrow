@@ -1,0 +1,98 @@
+# BRU-343 candidate companies for `narrow sources discover --file`.
+#
+# Chosen before probing, for Narrow's likely audience (senior engineers,
+# many outside the US): developer tools and infrastructure, open-source
+# companies, AI infrastructure, remote-first employers known for hiring
+# internationally, and Latin American tech companies. None is in
+# deploy/cloud.toml or BRU-325's board set. Reputation is only why a
+# company is here; whether it hires in Brazil is measured, not assumed.
+
+# Developer tools, infrastructure, open source
+netlify.com, Netlify
+fly.io, Fly.io
+deno.com, Deno
+prisma.io, Prisma
+turso.tech, Turso
+upstash.com, Upstash
+digitalocean.com, DigitalOcean
+elastic.co, Elastic
+mongodb.com, MongoDB
+redis.io, Redis
+timescale.com, Timescale
+yugabyte.com, Yugabyte
+singlestore.com, SingleStore
+getdbt.com, dbt Labs
+dagster.io, Dagster
+prefect.io, Prefect
+fivetran.com, Fivetran
+hex.tech, Hex
+metabase.com, Metabase
+mixpanel.com, Mixpanel
+amplitude.com, Amplitude
+statsig.com, Statsig
+growthbook.io, GrowthBook
+getunleash.io, Unleash
+betterstack.com, Better Stack
+incident.io, incident.io
+pagerduty.com, PagerDuty
+goteleport.com, Teleport
+1password.com, 1Password
+bitwarden.com, Bitwarden
+snyk.io, Snyk
+semgrep.dev, Semgrep
+gitguardian.com, GitGuardian
+docker.com, Docker
+gitpod.io, Gitpod
+coder.com, Coder
+zed.dev, Zed
+raycast.com, Raycast
+tldraw.com, tldraw
+framer.com, Framer
+webflow.com, Webflow
+contentful.com, Contentful
+strapi.io, Strapi
+directus.io, Directus
+payloadcms.com, Payload
+storyblok.com, Storyblok
+ghost.org, Ghost
+discourse.org, Discourse
+mattermost.com, Mattermost
+nextcloud.com, Nextcloud
+hasura.io, Hasura
+apollographql.com, Apollo
+trigger.dev, Trigger.dev
+pipedream.com, Pipedream
+retool.com, Retool
+appsmith.com, Appsmith
+tooljet.com, ToolJet
+stytch.com, Stytch
+fusionauth.io, FusionAuth
+ory.sh, Ory
+novu.co, Novu
+cal.com, Cal.com
+dub.co, Dub
+plausible.io, Plausible
+# AI infrastructure
+huggingface.co, Hugging Face
+replicate.com, Replicate
+together.ai, Together AI
+baseten.co, Baseten
+wandb.ai, Weights & Biases
+langchain.com, LangChain
+pinecone.io, Pinecone
+weaviate.io, Weaviate
+qdrant.tech, Qdrant
+elevenlabs.io, ElevenLabs
+# Remote-first employers known for international hiring
+doist.com, Doist
+buffer.com, Buffer
+helpscout.com, Help Scout
+toggl.com, Toggl
+hotjar.com, Hotjar
+deel.com, Deel
+toptal.com, Toptal
+# Latin America
+cloudwalk.io, CloudWalk
+vtex.com, VTEX
+bitso.com, Bitso
+hotmart.com, Hotmart

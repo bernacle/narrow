@@ -474,6 +474,39 @@ mod tests {
         assert!(error.contains("offline"));
     }
 
+    /// Two paths to one board (configured directly, and through a careers
+    /// page that resolves to it) read it once, so its jobs keep one
+    /// identity and one opportunity each.
+    #[tokio::test]
+    async fn a_careers_page_resolving_to_a_configured_board_is_read_once() {
+        let config: AppConfig = toml::from_str(
+            r#"
+                [[sources.ashby]]
+                board = "railway"
+                company = "Railway"
+
+                [[sources.careers]]
+                url = "https://jobs.ashbyhq.com/Railway"
+                company = "Railway (careers page)"
+            "#,
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+        let mut warnings = Vec::new();
+        let selected = select_sources(&[], &config, &http(), false, &mut warnings)
+            .await
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(keys(&selected), vec!["ashby:railway"]);
+        assert!(warnings.is_empty(), "{warnings:?}");
+        let SourceSpec::Ashby { board, .. } = &selected[0] else {
+            panic!("expected ashby");
+        };
+        assert_eq!(
+            board.company.as_deref(),
+            Some("Railway"),
+            "configured details win"
+        );
+    }
+
     #[test]
     fn parses_source_arguments() {
         assert_eq!(

@@ -60,6 +60,22 @@ company = "Replit"
 board = "vanta"
 company = "Vanta"
 
+# BRU-343: boards that publish engineering jobs open to Brazil / worldwide
+# remote (BRU-325 evidence, re-measured 2026-10-05; see
+# docs/source-discovery-and-career-pages.md and deploy/sources.toml).
+
+[[sources.ashby]]
+board = "railway"
+company = "Railway"
+
+[[sources.ashby]]
+board = "oyster"
+company = "Oyster"
+
+[[sources.ashby]]
+board = "zapier"
+company = "Zapier"
+
 [[sources.greenhouse]]
 board = "anthropic"
 
@@ -71,6 +87,10 @@ board = "figma"
 
 [[sources.greenhouse]]
 board = "airbnb"
+
+# BRU-343 (see above).
+[[sources.greenhouse]]
+board = "wikimedia"
 
 [[sources.lever]]
 site = "spotify"

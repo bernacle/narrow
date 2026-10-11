@@ -248,6 +248,18 @@ Source notes, from real data:
   their jobs with JavaScript (Stripe's, Anthropic's) can't be detected;
   configure their board instead.
 
+To find the board of a company you care about, give its domain to
+`narrow sources discover railway.com` (or a file of domains with `--file`):
+it looks for the careers page from the homepage and the usual paths, finds
+the board it links to or embeds, and, when no page names one, tries the
+company's name as a board slug, accepting it only when something ties the
+board to the company's domain. Every board found is read with its adapter
+and validated; nothing is added to the configuration. `narrow sources
+report` shows what each stored source yields (open, engineering, open to a
+Brazil-based remote candidate, freshness by publish date, and your own
+ranking counts) and its health from recent scans. See
+[docs/source-discovery-and-career-pages.md](docs/source-discovery-and-career-pages.md).
+
 Across the source families, unknown stays unknown: a field a source does not
 publish is `None`, never guessed.
 

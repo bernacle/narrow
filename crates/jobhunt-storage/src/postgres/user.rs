@@ -22,7 +22,7 @@ use super::cache::Cache;
 use super::{PgStore, corrupt, query_error};
 use crate::sqlite::StoreStats;
 use crate::state::{StateImport, StateImported};
-use crate::store::{FeedMark, Shown, Store, WriteGuard};
+use crate::store::{FeedMark, ScanRecord, Shown, Store, WriteGuard};
 
 /// One person's view of the cloud store: the shared corpus, and their own
 /// private data only (see [`super`]).
@@ -700,6 +700,13 @@ impl Store for PgUserStore {
 
     async fn last_checked(&self) -> Result<HashMap<SourceKey, DateTime<Utc>>, StorageError> {
         self.shared.last_checked().await
+    }
+
+    async fn recent_scans(
+        &self,
+        per_source: usize,
+    ) -> Result<HashMap<SourceKey, Vec<ScanRecord>>, StorageError> {
+        self.shared.recent_scans(per_source).await
     }
 
     async fn stats(&self) -> Result<StoreStats, StorageError> {
