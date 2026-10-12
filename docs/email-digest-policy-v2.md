@@ -157,11 +157,12 @@ Narrow found 3 jobs worth reviewing today.
 
 1. Ando Technologies
 Senior Backend Engineer (Contract to Hire)
-Remote · Latin America
-Posted 2 days ago
+Latin & South America | Remote · USD 28–58/hr
+Posted 56 days ago
 
 Why Narrow picked it:
-<up to two lines of the brief's `worth`>
+Senior backend work
+Early-stage company
 
 View job: https://narrow.fyi/opportunities/opp_…
 
@@ -171,10 +172,18 @@ Some days Narrow sends nothing. That's on purpose.
 ```
 
 - Where (locations, workplace) and the job's **published** pay range,
-  when there is one.
-- Reasons: the first two lines of the ranking's own brief (`worth`): by
-  construction fit reasons about the job, never pay, remote work or
-  freshness. No new explainer.
+  when there is one, compact (`PayRange::compact`, presentation only):
+  "USD 28–58/hr", "USD 120k–160k/yr", "BRL 25k–32k/mo". The range is the
+  one the job's page shows (verified facts, else the listing).
+- Reasons: at most two lines of the ranking's own brief (`worth`), by
+  construction fit reasons about the job (never pay, remote work or
+  freshness), said tersely (`notify::reasons`): the quoted posting
+  excerpt, the clause addressed to the person ("…, the kind of company
+  you want", "…, matching your latest title", "…, as you're looking for")
+  and a leading article are dropped, so "An early-stage company, the kind
+  of company you want: “…”" reads "Early-stage company". A line that
+  would still speak about the person is skipped. No new reasons, no
+  reinterpretation; the full lines are on the job's page.
 - Removed: the "Consider:" line (it could carry eligibility or
   authorization details and the person's own requirements).
 - Never: match percentages, "perfect/best match", "unusually strong", "AI
@@ -206,7 +215,9 @@ now and this change affects no one until that cron exists.
 
 ## 11. Dogfood dry run
 
-Run 2026-10-12T00:22Z with
+Run 2026-10-12T00:22Z, and again at 01:33Z after the copy polish (same
+pool and digest; 3 jobs had closed in between, 3,431 open, still 7
+strong), with
 `cargo run --release -p jobhunt-cloud --example digest_dry_run`, which
 calls the production selection (`LocalApp::digest`) and renderer
 (`render_digest`) over a private SQLite mirror: the dogfood profile synced
@@ -237,9 +248,9 @@ one-per-company: none (the four Railway roles never reached the pool). By
 
 | # | Company | Title | Eligibility | Freshness | Label | Reasons shown |
 |---|---|---|---|---|---|---|
-| 1 | Ando Technologies | Senior Backend Engineer (Contract to Hire) | eligible ("Brazil is within the listed South America region") | backfill | Posted 56 days ago | Senior backend work, the kind of engineering you want · An early-stage company, the kind of company you want |
-| 2 | Oneleet | Fullstack Engineer, AI Implementation | eligible ("hires employer of records from anywhere") | backfill | **Posted 342 days ago** | Full-stack work that includes the backend, close to the work you want · An early-stage company, the kind of company you want |
-| 3 | Veda | Backend Engineer - Solana | eligible ("remote from anywhere") | backfill | Posted 58 days ago | Backend work, the kind of engineering you want · A small company of 35 people, the kind of company you want |
+| 1 | Ando Technologies | Senior Backend Engineer (Contract to Hire) | eligible ("Brazil is within the listed South America region") | backfill | Posted 56 days ago | Senior backend work · Early-stage company |
+| 2 | Oneleet | Fullstack Engineer, AI Implementation | eligible ("hires employer of records from anywhere") | backfill | **Posted 342 days ago** | Full-stack work that includes the backend · Early-stage company |
+| 3 | Veda | Backend Engineer - Solana | eligible ("remote from anywhere") | backfill | Posted 58 days ago | Backend work · Small company of 35 people |
 
 All three are `backfill` (first seen in their boards' first listing,
 2026-10-11 slice 0), labelled with Ashby's real publish date; none is
@@ -264,23 +275,23 @@ Narrow found 3 jobs worth reviewing today.
 
 1. Ando Technologies
 Senior Backend Engineer (Contract to Hire)
-Latin & South America | Remote · USD 28 – 58 per hour
+Latin & South America | Remote · USD 28–58/hr
 Posted 56 days ago
 
 Why Narrow picked it:
-Senior backend work, the kind of engineering you want
-An early-stage company, the kind of company you want
+Senior backend work
+Early-stage company
 
 View job: https://narrow.fyi/opportunities/opp_d0fec14378806a6e6cfd6931a0e53e70
 
 2. Oneleet
 Fullstack Engineer, AI Implementation
-US/EU - Remote · USD 110,000 – 180,000 per year
+US/EU - Remote · USD 110k–180k/yr
 Posted 342 days ago
 
 Why Narrow picked it:
-Full-stack work that includes the backend, close to the work you want
-An early-stage company, the kind of company you want
+Full-stack work that includes the backend
+Early-stage company
 
 View job: https://narrow.fyi/opportunities/opp_234250376fc406874a13f77256aa2283
 
@@ -290,8 +301,8 @@ Worldwide · remote
 Posted 58 days ago
 
 Why Narrow picked it:
-Backend work, the kind of engineering you want
-A small company of 35 people, the kind of company you want
+Backend work
+Small company of 35 people
 
 View job: https://narrow.fyi/opportunities/opp_9d88a119134f70d3eb9c16d042d8398a
 
@@ -301,10 +312,8 @@ Some days Narrow sends nothing. That's on purpose.
 You get this because the daily digest is on in Narrow. Change when it comes, pause it or turn it off: https://narrow.fyi/settings#notifications
 ```
 
-Two observations for the experiment, not changed here: Railway's four
-roles are on Today but can never be emailed while their eligibility is
-unclear; and the brief's reasons end in "…the kind of company you want",
-which speaks to the person's stated wants without quoting them.
+An observation for the experiment, not changed here: Railway's four roles
+are on Today but can never be emailed while their eligibility is unclear.
 
 ## 12. Rollout and rollback
 

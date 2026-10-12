@@ -94,6 +94,68 @@ impl PayRange {
     }
 }
 
+impl PayRange {
+    /// The same range, compact, for short messages: "USD 28–58/hr",
+    /// "USD 120k–160k/yr", "BRL 25k–32k/mo". Presentation only: what
+    /// [`PayRange::describe`] says, in fewer characters.
+    pub fn compact(&self) -> String {
+        let range = match (self.min, self.max) {
+            (Some(a), Some(b)) if (a - b).abs() < f64::EPSILON => short(a),
+            (Some(a), Some(b)) => format!("{}–{}", short(a), short(b)),
+            (Some(a), None) => format!("from {}", short(a)),
+            (None, Some(b)) => format!("up to {}", short(b)),
+            (None, None) => "amount not given".to_owned(),
+        };
+        let money = match &self.currency {
+            CurrencyEvidence::Code { code } => format!("{code} {range}"),
+            CurrencyEvidence::Ambiguous { symbol } => format!("{symbol}{range} (currency unknown)"),
+            CurrencyEvidence::Unknown if self.kind == "equity_percentage" => format!("{range}%"),
+            CurrencyEvidence::Unknown => format!("{range} (currency not stated)"),
+        };
+        let per = match self.interval {
+            Some(PayInterval::Hour) => "/hr",
+            Some(PayInterval::Day) => "/day",
+            Some(PayInterval::Week) => "/wk",
+            Some(PayInterval::Month) => "/mo",
+            Some(PayInterval::Year) => "/yr",
+            Some(PayInterval::OneTime) => " one-time",
+            None => "",
+        };
+        let kind = match self.kind.as_str() {
+            "salary" => String::new(),
+            other => format!(" ({})", other.replace('_', " ")),
+        };
+        let label = self
+            .label
+            .as_deref()
+            .map(|l| format!(" ({l})"))
+            .unwrap_or_default();
+        format!("{money}{per}{kind}{label}")
+    }
+}
+
+/// 58 → "58", 26.96 → "26.96", 120000 → "120k", 125500 → "125.5k",
+/// 1200000 → "1.2M".
+fn short(value: f64) -> String {
+    let scaled = |v: f64, unit: &str| {
+        let rounded = (v * 10.0).round() / 10.0;
+        if (rounded - rounded.round()).abs() < f64::EPSILON {
+            format!("{}{unit}", rounded.round() as u64)
+        } else {
+            format!("{rounded:.1}{unit}")
+        }
+    };
+    if value >= 1_000_000.0 {
+        scaled(value / 1_000_000.0, "M")
+    } else if value >= 1_000.0 {
+        scaled(value / 1_000.0, "k")
+    } else if (value - value.round()).abs() > 0.001 {
+        format!("{value}")
+    } else {
+        format!("{}", value.round() as u64)
+    }
+}
+
 fn group(value: f64) -> String {
     let rounded = value.round() as u64;
     let digits = rounded.to_string();
@@ -265,6 +327,55 @@ fn ranges(comp: &Compensation) -> Vec<PayRange> {
 mod tests {
     use super::*;
     use crate::model::CompensationComponent;
+
+    fn range(code: &str, min: Option<f64>, max: Option<f64>, interval: PayInterval) -> PayRange {
+        PayRange {
+            kind: "salary".into(),
+            label: None,
+            currency: CurrencyEvidence::Code { code: code.into() },
+            min,
+            max,
+            interval: Some(interval),
+        }
+    }
+
+    #[test]
+    fn compact_ranges_read_at_a_glance() {
+        let hourly = range("USD", Some(28.0), Some(58.0), PayInterval::Hour);
+        assert_eq!(hourly.describe(), "USD 28 – 58 per hour");
+        assert_eq!(hourly.compact(), "USD 28–58/hr");
+        let yearly = range("USD", Some(120_000.0), Some(160_000.0), PayInterval::Year);
+        assert_eq!(yearly.compact(), "USD 120k–160k/yr");
+        assert_eq!(
+            range("USD", Some(60.0), Some(60.0), PayInterval::Hour).compact(),
+            "USD 60/hr"
+        );
+        assert_eq!(
+            range("BRL", Some(25_000.0), Some(32_000.0), PayInterval::Month).compact(),
+            "BRL 25k–32k/mo"
+        );
+        assert_eq!(
+            range("USD", Some(125_500.0), None, PayInterval::Year).compact(),
+            "USD from 125.5k/yr"
+        );
+        assert_eq!(
+            range("EUR", None, Some(1_200_000.0), PayInterval::Year).compact(),
+            "EUR up to 1.2M/yr"
+        );
+        assert_eq!(
+            range("USD", Some(26.96), Some(30.0), PayInterval::Hour).compact(),
+            "USD 26.96–30/hr"
+        );
+        let labelled = PayRange {
+            kind: "bonus".into(),
+            label: Some("Canada Annual Pay Range".into()),
+            ..yearly
+        };
+        assert_eq!(
+            labelled.compact(),
+            "USD 120k–160k/yr (bonus) (Canada Annual Pay Range)"
+        );
+    }
 
     fn salary(
         currency: Option<&str>,

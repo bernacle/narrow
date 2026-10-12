@@ -232,22 +232,64 @@ fn place(c: &NotificationCandidate) -> Option<String> {
 }
 
 /// Up to two of the ranking's own reasons the job may be worth the
-/// person's time, without the posting excerpt quoted after them ("Backend
-/// work, the kind of engineering you want: “…”"): short enough for an
-/// email, the full line is on the job's page. They speak about the job (by
+/// person's time, said tersely: the brief's line without the posting
+/// excerpt quoted after it, without the clause addressed to the person
+/// ("…, the kind of company you want", "…, matching your latest title")
+/// and without a leading article. "An early-stage company, the kind of
+/// company you want: “…”" reads "Early-stage company". A line that still
+/// speaks about the person is left out. Nothing is added or reinterpreted;
+/// the full lines are on the job's page. They speak about the job (by
 /// design never pay, remote work or freshness); eligibility details and
 /// caveats stay in the app.
-fn reasons(c: &NotificationCandidate) -> Vec<String> {
+pub fn reasons(c: &NotificationCandidate) -> Vec<String> {
     c.item
         .item
         .why
         .iter()
+        .filter_map(|reason| terse(reason))
         .take(2)
-        .map(|reason| match reason.split_once(": “") {
-            Some((lead, quoted)) if quoted.ends_with('”') => lead.to_owned(),
-            _ => reason.clone(),
-        })
         .collect()
+}
+
+/// Whether `text` speaks to the person ("you", "your", "you're", …).
+fn addresses_person(text: &str) -> bool {
+    text.split(|c: char| !c.is_alphanumeric() && c != '\'' && c != '’')
+        .any(|w| {
+            let w = w.to_lowercase();
+            w == "you"
+                || w == "your"
+                || w == "yours"
+                || w.starts_with("you'")
+                || w.starts_with("you’")
+        })
+}
+
+/// One brief line, tersely (see [`reasons`]); `None` when what is left
+/// still addresses the person.
+fn terse(reason: &str) -> Option<String> {
+    let mut text = match reason.split_once(": “") {
+        Some((lead, quoted)) if quoted.ends_with('”') => lead,
+        _ => reason,
+    }
+    .replace(" the way you have", "");
+    // The clause after the last comma that speaks to the person.
+    if let Some((evidence, tail)) = text.rsplit_once(", ")
+        && addresses_person(tail)
+    {
+        text = evidence.to_owned();
+    }
+    let text = text
+        .strip_prefix("A ")
+        .or_else(|| text.strip_prefix("An "))
+        .map_or(text.clone(), |rest| {
+            let mut chars = rest.chars();
+            chars
+                .next()
+                .map(|first| first.to_uppercase().chain(chars).collect())
+                .unwrap_or_default()
+        });
+    let text = text.trim().to_owned();
+    (!text.is_empty() && !addresses_person(&text)).then_some(text)
 }
 
 /// "1 job", "3 jobs".
@@ -283,9 +325,7 @@ pub fn render_digest(
     for (i, c) in items.iter().enumerate() {
         let item = &c.item.item;
         let url = link(web, &format!("/opportunities/{}", item.id));
-        let pay = (item.compensation.status == "published")
-            .then(|| item.compensation.ranges.first().cloned())
-            .flatten();
+        let pay = c.pay.as_ref().map(|p| p.compact());
         let facts: Vec<String> = place(c).into_iter().chain(pay).collect();
         let fresh = c.freshness.label(&item.company, now);
         let why = reasons(c);
@@ -654,9 +694,10 @@ mod tests {
             "locations": ["Remote · Latin America"],
             "workplace": "remote",
             "why": [
-                "Backend work",
-                "A senior IC role: “You will own services end to end”",
-                "Rust and PostgreSQL"
+                "Senior backend work, the kind of engineering you want",
+                "An early-stage company, the kind of company you want: “Ando is a Seed-stage \
+                 company backed by Slow Ventures.”",
+                "Senior level, as you're looking for"
             ],
             "consider": ["Your minimum is USD 140,000"],
             "sources": 1,
@@ -670,6 +711,14 @@ mod tests {
             content_version: "c1".into(),
             ranking_version: "r1".into(),
             freshness,
+            pay: Some(jobhunt_jobs::verification::PayRange {
+                kind: "salary".into(),
+                label: None,
+                currency: jobhunt_jobs::verification::CurrencyEvidence::Code { code: "USD".into() },
+                min: Some(28.0),
+                max: Some(58.0),
+                interval: Some(jobhunt_jobs::PayInterval::Hour),
+            }),
         }
     }
 
@@ -721,13 +770,13 @@ mod tests {
             "{text}"
         );
         for expected in [
-            "1. Ando Technologies\nSenior Backend Engineer (Contract to Hire)\nRemote · Latin America",
+            "1. Ando Technologies\nSenior Backend Engineer (Contract to Hire)\nRemote · Latin America · USD 28–58/hr\n",
             "Posted 2 days ago",
             "2. Oneleet\nFullstack Engineer, AI Implementation",
             "Posted 342 days ago",
             "3. Veda",
             "Posted date unknown",
-            "Why Narrow picked it:\nBackend work\nA senior IC role\n",
+            "Why Narrow picked it:\nSenior backend work\nEarly-stage company\n",
             "View job: https://app.jobhunt.test/opportunities/opp_ando technologies",
             "Some days Narrow sends nothing. That's on purpose.",
             "https://app.jobhunt.test/settings#notifications",
@@ -739,11 +788,14 @@ mod tests {
         // At most two reasons; eligibility details and the person's own
         // requirements stay in the app.
         for absent in [
-            "Rust and PostgreSQL",
+            "Senior level",
+            "kind of",
+            "you want",
+            "Slow Ventures",
+            "per hour",
             "authorization",
             "Your minimum",
             "Consider",
-            "end to end",
         ] {
             assert!(!text.contains(absent), "{absent} in {text}");
             assert!(!m.html.contains(absent), "{absent} in html");
@@ -764,6 +816,66 @@ mod tests {
         ] {
             assert!(!lower.contains(banned), "{banned:?} in {lower}");
         }
+    }
+
+    #[test]
+    fn reasons_state_the_evidence_tersely() {
+        for (line, terse_line) in [
+            (
+                "Senior backend work, the kind of engineering you want",
+                Some("Senior backend work"),
+            ),
+            (
+                "An early-stage company, the kind of company you want: “We just raised.”",
+                Some("Early-stage company"),
+            ),
+            (
+                "A small company of 35 people, the kind of company you're looking for: “…”",
+                Some("Small company of 35 people"),
+            ),
+            (
+                "Full-stack work that includes the backend, close to the work you want: “…”",
+                Some("Full-stack work that includes the backend"),
+            ),
+            (
+                "Touches infrastructure (the team: Platform), close to the backend work you've favored",
+                Some("Touches infrastructure (the team: Platform)"),
+            ),
+            (
+                "Senior level, matching your latest title",
+                Some("Senior level"),
+            ),
+            ("Senior level, as you're looking for", Some("Senior level")),
+            (
+                "A founding role: senior scope, matching your latest title",
+                Some("Founding role: senior scope"),
+            ),
+            (
+                "Uses Kafka the way you have (as a tool), not stream processing internals",
+                Some("Uses Kafka (as a tool), not stream processing internals"),
+            ),
+            (
+                "Backend and platform work",
+                Some("Backend and platform work"),
+            ),
+            ("Remote for Latin America", Some("Remote for Latin America")),
+            // Still about the person once simplified: left out.
+            ("Something you said you want", None),
+        ] {
+            assert_eq!(terse(line).as_deref(), terse_line, "{line}");
+        }
+        // At most two, skipping lines that can't be said tersely.
+        let mut c = candidate("Acme", "Engineer", posted(1));
+        c.item.item.why = vec![
+            "Something you said you want".into(),
+            "Infrastructure ownership, the kind of engineering you want".into(),
+            "Small engineering team".into(),
+            "Remote for Latin America".into(),
+        ];
+        assert_eq!(
+            reasons(&c),
+            ["Infrastructure ownership", "Small engineering team"]
+        );
     }
 
     #[test]

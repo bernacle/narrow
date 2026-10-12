@@ -43,7 +43,7 @@ use std::collections::{HashMap, HashSet};
 use std::time::Instant;
 
 use chrono::{DateTime, Duration, Utc};
-use jobhunt_jobs::verification::CompensationCheck;
+use jobhunt_jobs::verification::{CompensationCheck, CompensationStatus, PayRange};
 use jobhunt_jobs::{JobEventKind, JobId, JobRecord, OpportunityId};
 use jobhunt_ranking::{
     FeedbackAction, FeedbackEvent, Gate, OpportunityState, RankQuery, RankReport, Ranking, Stage,
@@ -59,7 +59,7 @@ use crate::feedback::FeedbackOutcome;
 use crate::freshness::Freshness;
 use crate::resolve::Opportunity;
 use crate::shortlist::{Entry, Learning, RefreshSummary, ShortlistItem};
-use crate::views::{FitTier, PipelineStage, time};
+use crate::views::{CompensationView, FitTier, PipelineStage, time};
 use crate::{DiscoveryMode, LocalApp, Progress};
 
 /// Items a feed shows by default.
@@ -689,6 +689,12 @@ impl LocalApp {
                 records,
             };
             let checked = self.check(&opportunity, now).await?;
+            // The published pay the item shows, as data (for compact
+            // wording in messages).
+            let pay = crate::views::best_record(&checked.verified, &checked.trust, None)
+                .map(|r| CompensationView::best_check(r, &checked.trust).0)
+                .filter(|c| c.status == CompensationStatus::Published)
+                .and_then(|c| c.ranges.into_iter().next());
             out.items.push(NotificationCandidate {
                 item: FeedItem {
                     item: ShortlistItem::of(&Entry {
@@ -705,6 +711,7 @@ impl LocalApp {
                 content_version: record.posting.content_fingerprint().to_hex(),
                 ranking_version: ranking.ranking_version.clone(),
                 freshness,
+                pay,
             });
         }
         out.pool.sort_by_key(|e| e.rank);
@@ -837,6 +844,9 @@ pub struct NotificationCandidate {
     pub ranking_version: String,
     /// How fresh that record is, said honestly.
     pub freshness: Freshness,
+    /// The first published pay range the item shows (`item.compensation`),
+    /// as data.
+    pub pay: Option<PayRange>,
 }
 
 /// One item on the feed: a shortlist item, with why it is on the feed.
