@@ -81,8 +81,6 @@ impl Server {
                 "JOBHUNT_EMAIL_FROM",
                 "JobHunt <notify@jobhunt.test>".to_owned(),
             ),
-            // Every run may email (the interval has its own test).
-            ("JOBHUNT_NOTIFY_MIN_INTERVAL_HOURS", "0".to_owned()),
         ]
         .into_iter()
         .chain(extra.iter().cloned())
@@ -1425,6 +1423,38 @@ async fn subscribe(server: &Server, token: &str, address: &str) {
     assert_eq!(settings["email_status"], "confirmed");
 }
 
+/// Makes the person's daily digest due now (UTC, every day, no quiet
+/// hours, its time a few minutes ago), through the API.
+async fn digest_due_now(server: &Server, token: &str) {
+    let now = Utc::now();
+    let midnight = now.date_naive().and_time(chrono::NaiveTime::MIN).and_utc();
+    let at = (now - Duration::minutes(20)).max(midnight);
+    let (status, body) = server
+        .put(
+            "/api/v1/notifications",
+            token,
+            json!({
+                "timezone": "UTC",
+                "digest_time": at.format("%H:%M").to_string(),
+                "digest_days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+                "quiet_start": "00:00",
+                "quiet_end": "00:00",
+            }),
+        )
+        .await;
+    assert_eq!(status, StatusCode::OK, "{body}");
+}
+
+/// A day passes for every account: today's digest slot is free again.
+async fn next_day(server: &Server) {
+    let pool = server.pool().await;
+    sqlx::query("UPDATE notification_settings SET last_digest_on = last_digest_on - 1")
+        .execute(&pool)
+        .await
+        .unwrap();
+    pool.close().await;
+}
+
 fn recommendation_emails(server: &Server) -> Vec<jobhunt_cloud::email::EmailMessage> {
     server
         .mail
@@ -1472,6 +1502,7 @@ async fn strong_new_recommendations_are_emailed_once_and_nothing_else_is() {
 
     // Another address needs its own confirmation; then it is confirmed.
     subscribe(&server, &token, "ana@example.com").await;
+    digest_due_now(&server, &token).await;
 
     // The person already rejected one strong fit and applied to another.
     let ids = seed_each(&server, &strong[..2], Some(1)).await;
@@ -1528,28 +1559,34 @@ async fn strong_new_recommendations_are_emailed_once_and_nothing_else_is() {
     ] {
         assert!(!email.text.contains(absent), "{absent} in {}", email.text);
     }
-    assert_eq!(
-        email.subject,
-        format!(
-            "A strong new match: {} at {}",
-            strong[2].title, strong[2].company
-        )
-    );
+    assert_eq!(email.subject, "Narrow found 1 job worth a look");
     assert!(email.text.contains(&format!("{WEB}/opportunities/")));
-    assert!(email.text.contains("Why:"));
-    assert!(email.html.contains("Why:"));
+    assert!(email.text.contains("Why Narrow picked it:"));
+    assert!(email.html.contains("Why Narrow picked it:"));
     assert!(email.text.contains("USD"), "pay when known");
+    // Found when its board was first read: its age is the board's date,
+    // never "new".
+    assert!(email.text.contains("Posted ") && email.text.contains(" days ago"));
+    assert!(!email.text.to_lowercase().contains("new"), "{}", email.text);
     assert!(email.headers.iter().any(|(k, _)| k == "List-Unsubscribe"));
 
-    // The cursor moved; nothing new means no email (no "nothing found").
+    // The cursor moved. Today's digest was sent: whatever appears now
+    // waits for tomorrow's.
     let (_, account) = server.get("/api/v1/account", &token).await;
     assert!(account["cloud"]["notification_cursor"].as_u64().unwrap() > 0);
+    let summary = server.notify().await;
+    assert_eq!((summary.composed, summary.not_due), (0, 1), "{summary:?}");
+    // Nothing new the next day means no email (no "nothing found").
+    next_day(&server).await;
     let summary = server.notify().await;
     assert_eq!(
         (summary.composed, summary.nothing_new),
         (0, 1),
         "{summary:?}"
     );
+    // Found nothing, the day's slot is still used: nothing later today.
+    let summary = server.notify().await;
+    assert_eq!((summary.composed, summary.not_due), (0, 1), "{summary:?}");
     assert_eq!(recommendation_emails(&server).len(), 1);
 
     // Several new strong fits at once are grouped into one email.
@@ -1589,12 +1626,17 @@ async fn strong_new_recommendations_are_emailed_once_and_nothing_else_is() {
     ];
     seed_each(&server, &more, Some(1)).await;
     let summary = server.notify().await;
+    assert_eq!(summary.composed, 0, "{summary:?}");
+    next_day(&server).await;
+    let summary = server.notify().await;
     assert_eq!(summary.sent, 1, "{summary:?}");
     let emails = recommendation_emails(&server);
     assert_eq!(emails.len(), 2);
-    assert_eq!(emails[1].subject, "3 new jobs worth your time");
-    assert_eq!(summary.opportunities, 3, "at most three per email");
-    // The fourth waits for the next run.
+    assert_eq!(emails[1].subject, "Narrow found 3 jobs worth a look");
+    assert!(emails[1].text.contains("\n1. ") && emails[1].text.contains("\n3. "));
+    assert_eq!(summary.opportunities, 3, "at most three per digest");
+    // The fourth waits for the next digest.
+    next_day(&server).await;
     let summary = server.notify().await;
     assert_eq!(summary.opportunities, 1, "{summary:?}");
 
@@ -1610,8 +1652,13 @@ async fn strong_new_recommendations_are_emailed_once_and_nothing_else_is() {
     seed_each(&server, std::slice::from_ref(&seen), Some(1)).await;
     let feed = server.feed(&token, 10).await;
     assert!(feed.items.iter().any(|i| i.item.company == "Omega"));
+    next_day(&server).await;
     let summary = server.notify().await;
-    assert_eq!(summary.composed, 0, "{summary:?}");
+    assert_eq!(
+        (summary.composed, summary.nothing_new),
+        (0, 1),
+        "{summary:?}"
+    );
 
     // Turned off: nothing more, whatever appears.
     server
@@ -1642,6 +1689,185 @@ async fn strong_new_recommendations_are_emailed_once_and_nothing_else_is() {
 }
 
 #[tokio::test]
+async fn the_digest_keeps_its_schedule_one_company_at_a_time_and_leaves_today_alone() {
+    let Some(server) = Server::start().await else {
+        return;
+    };
+    let token = server.token("ana").await;
+    server.onboard(&token).await;
+    subscribe(&server, &token, "ana@example.com").await;
+
+    // Existing subscribers get the defaults: 3 jobs at 09:00 on weekdays,
+    // quiet from 21:00 to 08:00, in UTC until a timezone is set.
+    let (_, settings) = server.get("/api/v1/notifications", &token).await;
+    assert_eq!(settings["digest_time"], "09:00");
+    assert_eq!(
+        settings["digest_days"],
+        json!(["mon", "tue", "wed", "thu", "fri"])
+    );
+    assert_eq!(settings["digest_size"], 3);
+    assert_eq!(
+        (
+            settings["quiet_start"].as_str(),
+            settings["quiet_end"].as_str()
+        ),
+        (Some("21:00"), Some("08:00"))
+    );
+    assert!(settings.get("timezone").is_none());
+    assert_eq!(settings["max_items"], 5);
+    assert!(settings["next_digest_at"].is_string(), "{settings}");
+    assert!(settings.get("min_interval_hours").is_none());
+
+    // Settings that could never be honored are refused, not adjusted.
+    for (body, error) in [
+        (json!({"digest_time": "07:00"}), "inside your quiet hours"),
+        (
+            json!({"quiet_start": "08:30", "quiet_end": "10:00"}),
+            "inside your quiet hours",
+        ),
+        (json!({"timezone": "Mars/Olympus"}), "IANA"),
+        (json!({"digest_size": 6}), "between 1 and 5"),
+        (json!({"digest_days": []}), "at least one day"),
+        (json!({"digest_days": ["someday"]}), "not a day"),
+        (json!({"digest_time": "9am"}), "a time like 09:00"),
+    ] {
+        let (status, answer) = server
+            .put("/api/v1/notifications", &token, body.clone())
+            .await;
+        assert_eq!(status, StatusCode::BAD_REQUEST, "{body} {answer}");
+        assert!(answer.to_string().contains(error), "{body}: {answer}");
+    }
+    let (_, unchanged) = server.get("/api/v1/notifications", &token).await;
+    assert_eq!(unchanged["digest_time"], "09:00");
+
+    digest_due_now(&server, &token).await;
+    let (_, settings) = server.get("/api/v1/notifications", &token).await;
+    assert_eq!(settings["timezone"], "UTC");
+    let railway: Vec<JobPosting> = (1..=3)
+        .map(|n| {
+            posting(
+                "greenhouse:railway",
+                &format!("70{n}"),
+                "Railway",
+                &format!("Backend Engineer {n}"),
+                BACKEND,
+                Some(salary(150_000.0, 190_000.0)),
+            )
+        })
+        .collect();
+    let ando = posting(
+        "greenhouse:ando",
+        "801",
+        "Ando Technologies",
+        "Senior Backend Engineer",
+        BACKEND,
+        Some(salary(150_000.0, 190_000.0)),
+    );
+    server.seed("greenhouse:railway", &railway, Some(1)).await;
+    seed_each(&server, std::slice::from_ref(&ando), Some(1)).await;
+
+    // One job per company: three Railway roles make one item.
+    let summary = server.notify().await;
+    assert_eq!((summary.sent, summary.opportunities), (1, 2), "{summary:?}");
+    let email = recommendation_emails(&server).pop().unwrap();
+    assert_eq!(email.subject, "Narrow found 2 jobs worth a look");
+    assert_eq!(
+        email.text.matches(". Railway\n").count(),
+        1,
+        "{}",
+        email.text
+    );
+    assert!(email.text.contains(". Ando Technologies\n"));
+    let pool = server.pool().await;
+    let items: Vec<(i16, String)> =
+        sqlx::query_as("SELECT position, freshness FROM notification_items ORDER BY position")
+            .fetch_all(&pool)
+            .await
+            .unwrap();
+    assert_eq!(
+        items,
+        [(1, "backfill".to_owned()), (2, "backfill".to_owned())]
+    );
+
+    // Emailing them did not consume Today: both are still new there.
+    let feed = server.feed(&token, 10).await;
+    for company in ["Railway", "Ando Technologies"] {
+        let item = feed
+            .items
+            .iter()
+            .find(|i| i.item.company == company)
+            .unwrap();
+        assert_eq!(item.reason, jobhunt_app::feed::FeedReason::New, "{company}");
+    }
+
+    // The next days, one job each: Railway, in last week's digest, gives
+    // way to a company that wasn't; then it is sent again, not blocked.
+    let (status, _) = server
+        .put("/api/v1/notifications", &token, json!({"digest_size": 1}))
+        .await;
+    assert_eq!(status, StatusCode::OK);
+    let veda = posting(
+        "greenhouse:veda",
+        "901",
+        "Veda",
+        "Backend Engineer",
+        BACKEND,
+        Some(salary(150_000.0, 190_000.0)),
+    );
+    seed_each(&server, std::slice::from_ref(&veda), Some(1)).await;
+    next_day(&server).await;
+    server.notify().await;
+    let email = recommendation_emails(&server).pop().unwrap();
+    assert_eq!(email.subject, "Narrow found 1 job worth a look");
+    assert!(email.text.contains("1. Veda\n"), "{}", email.text);
+    next_day(&server).await;
+    server.notify().await;
+    let email = recommendation_emails(&server).pop().unwrap();
+    assert!(email.text.contains("1. Railway\n"), "{}", email.text);
+    assert_eq!(recommendation_emails(&server).len(), 3);
+
+    // Paused: nothing; resumed: the schedule goes on, nothing caught up.
+    let until = Utc::now() + Duration::days(7);
+    let (status, settings) = server
+        .put(
+            "/api/v1/notifications",
+            &token,
+            json!({"paused_until": until}),
+        )
+        .await;
+    assert_eq!(status, StatusCode::OK, "{settings}");
+    assert!(settings["paused_until"].is_string());
+    let next: DateTime<Utc> = settings["next_digest_at"]
+        .as_str()
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert!(next >= until - Duration::seconds(1), "{settings}");
+    next_day(&server).await;
+    let summary = server.notify().await;
+    assert_eq!((summary.paused, summary.composed), (1, 0), "{summary:?}");
+    let (status, settings) = server
+        .put(
+            "/api/v1/notifications",
+            &token,
+            json!({"paused_until": null}),
+        )
+        .await;
+    assert_eq!(status, StatusCode::OK, "{settings}");
+    assert!(settings.get("paused_until").is_none(), "{settings}");
+    let summary = server.notify().await;
+    assert_eq!(summary.paused, 0, "{summary:?}");
+    assert_eq!(summary.sent, 1, "the last Railway role: {summary:?}");
+    let total: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM notification_items")
+        .fetch_one(&pool)
+        .await
+        .unwrap();
+    assert_eq!(total, 5, "each opportunity once, ever");
+    pool.close().await;
+    server.finish().await;
+}
+
+#[tokio::test]
 async fn provider_failures_are_retried_without_sending_twice() {
     let Some(server) = Server::start().await else {
         return;
@@ -1649,6 +1875,7 @@ async fn provider_failures_are_retried_without_sending_twice() {
     let token = server.token("ana").await;
     server.onboard(&token).await;
     subscribe(&server, &token, "ana@example.com").await;
+    digest_due_now(&server, &token).await;
     let (strong, _) = corpus();
     seed_each(&server, &strong[..1], Some(1)).await;
     let pool = server.pool().await;
@@ -1690,6 +1917,7 @@ async fn provider_failures_are_retried_without_sending_twice() {
     // connection): the retry reuses the idempotency key, so the person gets
     // one email.
     seed_each(&server, &strong[1..2], Some(1)).await;
+    next_day(&server).await;
     server.mail.set_mode(MemoryMode::AcceptThenLoseAnswer);
     let summary = server.notify().await;
     assert_eq!(summary.retrying, 1, "{summary:?}");
@@ -1703,9 +1931,17 @@ async fn provider_failures_are_retried_without_sending_twice() {
     let summary = server.notify().await;
     assert_eq!(summary.sent, 1, "{summary:?}");
     assert_eq!(recommendation_emails(&server).len(), 2, "not sent twice");
+    // Retries never duplicate what a digest covered.
+    let items: Vec<(i64, i64)> =
+        sqlx::query_as("SELECT COUNT(*), COUNT(DISTINCT opportunity_id) FROM notification_items")
+            .fetch_all(&pool)
+            .await
+            .unwrap();
+    assert_eq!(items, [(2, 2)]);
 
     // A permanent refusal fails the delivery (never "sent").
     seed_each(&server, &strong[2..3], Some(1)).await;
+    next_day(&server).await;
     server.mail.set_mode(MemoryMode::FailPermanent);
     let summary = server.notify().await;
     assert_eq!(summary.failed, 1, "{summary:?}");
@@ -1718,6 +1954,7 @@ async fn provider_failures_are_retried_without_sending_twice() {
 
     // Retries give up after too long rather than sending stale news late.
     server.mail.set_mode(MemoryMode::FailRetryable);
+    next_day(&server).await;
     seed_each(
         &server,
         &[posting(
@@ -1747,6 +1984,50 @@ async fn provider_failures_are_retried_without_sending_twice() {
             .iter()
             .any(|m| m.text.contains("Late"))
     );
+
+    // A digest the provider has not accepted by its deadline (quiet hours,
+    // the end of the day) is abandoned, not sent late.
+    seed_each(
+        &server,
+        &[posting(
+            "greenhouse:quiet",
+            "1400",
+            "Quiet",
+            "Senior Backend Engineer",
+            BACKEND,
+            Some(salary(150_000.0, 190_000.0)),
+        )],
+        Some(1),
+    )
+    .await;
+    next_day(&server).await;
+    server.mail.set_mode(MemoryMode::FailRetryable);
+    server.notify().await;
+    let expires: Option<DateTime<Utc>> = sqlx::query_scalar(
+        "SELECT expires_at FROM notification_deliveries WHERE status = 'pending'",
+    )
+    .fetch_one(&pool)
+    .await
+    .unwrap();
+    assert!(
+        expires.is_some_and(|e| e > Utc::now()),
+        "a digest has a deadline"
+    );
+    sqlx::query(
+        "UPDATE notification_deliveries SET expires_at = now() - interval '1 minute', \
+         next_attempt_at = now() - interval '1 minute' WHERE status = 'pending'",
+    )
+    .execute(&pool)
+    .await
+    .unwrap();
+    server.mail.set_mode(MemoryMode::Accept);
+    let summary = server.notify().await;
+    assert_eq!(summary.abandoned, 1, "{summary:?}");
+    assert!(
+        !recommendation_emails(&server)
+            .iter()
+            .any(|m| m.text.contains("Quiet"))
+    );
     pool.close().await;
     server.finish().await;
 }
@@ -1759,6 +2040,7 @@ async fn concurrent_workers_send_one_email() {
     let token = server.token("ana").await;
     server.onboard(&token).await;
     subscribe(&server, &token, "ana@example.com").await;
+    digest_due_now(&server, &token).await;
     let (strong, _) = corpus();
     seed_each(&server, &strong, Some(1)).await;
     let (a, b, c) = tokio::join!(server.notify(), server.notify(), server.notify());
@@ -1785,6 +2067,8 @@ async fn notifications_and_feeds_never_cross_accounts() {
     server.onboard(&bob).await;
     subscribe(&server, &ana, "ana@example.com").await;
     subscribe(&server, &bob, "bob@example.com").await;
+    digest_due_now(&server, &ana).await;
+    digest_due_now(&server, &bob).await;
     let (strong, _) = corpus();
     let ids = seed_each(&server, &strong[..3], Some(1)).await;
     // Ana rejects the platform job and saves another; Bob does nothing.

@@ -383,23 +383,35 @@ its own (`jobhunt_app::feed`):
 
 ## Email notifications
 
-`narrow worker notify` (every 15 minutes) emails people about strong new
-recommendations, from the product's ranking
-(`App::notification_candidates`). Precision over recall:
+`narrow worker notify` (every 15 minutes) sends each subscriber a **daily
+digest**: once a day at most, a few jobs worth reviewing, nothing when
+nothing qualifies (notification policy v2, BRU-389 slice A; the full
+policy is in [`email-digest-policy-v2.md`](email-digest-policy-v2.md)).
 
 - **Who**: accounts with email notifications on and a confirmed address.
   An address is confirmed by following a link sent to it (48 hours); until
   then nothing else is sent to it. The address is stored sealed and
   deleted with the account.
-- **What**: strong fits, recommended outright (verified recently at an
-  authoritative source, eligible or conditionally eligible), never acted
-  on, never shown in the app or put aside, never in an earlier email. At
-  most `JOBHUNT_NOTIFY_MAX_ITEMS` (3) per email: "A strong new match:
-  Senior Platform Engineer at X" or "3 new jobs worth your time", each with
-  pay when known, where, why (two lines), one caveat, and a link.
-- **When**: at most one email per `JOBHUNT_NOTIFY_MIN_INTERVAL_HOURS` (4)
-  with the `immediate` cadence, or per day with `daily`. Nothing found
-  means no email: no "nothing new", no digests of maybes.
+- **What** (`App::digest`): from the product's ranking, unchanged, the
+  strong fits recommended outright (verified recently at an authoritative
+  source, eligible or conditionally eligible), never acted on, never shown
+  in the app or put aside, never in an earlier email; then, in rank order,
+  one job per company, preferring companies not emailed about in the last
+  7 days when another can fill the slot, at most the person's digest size
+  (3 by default; at most `JOBHUNT_NOTIFY_MAX_ITEMS`, 5). Never padded:
+  one candidate makes a one-job digest; none, no email. Each job shows
+  where, pay when published, an honest freshness line ("Posted 342 days
+  ago", "New on Acme's job board · first seen 3h ago", "Posted date
+  unknown"), up to two reasons from its brief, and a link.
+- **When**: at the person's digest time (09:00) on their days (Monday to
+  Friday), in their timezone (UTC until set), never inside quiet hours
+  (21:00–08:00) or while paused. At most one digest per local calendar day
+  (`notification_settings.last_digest_on` is claimed whether anything is
+  found or not); a slot missed by more than an hour is not sent later, and
+  a digest the provider hasn't accepted by quiet hours, the end of the day
+  or 6 hours is abandoned (`expires_at`). The old `cadence` column
+  (`immediate`/`daily`) is kept but no longer read.
+- **Today**: emailing a job doesn't consume it; it stays new on Today.
 - **Idempotency**: an outbox. The rendered message and its opportunities
   are committed first (`notification_deliveries`,
   `notification_items`, whose primary key `(account, opportunity)` makes a
@@ -729,8 +741,7 @@ startup with every problem listed.
 | `JOBHUNT_EMAIL_FROM` | server, notify | with `resend` | `JobHunt <notifications@example.com>`, on a domain verified in Resend |
 | `JOBHUNT_RESEND_API_URL` | server, notify | no | `https://api.resend.com` (tests point it at a mock) |
 | `JOBHUNT_EMAIL_FILE` | server, notify | with `file` | where the file provider appends messages |
-| `JOBHUNT_NOTIFY_MIN_INTERVAL_HOURS` | notify | no | 4: at most one email per account this often (`immediate` cadence) |
-| `JOBHUNT_NOTIFY_MAX_ITEMS` | notify | no | 3 (1–5) opportunities per email |
+| `JOBHUNT_NOTIFY_MAX_ITEMS` | server, notify | no | 5 (1–5): the largest digest a person can choose |
 | `JOBHUNT_NOTIFY_BATCH` | notify | no | 50 accounts per claim |
 
 The web app (`web` service) reads its own variables:

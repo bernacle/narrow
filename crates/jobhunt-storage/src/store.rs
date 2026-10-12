@@ -119,6 +119,16 @@ pub trait Store:
         per_source: usize,
     ) -> Result<HashMap<SourceKey, Vec<ScanRecord>>, StorageError>;
 
+    /// When the last complete read of `source` finished before `before`
+    /// (a complete listing, or a "not modified" answer confirming one).
+    /// A job first seen after one was not on the board then: it is newly
+    /// listed, not part of the board's first listing (freshness).
+    async fn complete_listing_before(
+        &self,
+        source: &SourceKey,
+        before: DateTime<Utc>,
+    ) -> Result<Option<DateTime<Utc>>, StorageError>;
+
     /// Counts for diagnostics.
     async fn stats(&self) -> Result<StoreStats, StorageError>;
 

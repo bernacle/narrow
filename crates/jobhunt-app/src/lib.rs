@@ -52,6 +52,7 @@ pub mod doctor;
 pub mod error;
 pub mod feed;
 pub mod feedback;
+pub mod freshness;
 pub mod inspect;
 pub mod preferences;
 pub mod profile_edit;

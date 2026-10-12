@@ -1737,7 +1737,7 @@ is not supported directly today.
 
 The same application, hosted: an account your machines sync with,
 scheduled discovery and re-verification of one shared job corpus, a web
-app, email notifications about strong new matches, an HTTP API
+app, a daily email digest of jobs worth a look, an HTTP API
 (`/api/v1`) and a hosted MCP endpoint (`/mcp`) for remote assistants. The
 full design, deployment and configuration reference is in
 [docs/cloud.md](docs/cloud.md); the web app is described in

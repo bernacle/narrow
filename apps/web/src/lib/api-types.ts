@@ -1809,7 +1809,10 @@ export interface AttemptView {
   unknowns?: string[];
 }
 /**
- * `GET /api/v1/notifications`.
+ * `GET /api/v1/notifications`: the daily digest email (notification
+ * policy v2). At most one digest per local day, at `digest_time` on
+ * `digest_days`, never inside quiet hours or while paused; nothing is
+ * sent when nothing qualifies.
  *
  * This interface was referenced by `JobHuntApi`'s JSON-Schema
  * via the `definition` "NotificationSettingsView".
@@ -1820,14 +1823,26 @@ export interface NotificationSettingsView {
    */
   available: boolean;
   /**
-   * `immediate` (soon after a strong match appears, at most one email
-   * every few hours) or `daily` (at most one a day).
+   * Legacy (BRU-295): `immediate` or `daily`. Both now mean the daily
+   * digest.
    */
   cadence: string;
   confirmation_sent_at?: string | null;
+  /**
+   * Days a digest may come (`mon` … `sun`).
+   */
+  digest_days: string[];
+  /**
+   * Jobs in one digest at most (1 to `max_items`).
+   */
+  digest_size: number;
+  /**
+   * Local time the digest is composed, `HH:MM`.
+   */
+  digest_time: string;
   email?: string | null;
   /**
-   * Emails about strong new matches are on.
+   * The daily digest is on.
    */
   email_enabled: boolean;
   /**
@@ -1836,17 +1851,33 @@ export interface NotificationSettingsView {
    */
   email_status: string;
   /**
-   * Opportunities in one email at most.
+   * The largest digest size.
    */
   max_items: number;
   /**
-   * Hours between emails at most, with the `immediate` cadence.
+   * When the next digest may go out (it goes out only if something
+   * qualifies); absent while off.
    */
-  min_interval_hours: number;
+  next_digest_at?: string | null;
+  /**
+   * Paused until then.
+   */
+  paused_until?: string | null;
+  quiet_end: string;
+  /**
+   * Nothing is sent from `quiet_start` to `quiet_end` (local, `HH:MM`;
+   * equal: no quiet hours).
+   */
+  quiet_start: string;
   /**
    * The latest emails, newest first.
    */
   recent: DeliveryView[];
+  /**
+   * The IANA timezone the schedule is read in; absent: not set yet
+   * (UTC is used until it is).
+   */
+  timezone?: string | null;
 }
 /**
  * One notification email, for the settings page (never its content).
@@ -1858,7 +1889,7 @@ export interface DeliveryView {
   created_at: string;
   id: string;
   /**
-   * `recommendations` or `confirmation`.
+   * `recommendations` (a digest) or `confirmation`.
    */
   kind: string;
   /**
@@ -3548,9 +3579,21 @@ export interface TokenList {
  */
 export interface UpdateNotificationsRequest {
   /**
-   * `immediate` or `daily`.
+   * Legacy: `immediate` or `daily` (both mean the daily digest).
    */
   cadence?: string | null;
+  /**
+   * At least one of `mon` … `sun`.
+   */
+  digest_days?: string[] | null;
+  /**
+   * 1 to `max_items`.
+   */
+  digest_size?: number | null;
+  /**
+   * `HH:MM`, outside quiet hours.
+   */
+  digest_time?: string | null;
   /**
    * The address to notify. A new address is sent a confirmation link;
    * nothing else is sent to it until it is confirmed.
@@ -3558,9 +3601,22 @@ export interface UpdateNotificationsRequest {
   email?: string | null;
   email_enabled?: boolean | null;
   /**
+   * Pause until then (at most a year ahead); `null` resumes.
+   */
+  paused_until?: string | null;
+  quiet_end?: string | null;
+  /**
+   * `HH:MM`; equal start and end: no quiet hours.
+   */
+  quiet_start?: string | null;
+  /**
    * Send the confirmation link again.
    */
   resend_confirmation?: boolean;
+  /**
+   * IANA timezone (`America/Sao_Paulo`).
+   */
+  timezone?: string | null;
 }
 /**
  * Arguments of `update_preferences`. Give at least one of `statement`,

@@ -45,8 +45,9 @@ pub use accounts::{
 };
 pub use crypto::{CryptoError, Keyring};
 pub use notify::{
-    Cadence, Delivery, DeliveryKind, DeliverySummary, NewDelivery, NotificationSettings,
-    NotifiedItem, NotifyAccount, SettingsChange, new_confirmation_token, new_delivery_id,
+    Cadence, Delivery, DeliveryKind, DeliverySummary, DigestSettings, NewDelivery,
+    NotificationSettings, NotifiedItem, NotifyAccount, SettingsChange, WEEKDAYS,
+    new_confirmation_token, new_delivery_id,
 };
 pub use rotate::Reencrypted;
 pub use schedule::{

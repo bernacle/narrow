@@ -288,6 +288,31 @@ impl SqliteJobStore {
         Ok(out)
     }
 
+    /// When the last complete read of `source` that finished before
+    /// `before` did (a complete listing, or a "not modified" answer that
+    /// confirmed one), if there was one.
+    pub async fn complete_listing_before(
+        &self,
+        source: &SourceKey,
+        before: DateTime<Utc>,
+    ) -> Result<Option<DateTime<Utc>>, StorageError> {
+        let at: Option<String> = sqlx::query_scalar(
+            "SELECT MAX(finished_at) FROM source_scans WHERE source_kind = ? \
+             AND source_instance = ? AND complete = 1 \
+             AND status IN ('listing', 'not_modified') AND finished_at < ?",
+        )
+        .bind(source.kind())
+        .bind(source.instance())
+        .bind(encode_timestamp(before))
+        .fetch_one(&self.pool)
+        .await
+        .map_err(query_error("loading the previous complete listing"))?;
+        at.map(|at| {
+            decode_timestamp(&at).map_err(|e| corrupt(&format!("scan of {source}"), e.to_string()))
+        })
+        .transpose()
+    }
+
     /// The latest `per_source` scans of every source, newest first.
     pub async fn recent_scans(
         &self,

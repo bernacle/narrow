@@ -261,7 +261,7 @@ pub struct GithubImportRequest {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 pub struct DeliveryView {
     pub id: String,
-    /// `recommendations` or `confirmation`.
+    /// `recommendations` (a digest) or `confirmation`.
     pub kind: String,
     /// `pending`, `sent`, `failed` or `abandoned`.
     pub status: String,
@@ -272,15 +272,18 @@ pub struct DeliveryView {
     pub sent_at: Option<DateTime<Utc>>,
 }
 
-/// `GET /api/v1/notifications`.
+/// `GET /api/v1/notifications`: the daily digest email (notification
+/// policy v2). At most one digest per local day, at `digest_time` on
+/// `digest_days`, never inside quiet hours or while paused; nothing is
+/// sent when nothing qualifies.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 pub struct NotificationSettingsView {
     /// Whether this service can send email at all.
     pub available: bool,
-    /// Emails about strong new matches are on.
+    /// The daily digest is on.
     pub email_enabled: bool,
-    /// `immediate` (soon after a strong match appears, at most one email
-    /// every few hours) or `daily` (at most one a day).
+    /// Legacy (BRU-295): `immediate` or `daily`. Both now mean the daily
+    /// digest.
     pub cadence: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
@@ -289,9 +292,28 @@ pub struct NotificationSettingsView {
     pub email_status: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub confirmation_sent_at: Option<DateTime<Utc>>,
-    /// Hours between emails at most, with the `immediate` cadence.
-    pub min_interval_hours: u64,
-    /// Opportunities in one email at most.
+    /// The IANA timezone the schedule is read in; absent: not set yet
+    /// (UTC is used until it is).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub timezone: Option<String>,
+    /// Local time the digest is composed, `HH:MM`.
+    pub digest_time: String,
+    /// Days a digest may come (`mon` … `sun`).
+    pub digest_days: Vec<String>,
+    /// Jobs in one digest at most (1 to `max_items`).
+    pub digest_size: u8,
+    /// Nothing is sent from `quiet_start` to `quiet_end` (local, `HH:MM`;
+    /// equal: no quiet hours).
+    pub quiet_start: String,
+    pub quiet_end: String,
+    /// Paused until then.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub paused_until: Option<DateTime<Utc>>,
+    /// When the next digest may go out (it goes out only if something
+    /// qualifies); absent while off.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub next_digest_at: Option<DateTime<Utc>>,
+    /// The largest digest size.
     pub max_items: usize,
     /// The latest emails, newest first.
     pub recent: Vec<DeliveryView>,
@@ -303,9 +325,29 @@ pub struct NotificationSettingsView {
 pub struct UpdateNotificationsRequest {
     #[serde(default)]
     pub email_enabled: Option<bool>,
-    /// `immediate` or `daily`.
+    /// Legacy: `immediate` or `daily` (both mean the daily digest).
     #[serde(default)]
     pub cadence: Option<String>,
+    /// IANA timezone (`America/Sao_Paulo`).
+    #[serde(default)]
+    pub timezone: Option<String>,
+    /// `HH:MM`, outside quiet hours.
+    #[serde(default)]
+    pub digest_time: Option<String>,
+    /// At least one of `mon` … `sun`.
+    #[serde(default)]
+    pub digest_days: Option<Vec<String>>,
+    /// 1 to `max_items`.
+    #[serde(default)]
+    pub digest_size: Option<u8>,
+    /// `HH:MM`; equal start and end: no quiet hours.
+    #[serde(default)]
+    pub quiet_start: Option<String>,
+    #[serde(default)]
+    pub quiet_end: Option<String>,
+    /// Pause until then (at most a year ahead); `null` resumes.
+    #[serde(default, deserialize_with = "present")]
+    pub paused_until: Option<Option<DateTime<Utc>>>,
     /// The address to notify. A new address is sent a confirmation link;
     /// nothing else is sent to it until it is confirmed.
     #[serde(default)]
@@ -313,6 +355,15 @@ pub struct UpdateNotificationsRequest {
     /// Send the confirmation link again.
     #[serde(default)]
     pub resend_confirmation: bool,
+}
+
+/// A field that may be absent (`None`), `null` (`Some(None)`) or a value.
+fn present<'de, D, T>(deserializer: D) -> Result<Option<Option<T>>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+    T: Deserialize<'de>,
+{
+    Option::<T>::deserialize(deserializer).map(Some)
 }
 
 /// `POST /api/v1/notifications/confirm`.

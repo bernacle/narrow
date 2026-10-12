@@ -56,6 +56,7 @@ use serde::{Deserialize, Serialize};
 use crate::discover::{Refresh, RefreshMode, RefreshReason};
 use crate::error::AppError;
 use crate::feedback::FeedbackOutcome;
+use crate::freshness::Freshness;
 use crate::resolve::Opportunity;
 use crate::shortlist::{Entry, Learning, RefreshSummary, ShortlistItem};
 use crate::views::{FitTier, PipelineStage, time};
@@ -605,20 +606,22 @@ impl LocalApp {
         Ok(outcome)
     }
 
-    /// Recommendations worth interrupting the person for, best first: a
-    /// strong fit, recommended outright (verified recently at an
-    /// authoritative source, and eligible or conditionally eligible), new
-    /// to them (never acted on, never shown in a feed or shortlist, never
-    /// put aside), and not among `exclude` (already notified). Nothing is
-    /// verified and nothing is recorded as shown.
-    pub async fn notification_candidates(
+    /// The digest Narrow would send now (BRU-389 slice A): from the
+    /// recommendations worth interrupting the person for (a strong fit,
+    /// recommended outright: verified recently at an authoritative source,
+    /// and eligible or conditionally eligible; new to them: never acted
+    /// on, never shown in a feed or shortlist, never put aside; not in
+    /// `request.exclude`, already notified), in rank order, one per
+    /// company, preferring companies not notified about recently (see
+    /// [`select_digest`]). Nothing is verified, nothing is recorded as
+    /// shown: a notification never consumes Today.
+    pub async fn digest(
         &self,
-        exclude: &HashSet<String>,
-        max: usize,
+        request: &DigestRequest<'_>,
         now: DateTime<Utc>,
-    ) -> Result<Vec<NotificationCandidate>, AppError> {
-        if self.profile_facts().await?.is_none() {
-            return Ok(Vec::new());
+    ) -> Result<Digest, AppError> {
+        if request.size == 0 || self.profile_facts().await?.is_none() {
+            return Ok(Digest::default());
         }
         let query = RankQuery {
             text: String::new(),
@@ -627,52 +630,66 @@ impl LocalApp {
         };
         let report = self.ranking().rank(&query, now).await?;
         let feedback = self.feedback_by_job().await?;
-        let strong: Vec<&Ranking> = report
+        // With its position in the ranking (1 = best).
+        let strong: Vec<(usize, &Ranking)> = report
             .rankings
             .iter()
-            .filter(|r| {
+            .enumerate()
+            .map(|(i, r)| (i + 1, r))
+            .filter(|(_, r)| {
                 r.tier == Tier::StrongFit
                     && r.gate == Gate::Recommended
-                    && !exclude.contains(&r.opportunity.to_string())
+                    && !request.exclude.contains(&r.opportunity.to_string())
             })
             .collect();
-        let ids: Vec<OpportunityId> = strong.iter().map(|r| r.opportunity).collect();
+        let ids: Vec<OpportunityId> = strong.iter().map(|(_, r)| r.opportunity).collect();
         let marks = self.store().feed_marks(&ids).await?;
-        let mut out = Vec::new();
-        for ranking in strong {
-            if out.len() >= max {
-                break;
-            }
+        let mut records_of = self.store().opportunity_records_many(&ids).await?;
+        let mut pool: Vec<(usize, &Ranking, Vec<JobRecord>)> = Vec::new();
+        for (rank, ranking) in strong {
             if marks.contains_key(&ranking.opportunity) {
                 continue;
             }
-            let records = self
-                .store()
-                .opportunity_records(ranking.opportunity)
-                .await?;
+            let records = records_of.remove(&ranking.opportunity).unwrap_or_default();
             let state = OpportunityState::of(
                 records
                     .iter()
                     .flat_map(|r| feedback.get(&r.id).cloned().unwrap_or_default()),
             );
-            if state.stage != Stage::Unseen {
+            if state.stage != Stage::Unseen || records.is_empty() {
                 continue;
             }
+            pool.push((rank, ranking, records));
+        }
+        let (picked, omitted) = select_digest(pool, request.size, request.recent_companies, |c| {
+            company_key(&c.1.facets.company)
+        });
+        let mut out = Digest::default();
+        for ((rank, ranking, _), why) in &omitted {
+            out.pool.push(DigestEntry::of(*rank, ranking, Some(*why)));
+        }
+        for (rank, ranking, records) in picked {
+            out.pool.push(DigestEntry::of(rank, ranking, None));
             let Some(record) = records
                 .iter()
                 .find(|r| r.id == ranking.job)
                 .or_else(|| records.first())
+                .cloned()
             else {
                 continue;
             };
-            let job = record.id.to_string();
-            let content_version = record.posting.content_fingerprint().to_hex();
+            let history = self.store().history(record.id).await?;
+            let previous = self
+                .store()
+                .complete_listing_before(&record.posting.provenance.source, record.first_seen_at)
+                .await?;
+            let freshness = Freshness::classify(&record, &history, previous);
             let opportunity = Opportunity {
                 id: ranking.opportunity,
                 records,
             };
             let checked = self.check(&opportunity, now).await?;
-            out.push(NotificationCandidate {
+            out.items.push(NotificationCandidate {
                 item: FeedItem {
                     item: ShortlistItem::of(&Entry {
                         ranking: ranking.clone(),
@@ -684,13 +701,129 @@ impl LocalApp {
                     first_shown_at: None,
                     also_at_company: Vec::new(),
                 },
-                job,
-                content_version,
+                job: record.id.to_string(),
+                content_version: record.posting.content_fingerprint().to_hex(),
                 ranking_version: ranking.ranking_version.clone(),
+                freshness,
             });
         }
+        out.pool.sort_by_key(|e| e.rank);
         Ok(out)
     }
+}
+
+/// How a company is compared (a digest holds one job per company).
+pub fn company_key(company: &str) -> String {
+    jobhunt_core::text::search_key(company)
+}
+
+/// The most jobs a digest holds.
+pub const MAX_DIGEST_SIZE: usize = 5;
+/// A company with a job in a notification sent this many days ago or less
+/// gives its digest slot to another company when one can fill it.
+pub const DIGEST_COMPANY_SPACING_DAYS: i64 = 7;
+
+/// What a digest is composed from.
+#[derive(Debug, Clone, Copy)]
+pub struct DigestRequest<'a> {
+    /// Opportunities already in one of the person's notifications (`opp_…`):
+    /// an opportunity is notified once, ever.
+    pub exclude: &'a HashSet<String>,
+    /// Jobs in the digest at most (1 to [`MAX_DIGEST_SIZE`]).
+    pub size: usize,
+    /// Companies ([`company_key`]) with a job in a notification sent in the
+    /// last [`DIGEST_COMPANY_SPACING_DAYS`].
+    pub recent_companies: &'a HashSet<String>,
+}
+
+/// Why a candidate was left out of the digest.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Omitted {
+    /// A better-ranked job at the same company is in it.
+    SameCompany,
+    /// Its company was in a recent notification, and other companies
+    /// filled the digest.
+    RecentCompany,
+    /// The digest was full.
+    Full,
+}
+
+/// One candidate of a digest, and what became of it (for logs and dry
+/// runs).
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct DigestEntry {
+    /// Position in the ranking (1 = best).
+    pub rank: usize,
+    pub opportunity: String,
+    pub company: String,
+    pub title: String,
+    /// `None`: in the digest.
+    pub omitted: Option<Omitted>,
+}
+
+impl DigestEntry {
+    fn of(rank: usize, ranking: &Ranking, omitted: Option<Omitted>) -> Self {
+        Self {
+            rank,
+            opportunity: ranking.opportunity.to_string(),
+            company: ranking.company.clone(),
+            title: ranking.title.clone(),
+            omitted,
+        }
+    }
+}
+
+/// A digest: what goes in it (rank order), and every candidate considered.
+#[derive(Debug, Clone, Default)]
+pub struct Digest {
+    pub items: Vec<NotificationCandidate>,
+    pub pool: Vec<DigestEntry>,
+}
+
+/// A digest's composition, in rank order: each company's best-ranked
+/// candidate, at most `size` of them, preferring companies that are not in
+/// `recent` (notified about lately) when other companies can fill the
+/// slots, never padding. Returns the picks (rank order) and the rest with
+/// why. A selection, not a ranking: nothing is re-scored or re-ordered.
+pub fn select_digest<T>(
+    candidates: Vec<T>,
+    size: usize,
+    recent: &HashSet<String>,
+    company: impl Fn(&T) -> String,
+) -> (Vec<T>, Vec<(T, Omitted)>) {
+    let mut seen: HashSet<String> = HashSet::new();
+    let mut leaders: Vec<(T, bool)> = Vec::new();
+    let mut omitted: Vec<(T, Omitted)> = Vec::new();
+    for candidate in candidates {
+        let key = company(&candidate);
+        if seen.insert(key.clone()) {
+            leaders.push((candidate, recent.contains(&key)));
+        } else {
+            omitted.push((candidate, Omitted::SameCompany));
+        }
+    }
+    let mut chosen = vec![false; leaders.len()];
+    let mut taken = 0;
+    for pass_recent in [false, true] {
+        for (i, (_, is_recent)) in leaders.iter().enumerate() {
+            if *is_recent == pass_recent && taken < size {
+                chosen[i] = true;
+                taken += 1;
+            }
+        }
+    }
+    let mut picked = Vec::new();
+    for ((candidate, is_recent), chosen) in leaders.into_iter().zip(chosen) {
+        if chosen {
+            picked.push(candidate);
+        } else if is_recent {
+            omitted.push((candidate, Omitted::RecentCompany));
+        } else {
+            omitted.push((candidate, Omitted::Full));
+        }
+    }
+    (picked, omitted)
 }
 
 /// A recommendation chosen for a notification, with what it rested on.
@@ -702,6 +835,8 @@ pub struct NotificationCandidate {
     /// That record's material fingerprint (its content version).
     pub content_version: String,
     pub ranking_version: String,
+    /// How fresh that record is, said honestly.
+    pub freshness: Freshness,
 }
 
 /// One item on the feed: a shortlist item, with why it is on the feed.
@@ -960,6 +1095,64 @@ mod tests {
         let two = one_per_company(ranked.to_vec(), 2, key);
         assert_eq!(two.iter().map(|(c, _)| c.1).collect::<Vec<_>>(), ["a", "c"]);
         assert_eq!(two[0].1.len(), 3);
+    }
+
+    fn digest_of(
+        ranked: &[(&'static str, &'static str)],
+        size: usize,
+        recent: &[&str],
+    ) -> (Vec<&'static str>, Vec<(&'static str, Omitted)>) {
+        let recent: HashSet<String> = recent.iter().map(|c| company_key(c)).collect();
+        let (picked, omitted) = select_digest(ranked.to_vec(), size, &recent, |c| company_key(c.0));
+        (
+            picked.iter().map(|c| c.1).collect(),
+            omitted.iter().map(|(c, why)| (c.1, *why)).collect(),
+        )
+    }
+
+    #[test]
+    fn a_digest_is_one_job_per_company_in_rank_order_never_padded() {
+        // The brief's example: three Railway roles among the candidates.
+        let ranked = [
+            ("Railway", "railway-1"),
+            ("Railway", "railway-2"),
+            ("Ando Technologies", "ando"),
+            ("railway", "railway-3"),
+            ("Veda", "veda"),
+            ("Oneleet", "oneleet"),
+        ];
+        let (picked, omitted) = digest_of(&ranked, 3, &[]);
+        assert_eq!(picked, ["railway-1", "ando", "veda"]);
+        assert!(omitted.contains(&("railway-2", Omitted::SameCompany)));
+        assert!(omitted.contains(&("railway-3", Omitted::SameCompany)));
+        assert!(omitted.contains(&("oneleet", Omitted::Full)));
+        // Up to five when the person asks for it; still one per company.
+        let (picked, _) = digest_of(&ranked, 5, &[]);
+        assert_eq!(picked, ["railway-1", "ando", "veda", "oneleet"]);
+        // Nothing qualifies: nothing. One qualifies: one.
+        assert!(digest_of(&[], 3, &[]).0.is_empty());
+        assert_eq!(digest_of(&ranked[..1], 3, &[]).0, ["railway-1"]);
+        // Many jobs at one company: one item.
+        assert_eq!(digest_of(&ranked[..2], 3, &[]).0, ["railway-1"]);
+    }
+
+    #[test]
+    fn recently_notified_companies_give_way_but_are_never_blocked() {
+        let ranked = [
+            ("Railway", "railway-1"),
+            ("Ando Technologies", "ando"),
+            ("Veda", "veda"),
+            ("Oneleet", "oneleet"),
+        ];
+        // Railway was in last week's digest; Oneleet can fill its slot.
+        let (picked, omitted) = digest_of(&ranked, 3, &["Railway"]);
+        assert_eq!(picked, ["ando", "veda", "oneleet"], "still in rank order");
+        assert_eq!(omitted, [("railway-1", Omitted::RecentCompany)]);
+        // Nobody else can: Railway is sent anyway.
+        let (picked, _) = digest_of(&ranked[..2], 3, &["Railway"]);
+        assert_eq!(picked, ["railway-1", "ando"]);
+        let (picked, _) = digest_of(&ranked, 3, &["Railway", "Ando Technologies", "Veda"]);
+        assert_eq!(picked, ["railway-1", "ando", "oneleet"]);
     }
 
     #[test]

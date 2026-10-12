@@ -762,6 +762,27 @@ impl PgStore {
         Ok(out)
     }
 
+    /// When the last complete read of `source` that finished before
+    /// `before` did (a complete listing, or a "not modified" answer that
+    /// confirmed one), if there was one.
+    pub async fn complete_listing_before(
+        &self,
+        source: &SourceKey,
+        before: DateTime<Utc>,
+    ) -> Result<Option<DateTime<Utc>>, StorageError> {
+        sqlx::query_scalar(
+            "SELECT MAX(finished_at) FROM source_scans WHERE source_kind = $1 \
+             AND source_instance = $2 AND complete \
+             AND status IN ('listing', 'not_modified') AND finished_at < $3",
+        )
+        .bind(source.kind())
+        .bind(source.instance())
+        .bind(before)
+        .fetch_one(self.pool())
+        .await
+        .map_err(query_error("loading the previous complete listing"))
+    }
+
     /// The latest `per_source` scans of every source, newest first.
     pub async fn recent_scans(
         &self,

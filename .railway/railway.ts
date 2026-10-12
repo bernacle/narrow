@@ -10,7 +10,7 @@
 //                         Railway's private network
 //   worker-discovery      cron: reads the sources that are due
 //   worker-verification   cron: re-verifies the jobs that matter
-//   worker-notify         cron: emails strong new recommendations
+//   worker-notify         cron: emails each subscriber's daily digest
 //
 // Secrets are declared with preserve(): set them once in the dashboard or
 // with `railway variable set KEY=… -s api` (and seal them); applying this
@@ -113,12 +113,12 @@ export default defineRailway((ctx) => {
       JOBHUNT_EMAIL_PROVIDER: preserve(),
       JOBHUNT_RESEND_API_KEY: preserve(),
       JOBHUNT_EMAIL_FROM: preserve(),
-      JOBHUNT_NOTIFY_MIN_INTERVAL_HOURS: "4",
     },
     deploy: {
       // Every 15 minutes, after discovery (7, 37) and verification (22)
       // had a chance to find and check new jobs. Each account gets at
-      // most one email per JOBHUNT_NOTIFY_MIN_INTERVAL_HOURS (or a day).
+      // most one digest per local day, at its own digest time (the run
+      // nearest after it composes it).
       cronSchedule: "12,27,42,57 * * * *",
       restartPolicyType: "NEVER",
     },

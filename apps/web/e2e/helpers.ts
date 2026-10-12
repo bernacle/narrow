@@ -86,6 +86,27 @@ export async function expectAccessible(page: Page) {
 }
 
 /**
+ * Makes every subscriber's daily digest due now (as if the clock had just
+ * reached their digest time on a new day): UTC, every day, no quiet hours,
+ * the digest time a few minutes ago, today's slot unused.
+ */
+export async function makeDigestDue() {
+  await new Promise<void>((resolve, reject) => {
+    const psql = spawn("psql", [
+      databaseUrl(),
+      "-q",
+      "-c",
+      `UPDATE notification_settings SET timezone = 'UTC', digest_days = 127,
+         quiet_start = '00:00', quiet_end = '00:00', last_digest_on = NULL,
+         digest_time = (now() AT TIME ZONE 'UTC')::time
+           - least(interval '20 minutes', (now() AT TIME ZONE 'UTC')::time - time '00:00')`,
+    ]);
+    psql.on("close", (code) => (code === 0 ? resolve() : reject(new Error("psql failed"))));
+  });
+}
+
+/**
+ * A new opening appears on a fixture board, and the next scheduled/**
  * A new opening appears on a fixture board, and the next scheduled
  * discovery reads that board (as the cron would once it is due).
  */
