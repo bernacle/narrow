@@ -78,7 +78,7 @@ url = "2.5"
 wiremock = "0.6"
 # Reading LinkedIn data exports: only the deflate decoder (no encryption,
 # no other codecs).
-zip = { version = "8.6", default-features = false, features = ["deflate-flate2"] }
+zip = { version = "9.0", default-features = false, features = ["deflate-flate2"] }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
