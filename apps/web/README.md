@@ -176,10 +176,10 @@ npm run e2e           # Playwright against the real stack (needs `npm run build`
   strong fits and jobs worth reviewing, verified pay and listing,
   stable across reloads, no infinite list), the full brief, reject with a
   reason from the keyboard, save, applied, Applications (stage changes),
-  Preferences (stated vs learned), Profile (claim review), email
-  notifications (confirmation link, nothing when nothing is new, one email
+  Preferences (stated vs learned), Profile (claim review), the daily
+  digest email (confirmation link, nothing when nothing is new, a digest
   for a strong job published later and found by the real discovery and
-  verification workers, never twice), sign out and back in with everything
+  verification workers, one digest a day, never twice), sign out and back in with everything
   kept, finishing Today to "caught up", signed-out redirects, a tampered
   cookie, no horizontal scrolling and 44px actions on a phone, Narrow (never
   JobHunt) on every page, both themes and the theme setting, and axe on

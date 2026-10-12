@@ -263,6 +263,33 @@ async fn not_modified_and_failed_scans_change_nothing(store: &dyn Store) {
         ]
     );
     assert_eq!(all[&SourceKey::new("ashby", "linear").unwrap()].len(), 1);
+
+    // Freshness: the complete reads of a board before a moment. The first
+    // listing has none before it (a backfill); a "not modified" answer
+    // confirms the previous listing; failures and partial listings don't.
+    scan(store, "ramp", std::slice::from_ref(&open), at(7), false).await;
+    let before = |minute| {
+        let source = source.clone();
+        async move {
+            store
+                .complete_listing_before(&source, at(minute))
+                .await
+                .unwrap()
+        }
+    };
+    assert_eq!(before(0).await, None);
+    assert_eq!(before(1).await, Some(at(0)));
+    assert_eq!(before(5).await, Some(at(1)));
+    assert_eq!(before(6).await, Some(at(5)));
+    assert_eq!(before(100).await, Some(at(5)));
+    let unknown = SourceKey::new("ashby", "nowhere").unwrap();
+    assert_eq!(
+        store
+            .complete_listing_before(&unknown, at(100))
+            .await
+            .unwrap(),
+        None
+    );
 }
 
 async fn search_filters_orders_and_resolves_prefixes(store: &dyn Store) {

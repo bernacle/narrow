@@ -709,6 +709,14 @@ impl Store for PgUserStore {
         self.shared.recent_scans(per_source).await
     }
 
+    async fn complete_listing_before(
+        &self,
+        source: &SourceKey,
+        before: DateTime<Utc>,
+    ) -> Result<Option<DateTime<Utc>>, StorageError> {
+        self.shared.complete_listing_before(source, before).await
+    }
+
     async fn stats(&self) -> Result<StoreStats, StorageError> {
         let (jobs, open_jobs, open_opportunities, verifications): (i64, i64, i64, i64) =
             sqlx::query_as(

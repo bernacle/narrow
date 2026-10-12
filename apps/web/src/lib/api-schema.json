@@ -911,7 +911,7 @@
           "type": "string"
         },
         "kind": {
-          "description": "`recommendations` or `confirmation`.",
+          "description": "`recommendations` (a digest) or `confirmation`.",
           "type": "string"
         },
         "opportunities": {
@@ -2564,14 +2564,14 @@
       "type": "object"
     },
     "NotificationSettingsView": {
-      "description": "`GET /api/v1/notifications`.",
+      "description": "`GET /api/v1/notifications`: the daily digest email (notification\npolicy v2). At most one digest per local day, at `digest_time` on\n`digest_days`, never inside quiet hours or while paused; nothing is\nsent when nothing qualifies.",
       "properties": {
         "available": {
           "description": "Whether this service can send email at all.",
           "type": "boolean"
         },
         "cadence": {
-          "description": "`immediate` (soon after a strong match appears, at most one email\nevery few hours) or `daily` (at most one a day).",
+          "description": "Legacy (BRU-295): `immediate` or `daily`. Both now mean the daily\ndigest.",
           "type": "string"
         },
         "confirmation_sent_at": {
@@ -2581,6 +2581,24 @@
             "null"
           ]
         },
+        "digest_days": {
+          "description": "Days a digest may come (`mon` … `sun`).",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "digest_size": {
+          "description": "Jobs in one digest at most (1 to `max_items`).",
+          "format": "uint8",
+          "maximum": 255,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "digest_time": {
+          "description": "Local time the digest is composed, `HH:MM`.",
+          "type": "string"
+        },
         "email": {
           "type": [
             "string",
@@ -2588,7 +2606,7 @@
           ]
         },
         "email_enabled": {
-          "description": "Emails about strong new matches are on.",
+          "description": "The daily digest is on.",
           "type": "boolean"
         },
         "email_status": {
@@ -2596,16 +2614,33 @@
           "type": "string"
         },
         "max_items": {
-          "description": "Opportunities in one email at most.",
+          "description": "The largest digest size.",
           "format": "uint",
           "minimum": 0,
           "type": "integer"
         },
-        "min_interval_hours": {
-          "description": "Hours between emails at most, with the `immediate` cadence.",
-          "format": "uint64",
-          "minimum": 0,
-          "type": "integer"
+        "next_digest_at": {
+          "description": "When the next digest may go out (it goes out only if something\nqualifies); absent while off.",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "paused_until": {
+          "description": "Paused until then.",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quiet_end": {
+          "type": "string"
+        },
+        "quiet_start": {
+          "description": "Nothing is sent from `quiet_start` to `quiet_end` (local, `HH:MM`;\nequal: no quiet hours).",
+          "type": "string"
         },
         "recent": {
           "description": "The latest emails, newest first.",
@@ -2613,6 +2648,13 @@
             "$ref": "#/$defs/DeliveryView"
           },
           "type": "array"
+        },
+        "timezone": {
+          "description": "The IANA timezone the schedule is read in; absent: not set yet\n(UTC is used until it is).",
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "required": [
@@ -2620,7 +2662,11 @@
         "email_enabled",
         "cadence",
         "email_status",
-        "min_interval_hours",
+        "digest_time",
+        "digest_days",
+        "digest_size",
+        "quiet_start",
+        "quiet_end",
         "max_items",
         "recent"
       ],
@@ -5533,7 +5579,37 @@
       "properties": {
         "cadence": {
           "default": null,
-          "description": "`immediate` or `daily`.",
+          "description": "Legacy: `immediate` or `daily` (both mean the daily digest).",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "digest_days": {
+          "default": null,
+          "description": "At least one of `mon` … `sun`.",
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "digest_size": {
+          "default": null,
+          "description": "1 to `max_items`.",
+          "format": "uint8",
+          "maximum": 255,
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "digest_time": {
+          "default": null,
+          "description": "`HH:MM`, outside quiet hours.",
           "type": [
             "string",
             "null"
@@ -5554,10 +5630,42 @@
             "null"
           ]
         },
+        "paused_until": {
+          "default": null,
+          "description": "Pause until then (at most a year ahead); `null` resumes.",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quiet_end": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quiet_start": {
+          "default": null,
+          "description": "`HH:MM`; equal start and end: no quiet hours.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "resend_confirmation": {
           "default": false,
           "description": "Send the confirmation link again.",
           "type": "boolean"
+        },
+        "timezone": {
+          "default": null,
+          "description": "IANA timezone (`America/Sao_Paulo`).",
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "type": "object"

@@ -146,10 +146,7 @@ impl EmailConfig {
 /// How the notification worker behaves.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct NotifySettings {
-    /// With the `immediate` cadence, at most one recommendations email per
-    /// account this often.
-    pub min_interval: Duration,
-    /// Opportunities in one email at most.
+    /// Jobs in one digest at most, whatever size a person chose (1 to 5).
     pub max_items: usize,
     /// Accounts a worker claims at a time.
     pub batch: usize,
@@ -158,8 +155,7 @@ pub struct NotifySettings {
 impl Default for NotifySettings {
     fn default() -> Self {
         Self {
-            min_interval: Duration::from_secs(4 * 3600),
-            max_items: 3,
+            max_items: 5,
             batch: 50,
         }
     }
@@ -556,12 +552,6 @@ impl CloudConfig {
         };
         let notify_defaults = NotifySettings::default();
         let notify = NotifySettings {
-            min_interval: hours(parse(
-                env,
-                "JOBHUNT_NOTIFY_MIN_INTERVAL_HOURS",
-                notify_defaults.min_interval.as_secs() / 3600,
-                &mut problems,
-            )),
             max_items: parse(
                 env,
                 "JOBHUNT_NOTIFY_MAX_ITEMS",

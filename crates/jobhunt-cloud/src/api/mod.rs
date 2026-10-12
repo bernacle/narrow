@@ -54,7 +54,7 @@ use axum::middleware::Next;
 use axum::response::{IntoResponse, Response};
 use axum::routing::{delete, get, post};
 use axum::{Json, Router};
-use chrono::Utc;
+use chrono::{NaiveTime, Utc};
 use http::StatusCode;
 use jobhunt_app::context::ApplicationContext;
 use jobhunt_app::feed::{FeedRequest, FeedView, MAX_FEED_LIMIT};
@@ -75,7 +75,7 @@ use jobhunt_jobs::verification::VerifyMode;
 use jobhunt_mcp::{SearchJobsParams, UpdatePreferencesParams};
 use jobhunt_ranking::FeedbackAction;
 use jobhunt_storage::postgres::{
-    Cadence, DeliveryKind, NewDelivery, PgStore, PgUserStore, SettingsChange,
+    Cadence, DeliveryKind, DigestSettings, NewDelivery, PgStore, PgUserStore, SettingsChange,
     new_confirmation_token, new_delivery_id,
 };
 use jobhunt_storage::sync::{PullRequest, PullResponse, PushError, PushRequest, PushResponse};
@@ -1233,10 +1233,22 @@ async fn notification_view(
 ) -> Result<NotificationSettingsView, ApiError> {
     let settings = state.store().notification_settings(&principal.user).await?;
     let recent = state.store().recent_deliveries(&principal.user, 5).await?;
+    let digest = &settings.digest;
+    let next_digest_at = (settings.email_enabled && settings.email_confirmed_at.is_some())
+        .then(|| crate::digest::Schedule::of(digest).next(settings.last_digest_on, Utc::now()))
+        .flatten();
     Ok(NotificationSettingsView {
         available: state.inner.email.is_some() && state.config().web_url.is_some(),
         email_enabled: settings.email_enabled,
         cadence: settings.cadence.as_str().to_owned(),
+        timezone: digest.timezone.clone(),
+        digest_time: digest.time.format("%H:%M").to_string(),
+        digest_days: crate::digest::day_names(digest.days),
+        digest_size: digest.size,
+        quiet_start: digest.quiet_start.format("%H:%M").to_string(),
+        quiet_end: digest.quiet_end.format("%H:%M").to_string(),
+        paused_until: digest.paused_until.filter(|until| *until > Utc::now()),
+        next_digest_at,
         email_status: match (&settings.email, settings.email_confirmed_at) {
             (None, _) => "none",
             (Some(_), None) => "unconfirmed",
@@ -1245,7 +1257,6 @@ async fn notification_view(
         .to_owned(),
         email: settings.email,
         confirmation_sent_at: settings.confirmation_sent_at,
-        min_interval_hours: state.config().notify.min_interval.as_secs() / 3600,
         max_items: state.config().notify.max_items,
         recent: recent
             .into_iter()
@@ -1295,6 +1306,7 @@ async fn send_confirmation(
         kind: DeliveryKind::Confirmation,
         message: serde_json::to_vec(&message).map_err(|_| ApiError::internal())?,
         items: Vec::new(),
+        expires_at: None,
     };
     state.store().enqueue_delivery(&delivery, now).await?;
     // Sent now; if the provider fails, the notification worker retries it.
@@ -1335,6 +1347,7 @@ async fn update_notifications(
                 .ok_or_else(|| ApiError::invalid("cadence must be \"immediate\" or \"daily\""))?,
         ),
     };
+    let schedule = digest_change(&state, &principal, &request).await?;
     let email = match request.email.as_deref().map(str::trim) {
         None => None,
         Some(e) if valid_email(e) => Some(e.to_owned()),
@@ -1348,6 +1361,7 @@ async fn update_notifications(
         email_enabled: request.email_enabled,
         cadence,
         email,
+        ..schedule
     };
     let (settings, email_changed) = state
         .store()
@@ -1373,9 +1387,87 @@ async fn update_notifications(
             "email_enabled": settings.email_enabled,
             "cadence": settings.cadence.as_str(),
             "email_changed": email_changed,
+            "digest_size": settings.digest.size,
+            "digest_days": settings.digest.days.count_ones(),
+            "timezone_set": settings.digest.timezone.is_some(),
+            "paused": settings.digest.paused_until.is_some_and(|p| p > Utc::now()),
         }),
     );
     Ok(Json(notification_view(&state, &principal).await?))
+}
+
+/// The digest schedule a request changes, validated as a whole against the
+/// current settings (a digest time inside quiet hours is refused, not
+/// moved).
+async fn digest_change(
+    state: &ApiState,
+    principal: &Principal,
+    request: &UpdateNotificationsRequest,
+) -> Result<SettingsChange, ApiError> {
+    let time = |field: &str, value: &Option<String>| -> Result<Option<NaiveTime>, ApiError> {
+        value
+            .as_deref()
+            .map(|v| {
+                NaiveTime::parse_from_str(v.trim(), "%H:%M")
+                    .map_err(|_| ApiError::invalid(format!("{field} must be a time like 09:00")))
+            })
+            .transpose()
+    };
+    let timezone = match request.timezone.as_deref().map(str::trim) {
+        None => None,
+        Some(name) => {
+            name.parse::<chrono_tz::Tz>().map_err(|_| {
+                ApiError::invalid("timezone must be an IANA name like America/Sao_Paulo")
+            })?;
+            Some(name.to_owned())
+        }
+    };
+    let digest_days = request
+        .digest_days
+        .as_deref()
+        .map(crate::digest::days_of)
+        .transpose()
+        .map_err(|day| ApiError::invalid(format!("{day:?} is not a day (mon … sun)")))?;
+    let max = state.config().notify.max_items;
+    if let Some(size) = request.digest_size
+        && !(1..=max).contains(&usize::from(size))
+    {
+        return Err(ApiError::invalid(format!(
+            "digest_size must be between 1 and {max}"
+        )));
+    }
+    let now = Utc::now();
+    if let Some(Some(until)) = request.paused_until
+        && until > now + chrono::Duration::days(366)
+    {
+        return Err(ApiError::invalid("a pause can last a year at most"));
+    }
+    let change = SettingsChange {
+        timezone,
+        digest_time: time("digest_time", &request.digest_time)?,
+        digest_days,
+        digest_size: request.digest_size,
+        quiet_start: time("quiet_start", &request.quiet_start)?,
+        quiet_end: time("quiet_end", &request.quiet_end)?,
+        paused_until: request.paused_until,
+        ..SettingsChange::default()
+    };
+    let current = state
+        .store()
+        .notification_settings(&principal.user)
+        .await?
+        .digest;
+    let merged = DigestSettings {
+        timezone: change.timezone.clone().or(current.timezone),
+        time: change.digest_time.unwrap_or(current.time),
+        days: change.digest_days.unwrap_or(current.days),
+        size: change.digest_size.unwrap_or(current.size),
+        quiet_start: change.quiet_start.unwrap_or(current.quiet_start),
+        quiet_end: change.quiet_end.unwrap_or(current.quiet_end),
+        paused_until: change.paused_until.unwrap_or(current.paused_until),
+    };
+    crate::digest::Schedule::validate(&merged).map_err(ApiError::invalid)?;
+    Ok(change)
 }
 
 async fn confirm_notifications(

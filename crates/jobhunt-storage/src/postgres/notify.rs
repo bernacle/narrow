@@ -18,25 +18,31 @@
 //!   the same idempotency key (the delivery id), so a crash between the
 //!   provider accepting it and the database recording it does not send it
 //!   twice while the provider remembers the key.
+//! * A digest slot is claimed once per local calendar day
+//!   ([`PgStore::claim_digest_day`]), whether it finds anything to send or
+//!   not, so a person gets at most one digest a day whatever the clock,
+//!   the daylight-saving changes or concurrent workers do.
 
 use std::collections::HashSet;
 use std::time::Duration;
 
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, NaiveDate, NaiveTime, Utc};
 use jobhunt_jobs::StorageError;
 use sqlx::Row;
 
 use super::accounts::{UserId, hash_token, random_hex};
 use super::{PgStore, corrupt, query_error};
 
-/// How often a person may be emailed about recommendations.
+/// How often a person asked to be emailed (BRU-295). Legacy: since
+/// notification policy v2 both values mean the daily digest
+/// ([`DigestSettings`]); it is kept, and still accepted, so nothing a
+/// person chose is lost (instant alerts may read it later).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum Cadence {
-    /// Soon after strong new matches appear (at most one email every few
-    /// hours).
+    /// Formerly: soon after strong new matches appear.
     #[default]
     Immediate,
-    /// At most one email a day.
+    /// Formerly: at most one email a day.
     Daily,
 }
 
@@ -57,11 +63,51 @@ impl Cadence {
     }
 }
 
+/// When and how much the daily digest sends (local to the person).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct DigestSettings {
+    /// IANA name; `None`: not set yet (UTC is used).
+    pub timezone: Option<String>,
+    pub time: NaiveTime,
+    /// Bitmask from Monday (1) to Sunday (64).
+    pub days: u8,
+    /// Jobs in one digest at most (1 to 5).
+    pub size: u8,
+    pub quiet_start: NaiveTime,
+    pub quiet_end: NaiveTime,
+    pub paused_until: Option<DateTime<Utc>>,
+}
+
+/// Monday to Friday.
+pub const WEEKDAYS: u8 = 0b001_1111;
+
+fn hm(hour: u32, minute: u32) -> NaiveTime {
+    NaiveTime::from_hms_opt(hour, minute, 0).unwrap_or(NaiveTime::MIN)
+}
+
+impl Default for DigestSettings {
+    fn default() -> Self {
+        Self {
+            timezone: None,
+            time: hm(9, 0),
+            days: WEEKDAYS,
+            size: 3,
+            quiet_start: hm(21, 0),
+            quiet_end: hm(8, 0),
+            paused_until: None,
+        }
+    }
+}
+
 /// A person's notification settings.
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct NotificationSettings {
     pub email_enabled: bool,
+    /// Legacy (see [`Cadence`]).
     pub cadence: Cadence,
+    pub digest: DigestSettings,
+    /// The local date of the last digest slot used.
+    pub last_digest_on: Option<NaiveDate>,
     pub email: Option<String>,
     /// When the address was confirmed (`None`: not yet).
     pub email_confirmed_at: Option<DateTime<Utc>>,
@@ -69,7 +115,8 @@ pub struct NotificationSettings {
     pub confirmation_sent_at: Option<DateTime<Utc>>,
 }
 
-/// What to change (absent fields stay as they are).
+/// What to change (absent fields stay as they are). Values are validated
+/// by the caller.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct SettingsChange {
     pub email_enabled: Option<bool>,
@@ -77,6 +124,14 @@ pub struct SettingsChange {
     /// A new address (normalized by the caller). A different address needs
     /// confirming again.
     pub email: Option<String>,
+    pub timezone: Option<String>,
+    pub digest_time: Option<NaiveTime>,
+    pub digest_days: Option<u8>,
+    pub digest_size: Option<u8>,
+    pub quiet_start: Option<NaiveTime>,
+    pub quiet_end: Option<NaiveTime>,
+    /// `Some(None)` resumes; `Some(Some(t))` pauses until `t`.
+    pub paused_until: Option<Option<DateTime<Utc>>>,
 }
 
 /// What a delivery is.
@@ -109,6 +164,10 @@ impl DeliveryKind {
 /// it.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct NotifiedItem {
+    /// Where it is in the message (1 = first).
+    pub position: u16,
+    /// How fresh the message said it was (`posted`, `backfill`, …).
+    pub freshness: Option<String>,
     /// `opp_…`.
     pub opportunity: String,
     /// `strong_fit`, …
@@ -130,6 +189,9 @@ pub struct NewDelivery {
     /// The rendered message (sealed before it is stored).
     pub message: Vec<u8>,
     pub items: Vec<NotifiedItem>,
+    /// Abandoned instead of sent after this (a digest is never sent
+    /// inside quiet hours or on another day).
+    pub expires_at: Option<DateTime<Utc>>,
 }
 
 /// A delivery a worker holds and must send.
@@ -141,6 +203,7 @@ pub struct Delivery {
     /// Attempts made before this one.
     pub attempts: u32,
     pub created_at: DateTime<Utc>,
+    pub expires_at: Option<DateTime<Utc>>,
     /// The rendered message, exactly as first written.
     pub message: Vec<u8>,
 }
@@ -157,14 +220,14 @@ pub struct DeliverySummary {
     pub sent_at: Option<DateTime<Utc>>,
 }
 
-/// An account whose recommendations a worker may compose.
+/// An account whose digest a worker may compose.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct NotifyAccount {
     pub user: UserId,
     pub email: String,
-    pub cadence: Cadence,
-    /// The last recommendations email accepted by the provider.
-    pub last_sent_at: Option<DateTime<Utc>>,
+    pub digest: DigestSettings,
+    /// The local date of the last digest slot used.
+    pub last_digest_on: Option<NaiveDate>,
 }
 
 /// A fresh delivery id, `ntf_<32 hex>`.
@@ -184,6 +247,22 @@ fn email_context(user: &UserId) -> String {
 
 fn message_context(user: &UserId, id: &str) -> String {
     format!("notification_deliveries|{user}|{id}")
+}
+
+/// The digest columns of a `notification_settings` row.
+fn digest_of(row: &sqlx::postgres::PgRow) -> Result<DigestSettings, sqlx::Error> {
+    let days: i16 = row.try_get("digest_days")?;
+    let size: i16 = row.try_get("digest_size")?;
+    let d = DigestSettings::default();
+    Ok(DigestSettings {
+        timezone: row.try_get("timezone")?,
+        time: row.try_get("digest_time")?,
+        days: u8::try_from(days).unwrap_or(d.days),
+        size: u8::try_from(size).unwrap_or(d.size),
+        quiet_start: row.try_get("quiet_start")?,
+        quiet_end: row.try_get("quiet_end")?,
+        paused_until: row.try_get("paused_until")?,
+    })
 }
 
 fn chrono_of(d: Duration) -> chrono::Duration {
@@ -212,8 +291,9 @@ impl PgStore {
         user: &UserId,
     ) -> Result<NotificationSettings, StorageError> {
         let row = sqlx::query(
-            "SELECT email_enabled, cadence, email, email_confirmed_at, confirm_sent_at \
-             FROM notification_settings WHERE user_id = $1",
+            "SELECT email_enabled, cadence, email, email_confirmed_at, confirm_sent_at, \
+             timezone, digest_time, digest_days, digest_size, quiet_start, quiet_end, \
+             paused_until, last_digest_on FROM notification_settings WHERE user_id = $1",
         )
         .bind(user.as_str())
         .fetch_optional(self.pool())
@@ -234,6 +314,8 @@ impl PgStore {
         Ok(NotificationSettings {
             email_enabled: row.try_get("email_enabled").map_err(bad)?,
             cadence: Cadence::parse(&cadence).unwrap_or_default(),
+            digest: digest_of(&row).map_err(bad)?,
+            last_digest_on: row.try_get("last_digest_on").map_err(bad)?,
             email,
             email_confirmed_at: row.try_get("email_confirmed_at").map_err(bad)?,
             confirmation_sent_at: row.try_get("confirm_sent_at").map_err(bad)?,
@@ -257,14 +339,25 @@ impl PgStore {
             (Some(email), true) => Some(self.seal_for(&email_context(user), email.as_bytes())?),
             _ => None,
         };
+        let d = DigestSettings::default();
         sqlx::query(
             "INSERT INTO notification_settings (user_id, email_enabled, cadence, email, \
-             created_at, updated_at) VALUES ($1, COALESCE($2, false), COALESCE($3, 'immediate'), \
-             $4, $5, $5) \
+             created_at, updated_at, timezone, digest_time, digest_days, digest_size, \
+             quiet_start, quiet_end, paused_until) \
+             VALUES ($1, COALESCE($2, false), COALESCE($3, 'immediate'), $4, $5, $5, $6, \
+             COALESCE($7, $14), COALESCE($8, $15), COALESCE($9, $16), COALESCE($10, $17), \
+             COALESCE($11, $18), $13) \
              ON CONFLICT (user_id) DO UPDATE SET \
              email_enabled = COALESCE($2, notification_settings.email_enabled), \
              cadence = COALESCE($3, notification_settings.cadence), \
              email = COALESCE($4, notification_settings.email), \
+             timezone = COALESCE($6, notification_settings.timezone), \
+             digest_time = COALESCE($7, notification_settings.digest_time), \
+             digest_days = COALESCE($8, notification_settings.digest_days), \
+             digest_size = COALESCE($9, notification_settings.digest_size), \
+             quiet_start = COALESCE($10, notification_settings.quiet_start), \
+             quiet_end = COALESCE($11, notification_settings.quiet_end), \
+             paused_until = CASE WHEN $12 THEN $13 ELSE notification_settings.paused_until END, \
              email_confirmed_at = CASE WHEN $4 IS NULL \
                  THEN notification_settings.email_confirmed_at END, \
              confirm_token_hash = CASE WHEN $4 IS NULL \
@@ -278,6 +371,19 @@ impl PgStore {
         .bind(change.cadence.map(Cadence::as_str))
         .bind(sealed)
         .bind(now)
+        .bind(change.timezone.as_deref())
+        .bind(change.digest_time)
+        .bind(change.digest_days.map(i16::from))
+        .bind(change.digest_size.map(i16::from))
+        .bind(change.quiet_start)
+        .bind(change.quiet_end)
+        .bind(change.paused_until.is_some())
+        .bind(change.paused_until.flatten())
+        .bind(d.time)
+        .bind(i16::from(d.days))
+        .bind(i16::from(d.size))
+        .bind(d.quiet_start)
+        .bind(d.quiet_end)
         .execute(self.pool())
         .await
         .map_err(query_error("saving notification settings"))?;
@@ -350,9 +456,8 @@ impl PgStore {
                        AND d.status = 'pending' AND d.kind = 'recommendations') \
                    ORDER BY user_id LIMIT $4 FOR UPDATE SKIP LOCKED) due \
              WHERE s.user_id = due.user_id \
-             RETURNING s.user_id, s.email, s.cadence, \
-             (SELECT MAX(sent_at) FROM notification_deliveries d WHERE d.user_id = s.user_id \
-              AND d.kind = 'recommendations' AND d.status = 'sent') AS last_sent_at",
+             RETURNING s.user_id, s.email, s.timezone, s.digest_time, s.digest_days, \
+             s.digest_size, s.quiet_start, s.quiet_end, s.paused_until, s.last_digest_on",
         )
         .bind(owner)
         .bind(now + chrono_of(lease))
@@ -369,11 +474,10 @@ impl PgStore {
             let sealed: Vec<u8> = row.try_get("email").map_err(bad)?;
             let email = String::from_utf8(self.open_for(&email_context(&user), &sealed)?)
                 .map_err(|e| corrupt(user.as_str(), e))?;
-            let cadence: String = row.try_get("cadence").map_err(bad)?;
             out.push(NotifyAccount {
                 email,
-                cadence: Cadence::parse(&cadence).unwrap_or_default(),
-                last_sent_at: row.try_get("last_sent_at").map_err(bad)?,
+                digest: digest_of(&row).map_err(bad)?,
+                last_digest_on: row.try_get("last_digest_on").map_err(bad)?,
                 user,
             });
         }
@@ -396,6 +500,48 @@ impl PgStore {
         .await
         .map_err(query_error("releasing an account"))?;
         Ok(())
+    }
+
+    /// Uses the person's digest slot for the local date `day`. Returns
+    /// `false` when it was already used (by this or another worker): at
+    /// most one digest per local calendar day.
+    pub async fn claim_digest_day(
+        &self,
+        user: &UserId,
+        day: NaiveDate,
+    ) -> Result<bool, StorageError> {
+        let changed = sqlx::query(
+            "UPDATE notification_settings SET last_digest_on = $2 \
+             WHERE user_id = $1 AND (last_digest_on IS NULL OR last_digest_on < $2)",
+        )
+        .bind(user.as_str())
+        .bind(day)
+        .execute(self.pool())
+        .await
+        .map_err(query_error("claiming a digest"))?
+        .rows_affected();
+        Ok(changed > 0)
+    }
+
+    /// The companies of the jobs in the person's notifications accepted by
+    /// the provider since `since` (as the job records name them).
+    pub async fn recently_notified_companies(
+        &self,
+        user: &UserId,
+        since: DateTime<Utc>,
+    ) -> Result<HashSet<String>, StorageError> {
+        let rows: Vec<String> = sqlx::query_scalar(
+            "SELECT DISTINCT j.company FROM notification_items i \
+             JOIN notification_deliveries d ON d.id = i.delivery_id \
+             JOIN jobs j ON j.id = i.job_id \
+             WHERE i.user_id = $1 AND d.status = 'sent' AND d.sent_at >= $2",
+        )
+        .bind(user.as_str())
+        .bind(since)
+        .fetch_all(self.pool())
+        .await
+        .map_err(query_error("loading recently notified companies"))?;
+        Ok(rows.into_iter().collect())
     }
 
     /// Which of these opportunities the person was already notified about.
@@ -452,8 +598,8 @@ impl PgStore {
             .map_err(query_error("starting a transaction"))?;
         sqlx::query(
             "INSERT INTO notification_deliveries (id, user_id, kind, status, attempts, \
-             next_attempt_at, created_at, items, message) \
-             VALUES ($1, $2, $3, 'pending', 0, $4, $4, $5, $6)",
+             next_attempt_at, created_at, items, message, expires_at) \
+             VALUES ($1, $2, $3, 'pending', 0, $4, $4, $5, $6, $7)",
         )
         .bind(&delivery.id)
         .bind(delivery.user.as_str())
@@ -461,14 +607,15 @@ impl PgStore {
         .bind(now)
         .bind(i32::try_from(delivery.items.len()).unwrap_or(i32::MAX))
         .bind(sealed)
+        .bind(delivery.expires_at)
         .execute(&mut *tx)
         .await
         .map_err(query_error("writing a notification"))?;
         for item in &delivery.items {
             let inserted = sqlx::query(
                 "INSERT INTO notification_items (user_id, opportunity_id, delivery_id, tier, \
-                 job_id, content_version, ranking_version, notified_at) \
-                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8) \
+                 job_id, content_version, ranking_version, notified_at, position, freshness) \
+                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) \
                  ON CONFLICT (user_id, opportunity_id) DO NOTHING",
             )
             .bind(delivery.user.as_str())
@@ -479,6 +626,8 @@ impl PgStore {
             .bind(&item.content_version)
             .bind(&item.ranking_version)
             .bind(now)
+            .bind(i16::try_from(item.position).unwrap_or(i16::MAX))
+            .bind(item.freshness.as_deref())
             .execute(&mut *tx)
             .await
             .map_err(query_error("writing a notification"))?
@@ -514,7 +663,8 @@ impl PgStore {
                    AND ($5::text IS NULL OR user_id = $5) \
                    ORDER BY next_attempt_at, id LIMIT $4 FOR UPDATE SKIP LOCKED) due \
              WHERE d.id = due.id \
-             RETURNING d.id, d.user_id, d.kind, d.attempts, d.created_at, d.message",
+             RETURNING d.id, d.user_id, d.kind, d.attempts, d.created_at, d.expires_at, \
+             d.message",
         )
         .bind(owner)
         .bind(now + chrono_of(lease))
@@ -539,6 +689,7 @@ impl PgStore {
                     .ok_or_else(|| corrupt(&id, format!("unknown kind {kind:?}")))?,
                 attempts: u32::try_from(attempts).unwrap_or(0),
                 created_at: row.try_get("created_at").map_err(bad)?,
+                expires_at: row.try_get("expires_at").map_err(bad)?,
                 user,
                 id,
             });

@@ -538,14 +538,24 @@ impl CompensationView {
 
     /// Verified facts when there are any, else what discovery stored.
     pub fn best(record: &JobRecord, trust: &OpportunityTrust) -> Self {
+        let (check, verified_at) = Self::best_check(record, trust);
+        Self::of(&check, verified_at)
+    }
+
+    /// What [`CompensationView::best`] shows, as data: the check, and when
+    /// it was verified (`None`: as discovered).
+    pub fn best_check(
+        record: &JobRecord,
+        trust: &OpportunityTrust,
+    ) -> (CompensationCheck, Option<DateTime<Utc>>) {
         let verified = trust
             .best()
             .and_then(|b| b.last_success.as_ref())
             .filter(|v| v.compensation.status != CompensationStatus::NotObserved);
         match verified {
-            Some(v) => Self::of(&v.compensation, Some(v.attempted_at)),
-            None => Self::of(
-                &CompensationCheck::observe(record.posting.compensation.as_ref(), None),
+            Some(v) => (v.compensation.clone(), Some(v.attempted_at)),
+            None => (
+                CompensationCheck::observe(record.posting.compensation.as_ref(), None),
                 None,
             ),
         }

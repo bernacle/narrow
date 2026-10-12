@@ -63,6 +63,14 @@ impl Store for SqliteJobStore {
         SqliteJobStore::recent_scans(self, per_source).await
     }
 
+    async fn complete_listing_before(
+        &self,
+        source: &SourceKey,
+        before: DateTime<Utc>,
+    ) -> Result<Option<DateTime<Utc>>, StorageError> {
+        SqliteJobStore::complete_listing_before(self, source, before).await
+    }
+
     async fn stats(&self) -> Result<StoreStats, StorageError> {
         SqliteJobStore::stats(self).await
     }

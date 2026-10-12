@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-import { RESUME, STATEMENT, expectAccessible, publishLaterJobs, runWorker, sentEmails, signIn } from "./helpers";
+import { RESUME, STATEMENT, expectAccessible, makeDigestDue, publishLaterJobs, runWorker, sentEmails, signIn } from "./helpers";
 
 /**
  * The main loop, as a person does it: sign in, upload a resume, choose the
@@ -230,7 +230,7 @@ test.describe.serial("the product loop", () => {
     await expectAccessible(page);
   });
 
-  test("an email about a strong match not seen yet, once", async ({ page }) => {
+  test("a daily digest of a strong match not seen yet, once", async ({ page }) => {
     await signIn(page, name, "/settings");
     await page.getByLabel("Send to").fill("e2e-ana@example.com");
     await page.getByRole("button", { name: "Use this address" }).click();
@@ -241,13 +241,16 @@ test.describe.serial("the product loop", () => {
     await page.goto(link);
     await expect(page.getByRole("heading", { name: "Email confirmed" })).toBeVisible();
     await page.goto("/settings");
-    await page.getByLabel("Email me about strong new matches").check();
-    await expect(page.getByText("Saved. Emails are on.")).toBeVisible();
+    await page.getByLabel("Email me a daily digest").check();
+    await expect(page.getByText("Saved. The daily digest is on.")).toBeVisible();
     // Saved on the server, not just on screen.
     await page.reload();
-    await expect(page.getByLabel("Email me about strong new matches")).toBeChecked();
+    await expect(page.getByLabel("Email me a daily digest")).toBeChecked();
+    await expect(page.getByText(/Next digest .*, if anything qualifies/)).toBeVisible();
+    await expectAccessible(page);
 
     // Everything strong was already seen on Today: nothing to email.
+    await makeDigestDue();
     const quiet = await runWorker("notify");
     expect(quiet.sent, JSON.stringify(quiet)).toBe(0);
     expect(quiet.nothing_new).toBe(1);
@@ -257,16 +260,20 @@ test.describe.serial("the product loop", () => {
     const discovered = await runWorker("discovery");
     expect(discovered.new).toBe(1);
     await runWorker("verification");
+    // The next day's digest.
+    await makeDigestDue();
     const first = await runWorker("notify");
     expect(first.sent, JSON.stringify(first)).toBe(1);
     const emails = sentEmails().filter((m) => m.message.to === "e2e-ana@example.com" && !m.message.subject.startsWith("Confirm"));
     expect(emails).toHaveLength(1);
     const email = emails[0]!.message;
     // A strong fit the person hasn't seen on Today; nothing already dealt with.
-    expect(email.subject).toBe("A strong new match: Staff Backend Engineer, Payments Platform at Latecomer");
+    expect(email.subject).toBe("Narrow found 1 job worth a look");
+    expect(email.text).toContain("1. Latecomer\nStaff Backend Engineer, Payments Platform");
+    expect(email.text).toContain("Some days Narrow sends nothing. That's on purpose.");
     for (const title of [rejected, saved, applied]) expect(email.text).not.toContain(title);
     expect(email.text).toContain("http://127.0.0.1:3100/opportunities/opp_");
-    // Nothing new: no email.
+    // One digest a day: nothing more today.
     const second = await runWorker("notify");
     expect(second.sent).toBe(0);
     expect(sentEmails().filter((m) => m.message.to === "e2e-ana@example.com")).toHaveLength(2);

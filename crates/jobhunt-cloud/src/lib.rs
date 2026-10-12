@@ -24,6 +24,7 @@ pub mod api;
 pub mod auth;
 pub mod client;
 pub mod config;
+pub mod digest;
 pub mod email;
 pub mod mcp;
 pub mod notify;

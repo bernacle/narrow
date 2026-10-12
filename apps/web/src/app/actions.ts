@@ -16,6 +16,7 @@ import type {
   SourceRemovalResult,
   TasteAction,
   TasteUpdateResult,
+  UpdateNotificationsRequest,
 } from "@/lib/api-types";
 import { describeError } from "@/lib/errors";
 import { clearSession } from "@/lib/session";
@@ -242,9 +243,7 @@ export async function removeSource(source: "linkedin" | "github"): Promise<Actio
   return result;
 }
 
-export async function saveNotifications(
-  request: { email_enabled?: boolean; cadence?: string; email?: string; resend_confirmation?: boolean },
-): Promise<ActionResult<NotificationSettingsView>> {
+export async function saveNotifications(request: UpdateNotificationsRequest): Promise<ActionResult<NotificationSettingsView>> {
   return attempt(() => api.updateNotifications(request));
 }
 

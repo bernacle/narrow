@@ -31,7 +31,7 @@ export default async function ConfirmEmail({ searchParams }: { searchParams: Pro
         </Notice>
       ) : (
         <Notice tone="success" role="status">
-          Narrow will email you when strong new matches appear, and only then.
+          Narrow will send you a daily digest of jobs worth a look, and nothing on days when nothing qualifies.
         </Notice>
       )}
       <Link href="/settings#notifications" className={`mt-6 inline-block text-[14px] ${textLinkClass}`}>
